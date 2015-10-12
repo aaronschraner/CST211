@@ -16,4 +16,4 @@ run:$(EXE)
 	./$(EXE)
 
 clean:
-	rm -fv $(EXE)
+	rm -fv $(EXE) *~

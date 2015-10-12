@@ -1,50 +1,110 @@
+/**********************************************************************
+ * Author: Aaron Schraner
+ * Date created: September 30, 2015
+ * Last modified: October 11, 2015 (added comments)
+ * Filename: Array.h
+ * Purpose: Generic array class with range checking and adjustable 
+ * 			starting index.
+ *	Constructors:
+ *		Array() : default constructor
+ *			sets size to 10 and starting index to 0
+ *
+ *		Array(int length, int start_index)
+ *			creates array of length length with starting index start_index
+ *
+ *		Array(const Array& ar)
+ *			copy constructor
+ *	Destructor:
+ *		~Array()
+ *			deletes contents of array
+ *
+ *	Operators:
+ *		const Array& operator=( const Array& ar)
+ *			assignment operator
+ *			de-allocates array and creates a new one with size and contents matching ar
+ *		T& operator[] (int index) 
+ *			index operator
+ *			access the <index>th element of the array
+ *		const T& operator[] (int index) const
+ *			const version of index operator
+ *			does the same thing but const
+ *
+ *	Accessors:
+ *		getStartIndex()
+ *			returns starting index of the array
+ *		getLength()
+ *			returns the length of the array
+ *
+ *	Mutators:
+ *		setStartIndex(int start_index)
+ *			sets the starting index to start_index
+ *			(preserves array)
+ *		setLength(int length)
+ *			change the length of the array to <length>
+ *			(preserves as much data as possible)
+ *			
+ *			
+ ************************************************************************/
 
-//default constructor
-//use default length of 10 and starting index of 0
+/***********************************************************************
+ * Default constructor
+ * sets size to 10 and start index to 0
+ ***********************************************************************/
 template <typename T>
 Array<T>::Array():
 	m_length(10),
 	m_start_index(0)
 {
+	//allocate space for the array
 	m_array = new T[m_length];
 }
 
-//constructor given length and start index
+
+/*****************************************************************
+ * constructor given length and start index
+ * sets the start index to whatever you want and allocates an array
+ * checks to make sure array is valid length
+ *
+ * my asterisk key hates me right now
+ *****************************************************************/
 template <typename T>
 Array<T>::Array(int length, int start_index):
 	m_length(length),
 	m_start_index(start_index)
 {
-	if(length<0)
-		throw Exception("Tried to create row with negative length!");
+	//validate the length
+	if(length<=0)
+		throw Exception("Tried to create row with invalid length!");
 
+	//allocate the new array
 	m_array = new T[length];
 
 }
 
-//copy constructor
+
+/*****************************************************************
+ * copy constructor
+ * takes an array and constructs itself as a copy of ar
+ *****************************************************************/
 template <typename T>
 Array<T>::Array(const Array<T>& ar):
 	m_length(ar.m_length),
 	m_start_index(ar.m_start_index)
 {
+	//allocate space for the new array
 	m_array = new T [ ar.m_length ];
+
+	//copy the elements from ar into the new array
 	for(int i=0; i<m_length; i++)
 		m_array[i] = ar.m_array[i];
-
-	/*
-	 * Writeup question:
-	 *		"What is the similarity and difference between copy constructor and operator= function?"
-	 *	Both functions require new memory to be allocated for a copy of the source data.
-	 *	However, only the operator= function requires that you free any existing array data. 
-	 *	There cannot be an existing array for the copy constructor because the object has just been 
-	 *	created and has no meaningful existing member data yet. 
-	 *
-	 */
+	
 }
 
 
-//destructor
+/*****************************************************************
+ * destructor
+ * de-allocate the memory for the array
+ *****************************************************************/
 template <typename T>
 Array<T>::~Array()
 {
@@ -52,24 +112,20 @@ Array<T>::~Array()
 	if ( m_array )
 		delete[] m_array;
 
-	/*
-	 * Writeup question:
-	 *		"What steps did you take to ensure no memory leaks?"
-	 *	I was careful to free the array in the destructor. I also chose to free and re-allocate the array 
-	 *	if setLength() is used to expand the array beyond its current length. 
-	 *	The Exception class also frees the memory containing its error message in the destructor. 
-	 *
-	 */
 
 }
 
-//assignment operator
+/*****************************************************************
+ * assignment operator
+ * takes all the values from ar and puts them in the array
+ *****************************************************************/
 template <typename T>
 const Array<T>& Array<T>::operator=(const Array<T>& ar)
 {
 	//free the current array's memory
 	if(m_array)
 		delete[] m_array;
+
 	//allocate a new array the same size as ar's
 	m_array = new T [ ar.m_length ];
 	m_length = ar.m_length;
@@ -82,20 +138,16 @@ const Array<T>& Array<T>::operator=(const Array<T>& ar)
 
 	return *this;
 
-	/*
-	 * Writeup question:
-	 *		"What are the considerations you had to include in your operator= function?"
-	 *	I had to ensure that the data was deep copied and not shallow copied, meaning I had to 
-	 *	manually allocate memory for and copy each element in the array. If I had just copied the pointer,
-	 *	modifying any one of the copies would affect the array data for all of them, and more than one 
-	 *	destruction would result in a double-free. 
-	 *	I also had to be sure to free any previously stored data in the array
-	 *
-	 */
 }
 
-
-//index operator ([])
+/*****************************************************************
+ * index operator (operator[])
+ * returns a mutable reference to an element in the array
+ * takes:
+ *	int index - the index of the element to be accessed
+ * 
+ * also performs range checking
+ *****************************************************************/
 template <typename T>
 T& Array<T>::operator[](int index)
 {
@@ -110,16 +162,16 @@ T& Array<T>::operator[](int index)
 	return m_array[index-m_start_index];
 
 
-	/*
-	 * Writeup question:
-	 *		"In terms of big O how long would it take to find an element of this array? How could this be improved? What would the expression become?"
-	 *	The algorithm to find an element in this array currently requires O(n) time. (where n is the number of elements in the array)
-	 *	If the array were sorted, that could be reduced to O(log n). 
-	 *
-	 */
 }
 
-//index operator (const version)
+/*****************************************************************
+ * const index operator (const T& operator[] (int index) const)
+ * returns a const reference to an element in the array
+ * takes:
+ *	int index - the index of the element to be accessed
+ * 
+ * also performs range checking
+ *****************************************************************/
 template <typename T>
 const T& Array<T>::operator[] (int index) const
 {
@@ -134,8 +186,12 @@ const T& Array<T>::operator[] (int index) const
 	return m_array[index-m_start_index];
 }
 
-
-//change length of the array
+/*****************************************************************
+ * void Array<T>::setLength(int length)
+ * Purpose:	
+ *		resize an array to the given length
+ *		(preserves as many elements as possible)
+ *****************************************************************/
 template <typename T>
 void Array<T>::setLength(int length)
 {
