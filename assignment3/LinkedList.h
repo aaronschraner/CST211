@@ -92,6 +92,9 @@ class LinkedList
 		//TODO: brief description
 		Iterator<T> End ();
 
+		// copy constructor
+		LinkedList<T>& operator=(const LinkedList<T>& ll);
+
 };
 #include "LinkedList_impl.h"
 
