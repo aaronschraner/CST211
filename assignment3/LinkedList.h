@@ -54,45 +54,43 @@
 template < typename T >
 class LinkedList
 {
-    private:
+	private:
 		Node<T>* head;
 		Node<T>* tail;
 
-    public:
-        //TODO: brief description
-        bool isEmpty ();
+	public:
+		//TODO: brief description
+		bool isEmpty ();
 
-        //TODO: brief description
-        const Node<T>& First ();
+		//TODO: brief description
+		const Node<T>& First ();
 
-        //TODO: brief description
-        const Node<T>& Last ();
+		//TODO: brief description
+		const Node<T>& Last ();
 
-        //TODO: brief description
-        void Prepend (T elem);
+		//TODO: brief description
+		void Prepend (T elem);
 
-        //TODO: brief description
-        void Append (T elem);
+		//TODO: brief description
+		void Append (T elem);
 
-        //TODO: brief description
-        void Purge ();
+		//TODO: brief description
+		void Purge ();
 
-        //TODO: brief description
-        Node<T>& Extract ( T key );
+		//TODO: brief description
+		Node<T>& Extract ( T key );
 
-        //TODO: brief description
-        void InsertAfter (T key, T value);
+		//TODO: brief description
+		void InsertAfter (T key, T value);
 
-        //TODO: brief description
-        void InsertBefore (T key, T value);
+		//TODO: brief description
+		void InsertBefore (T key, T value);
 
-        //TODO: brief description
-        Iterator<T> Begin ();
+		//TODO: brief description
+		Iterator<T> Begin ();
 
-        //TODO: brief description
-        Iterator<T> End ();
-
-		LinkedList& operator=(const LinkedList<T>& ll);
+		//TODO: brief description
+		Iterator<T> End ();
 
 };
 #include "LinkedList_impl.h"

@@ -76,7 +76,7 @@ void LinkedList<T>::Append (T elem)
 template < typename T >
 void LinkedList<T>::Purge ()
 {
-    while(head->getNext())
+	while(head->getNext())
 		head->deleteNext();
 	delete head;
 	head=0;

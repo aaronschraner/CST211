@@ -34,31 +34,31 @@
 template < typename T >
 class Node
 {
-    private:
-        T contents;
+	private:
+		T contents;
 		Node<T>* next;
 		Node<T>* prev;
 		template <typename U>
 		friend class LinkedList;
 
-    public:
-        // return the address of the next node
-        Node<T>* getNext () const { return next; }
+	public:
+		// return the address of the next node
+		Node<T>* getNext () const { return next; }
 
-        // return the address of the previous node
-        Node<T>* getPrev () const { return prev; }
+		// return the address of the previous node
+		Node<T>* getPrev () const { return prev; }
 
-        // link a node in front of (next) this one
-        void append (Node<T>* node);
+		// link a node in front of (next) this one
+		void append (Node<T>* node);
 
-        // link a node behind (prev) this one
-        void prepend (Node<T>* node);
+		// link a node behind (prev) this one
+		void prepend (Node<T>* node);
 
-        // break the link between this node and prev
-        void unlinkPrev ();
+		// break the link between this node and prev
+		void unlinkPrev ();
 
-        // break the link between this node and next
-        void unlinkNext ();
+		// break the link between this node and next
+		void unlinkNext ();
 
 		// delete the node pointed to by prev
 		void deletePrev();
@@ -69,11 +69,11 @@ class Node
 		// unlink a node from its surrounding nodes (don't delete it)
 		void drop();
 		
-        // return the contents of the node
-        T& getContents () { return contents; }
+		// return the contents of the node
+		T& getContents () { return contents; }
 
-        // set the contents of the node
-        void setContents (const T& val) { contents = val; }
+		// set the contents of the node
+		void setContents (const T& val) { contents = val; }
 
 		// default constructor (set everything to 0)
 		Node():Node(0) {}

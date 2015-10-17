@@ -23,7 +23,7 @@ Iterator<T>& Iterator<T>::operator++ ()
 template <typename T>
 Iterator<T>& Iterator<T>::operator-- ()
 {
-    node = node -> getPrev();
+	node = node -> getPrev();
 	return *this;
 }
 
@@ -31,7 +31,7 @@ Iterator<T>& Iterator<T>::operator-- ()
 template <typename T>
 Node<T>* Iterator<T>::operator* ()
 {
-    return node;
+	return node;
 }
 
 //TODO: make method comment blocks

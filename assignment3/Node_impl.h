@@ -12,7 +12,7 @@
 template <typename T>
 void Node<T>::append (Node<T>* node)
 {
-    next = node;
+	next = node;
 	if(node)
 		node -> prev = this;
 }

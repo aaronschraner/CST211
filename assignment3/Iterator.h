@@ -26,20 +26,20 @@
 template < typename T >
 class Iterator
 {
-    private:
-        Node<T>* node;
-    public:
-        //Compare iterator to another iterator
-        bool operator== (const Iterator<T>& lhs) const { return &(*lhs)==node; }
+	private:
+		Node<T>* node;
+	public:
+		//Compare iterator to another iterator
+		bool operator== (const Iterator<T>& lhs) const { return &(*lhs)==node; }
 
-        //TODO: brief description
-        Iterator<T>& operator++ ();
-        //TODO: brief description
-        Iterator<T>& operator-- ();
-        //TODO: brief description
-        Node<T>* operator* ();
-        //TODO: brief description
-        Iterator (Node<T>* nodeptr);
+		//TODO: brief description
+		Iterator<T>& operator++ ();
+		//TODO: brief description
+		Iterator<T>& operator-- ();
+		//TODO: brief description
+		Node<T>* operator* ();
+		//TODO: brief description
+		Iterator (Node<T>* nodeptr);
 };
 
 #include "Iterator_impl.h"
