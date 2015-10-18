@@ -1,8 +1,0 @@
- bool Cell::hasMine ()
- bool Cell::isVisible ()
- bool Cell::flagged ()
- void Cell::setMine (bool m)
- void Cell::flag (bool m)
- void Cell::setVisible (bool m)
- short Cell::getNeighbors ()
- void Cell::setNeighbors (short n)

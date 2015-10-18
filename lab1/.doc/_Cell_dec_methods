@@ -1,8 +1,0 @@
- bool hasMine ()
- bool isVisible ()
- bool flagged ()
- void setMine (bool m)
- void flag (bool m)
- void setVisible (bool m)
- short getNeighbors ()
- void setNeighbors (short n)
