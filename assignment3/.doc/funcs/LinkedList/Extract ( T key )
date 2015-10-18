@@ -1,0 +1,18 @@
+/********************************************************************************
+ * Node<T>& Extract ( T key );;
+ * 	Purpose: 
+ * 		(had to guess from the UML name)
+ * 		Find the first node in the array whose contents are equal to <key>
+ * 		- unlink the node from the rest of the list
+ * 		- patch the list around it
+ * 		- return that node
+ * 	
+ * 	Entry: 
+ * 		T key: the item to look for in the list
+ * 	
+ * 	Exit: 
+ * 		a reference to the node that has just been removed/extracted
+ * 		can also throw Exception because of dependence on Find()
+ * 		exception probably means that <key> was not found in the list
+ * 	
+ ********************************************************************************/

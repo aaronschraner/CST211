@@ -1,0 +1,15 @@
+/********************************************************************************
+ * void unlinkPrev ();;
+ * 	Purpose: 
+ * 		Same as unlinkNext() but with prev
+ * 		un-links previous node without deleting
+ * 		effectively splits list between this and this->prev
+ * 	
+ * 	Entry: 
+ * 		nothing
+ * 	
+ * 	Exit: 
+ * 		prev->next is now 0 and this->prev is now 0
+ * 		prev is now its own independent list
+ * 	
+ ********************************************************************************/

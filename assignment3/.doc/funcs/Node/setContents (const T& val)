@@ -1,0 +1,12 @@
+/********************************************************************************
+ * void setContents (const T& val) { contents = val;;
+ * 	Purpose: 
+ * 		Set the contents of a given node
+ * 	
+ * 	Entry: 
+ * 		const T& val: the value that contents should become equal to
+ * 	
+ * 	Exit: 
+ * 		The node now has contents equal to <val>
+ * 	
+ ********************************************************************************/

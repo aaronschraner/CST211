@@ -1,0 +1,16 @@
+/********************************************************************************
+ * Node<T>& operator=(const Node<T>& node);;
+ * 	Purpose: 
+ * 		Assignment operator for node class
+ * 		(does not copy values of next and prev)
+ * 		designed to allow easy copy / assignment in linked list class
+ * 	
+ * 	Entry: 
+ * 		const Node<T>& node: the node to have its contents copied
+ * 	
+ * 	Exit: 
+ * 		returns a reference to the newly assigned node
+ * 		node pointers will not have changed
+ * 		contents will now be the same as node.contents
+ * 	
+ ********************************************************************************/

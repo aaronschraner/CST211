@@ -1,0 +1,12 @@
+/********************************************************************************
+ * void Prepend (T elem);;
+ * 	Purpose: 
+ * 		Prepend an element (elem) before the start of the list
+ * 	
+ * 	Entry: 
+ * 		T elem: the element to be prepended to the list
+ * 	
+ * 	Exit: 
+ * 		void (nothing)
+ * 	
+ ********************************************************************************/

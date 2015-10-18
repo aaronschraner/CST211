@@ -1,0 +1,2 @@
+ CellState Cell::getState ()
+ string Cell::getString ()

@@ -1,0 +1,12 @@
+/********************************************************************************
+ * Iterator(const Iterator& rhs);;
+ * 	Purpose: 
+ * 		Copy constructor for iterator
+ * 	
+ * 	Entry: 
+ * 		const reference to another iterator
+ * 	
+ * 	Exit: 
+ * 		Constructed iterator
+ * 	
+ ********************************************************************************/

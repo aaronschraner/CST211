@@ -1,0 +1,12 @@
+/********************************************************************************
+ * const Node<T>& First () const { return *head;;
+ * 	Purpose: 
+ * 		Get a const reference to the first node in the list
+ * 	
+ * 	Entry: 
+ * 		nothing
+ * 	
+ * 	Exit: 
+ * 		const reference to first node in list
+ * 	
+ ********************************************************************************/

@@ -59,14 +59,17 @@ class LinkedList
 		Node<T>* tail;
 
 	public:
-		//TODO: brief description
-		bool isEmpty ();
+
+		////---- Methods from UML diagram ----////
+		bool isEmpty () const;
 
 		//TODO: brief description
-		const Node<T>& First ();
+		const Node<T>& First () const { return *head; }
+		Node<T>& First() { return *head; }
 
 		//TODO: brief description
-		const Node<T>& Last ();
+		const Node<T>& Last () const { return *tail; }
+		Node<T>& Last() { return *tail; }
 
 		//TODO: brief description
 		void Prepend (T elem);
@@ -87,17 +90,28 @@ class LinkedList
 		void InsertBefore (T key, T value);
 
 		//TODO: brief description
-		Iterator<T> Begin ();
+		Iterator<T> Begin () ;
+		const Iterator<T> Begin () const;
 
 		//TODO: brief description
-		Iterator<T> End ();
+		Iterator<T> End () ;
+		const Iterator<T> End() const;
 
 		// copy constructor
+		LinkedList(const LinkedList<T>& ll);
+
+		// assignment operator
 		LinkedList<T>& operator=(const LinkedList<T>& ll);
+
+		// default constructor
+		LinkedList();
+
+		// destructor (calls purge)
+		~LinkedList();
+
+		Node<T>& Find(T key);
 
 };
 #include "LinkedList_impl.h"
 
 #endif
-
-

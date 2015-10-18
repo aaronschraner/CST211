@@ -1,0 +1,13 @@
+/********************************************************************************
+ * void setPrev(Node<T>* p) { prev=p;;
+ * 	Purpose: 
+ * 		Same as setNext but with prev
+ * 		sets this->prev to same address as <p>
+ * 	
+ * 	Entry: 
+ * 		Node<T>* p: pointer to the node that this->prev should point to
+ * 	
+ * 	Exit: 
+ * 		this->prev now points to the same node as <p>
+ * 	
+ ********************************************************************************/

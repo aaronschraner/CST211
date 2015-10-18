@@ -10,10 +10,13 @@
  * Methods: 
  *     Iterator<T>& operator++ ():
  *         Make node point to node->next
+ *
  *     Iterator<T>& operator-- ():
  *         Make node point to node->prev
+ *
  *     Node<T>& operator* ():
  *         return a reference to the contained node
+ *
  *      Iterator (Node<T>* nodeptr):
  *         Construct iterator from node pointer
  * 
@@ -29,17 +32,28 @@ class Iterator
 	private:
 		Node<T>* node;
 	public:
-		//Compare iterator to another iterator
-		bool operator== (const Iterator<T>& lhs) const { return &(*lhs)==node; }
+		// Compare iterator to another iterator
+		bool operator== (const Iterator<T>& rhs) const { return &(*rhs)==node; }
 
-		//TODO: brief description
+		// Assignment operator
+		Iterator<T>& operator=(const Iterator<T>& rhs) { node=rhs.node; return *this; }
+
+		// Increment operator (node=node->next)
 		Iterator<T>& operator++ ();
-		//TODO: brief description
+		Iterator<T>& operator++ (int);
+
+		// decremeent operator (node=node->prev)
 		Iterator<T>& operator-- ();
-		//TODO: brief description
+		Iterator<T>& operator-- (int);
+
+		// dereference operator (return pointer to contained node)
 		Node<T>* operator* ();
-		//TODO: brief description
-		Iterator (Node<T>* nodeptr);
+
+		// constructor (takes pointer to node)
+		Iterator (Node<T>* nodeptr = 0);
+
+		// copy constructor
+		Iterator(const Iterator& rhs);
 };
 
 #include "Iterator_impl.h"

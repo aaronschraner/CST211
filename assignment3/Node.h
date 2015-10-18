@@ -38,8 +38,6 @@ class Node
 		T contents;
 		Node<T>* next;
 		Node<T>* prev;
-		template <typename U>
-		friend class LinkedList;
 
 	public:
 		// return the address of the next node
@@ -47,6 +45,10 @@ class Node
 
 		// return the address of the previous node
 		Node<T>* getPrev () const { return prev; }
+
+		void setNext(Node<T>* n) { next=n; }
+
+		void setPrev(Node<T>* p) { prev=p; }
 
 		// link a node in front of (next) this one
 		void append (Node<T>* node);
@@ -70,7 +72,7 @@ class Node
 		void drop();
 		
 		// return the contents of the node
-		T& getContents () { return contents; }
+		const T& getContents () const { return contents; }
 
 		// set the contents of the node
 		void setContents (const T& val) { contents = val; }

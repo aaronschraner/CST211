@@ -1,0 +1,14 @@
+/********************************************************************************
+ * void unlinkNext ();;
+ * 	Purpose: 
+ * 		Un-links (does not delete) the next node in the list
+ * 		Should really never be used unless splitting one list into two
+ * 	
+ * 	Entry: 
+ * 		nothing
+ * 	
+ * 	Exit: 
+ * 		next->prev is now 0 and this->next is now 0
+ * 		next effectively becomes a new independent list
+ * 	
+ ********************************************************************************/

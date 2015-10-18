@@ -1,0 +1,12 @@
+/********************************************************************************
+ * Iterator (Node<T>* nodeptr = 0);;
+ * 	Purpose: 
+ * 		Iterator constructor given node pointer
+ * 	
+ * 	Entry: 
+ * 		Pointer to be assigned to node (defaults to 0)
+ * 	
+ * 	Exit: 
+ * 		Constructs the Iterator
+ * 	
+ ********************************************************************************/

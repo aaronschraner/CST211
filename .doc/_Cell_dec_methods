@@ -1,0 +1,2 @@
+ CellState getState ()
+ string getString ()

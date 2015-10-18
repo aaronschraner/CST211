@@ -1,0 +1,14 @@
+/********************************************************************************
+ * Node(const Node<T>& node);;
+ * 	Purpose: 
+ * 		Copy constructor for Node class
+ * 	
+ * 	Entry: 
+ * 		const Node<T>& node: the node to be copied
+ * 	
+ * 	Exit: 
+ * 		A node with the same contents as <node>, but with next and prev
+ * 		set to 0/NULLPTR
+ * 		This means the  result is not an exact copy of node
+ * 	
+ ********************************************************************************/

@@ -1,0 +1,13 @@
+/********************************************************************************
+ * Iterator<T>& operator-- ();;
+ * 	Purpose: 
+ * 		Prefix decrement operator for iterator
+ * 		makes this->node point to node->prev
+ * 	
+ * 	Entry: 
+ * 		nothing
+ * 	
+ * 	Exit: 
+ * 		reference to the iterator
+ * 	
+ ********************************************************************************/
