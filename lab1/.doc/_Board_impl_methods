@@ -1,0 +1,5 @@
+ void Board::generateNeighbors ()
+ void Board::uncoverArea (int x, int y)
+ void Board::print ()
+ void Board::click (int x, int y)
+ void Board::flag (int x, int y)
