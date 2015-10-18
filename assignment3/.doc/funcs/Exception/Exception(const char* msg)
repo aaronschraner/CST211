@@ -1,0 +1,13 @@
+/********************************************************************************
+ * Exception(const char* msg);
+ * 	Purpose: 
+ * 		Constructor given a c-string error message
+ * 		simplifies syntax for throwing exceptions
+ * 	
+ * 	Entry: 
+ * 		const char* msg: the message to copy into the Exception
+ * 	
+ * 	Exit: 
+ * 		constructed exception with message matching <msg>
+ * 	
+ ********************************************************************************/
