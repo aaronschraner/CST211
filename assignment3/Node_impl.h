@@ -6,7 +6,9 @@
  * Filename:          Node_impl.h
  * 
  ********************************************************************************/
+#ifdef VERBOSE
 #include <iostream>
+#endif
 
 #ifndef NODE_IMPL_H
 #define NODE_IMPL_H
@@ -31,6 +33,8 @@ void Node<T>::append (Node<T>* node)
 {
 	if(node)
 	{
+		if(next)
+			next -> prev = node;
 		node -> next = next;
 		node -> prev = this;
 	}
@@ -58,6 +62,8 @@ void Node<T>::prepend (Node<T>* node)
 {
 	if(node)
 	{
+		if(prev)
+			prev -> next = node;
 		node -> next = this;
 		node -> prev = prev;
 	}
@@ -208,7 +214,9 @@ void Node<T>::drop()
 template <typename T>
 Node<T>::~Node()
 {
+#ifdef VERBOSE
 	std::cout << "Freed node containing [" << contents << "]\n";
+#endif
 }
 
 /********************************************************************************

@@ -14,8 +14,8 @@
  *     Iterator<T>& operator-- ():
  *         Make node point to node->prev
  *
- *     Node<T>& operator* ():
- *         return a reference to the contained node
+ *     T operator* ():
+ *         return the contents of the contained node (has const and mutable versions)
  *
  *      Iterator (Node<T>* nodeptr):
  *         Construct iterator from node pointer
@@ -63,8 +63,16 @@ class Iterator
 		Iterator<T>& operator-- ();
 		Iterator<T>& operator-- (int);
 
-		// dereference operator (return pointer to contained node)
-		Node<T>* operator* ();
+		// dereference operator (returns contents of contained node)
+		T& operator* ();
+		const T& operator*() const;
+
+		//get a reference to the node
+		Node<T>& getNode() { return *node; }
+		const Node<T>& getNode() const { return *node; }
+
+		// find if the iterator is valid or not
+		bool isValid() const { return !!node; }
 
 		// constructor (takes pointer to node)
 		Iterator (Node<T>* nodeptr = 0);

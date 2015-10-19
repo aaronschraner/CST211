@@ -144,9 +144,9 @@ void LinkedList<T>::Purge ()
 template <typename T>
 Node<T>& LinkedList<T>::Find(T key)
 {
-	for(auto it=Begin(); *it; ++it)
-		if ( key == (*it)->getContents())
-			return **it;
+	for(auto it=Begin(); it.isValid(); ++it)
+		if ( key == *it )
+			return it.getNode();
 	throw Exception ("Key not found");
 }
 
@@ -327,10 +327,11 @@ LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>& ll)
 
 	auto newit = Begin();
 	auto oldit = ll.Begin();
-	for(++oldit; *oldit; ++oldit,++newit)
+	for(++oldit; oldit.isValid(); ++oldit,++newit)
 	{
-		Append((*oldit)->getContents());
+		Append(*oldit);
 	}
+	return *this;
 
 
 }

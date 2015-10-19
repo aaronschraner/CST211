@@ -8,6 +8,7 @@
  * 
  ********************************************************************************/
 
+#include "Exception.h"
 #include "Node.h"
 #ifndef ITERATOR_IMPL_H
 #define ITERATOR_IMPL_H
@@ -100,23 +101,49 @@ Iterator<T>& Iterator<T>::operator-- (int)
 }
 
 /********************************************************************************
- * Node<T>* operator* ();;
+ * T& operator* () ;
  * 	Purpose: 
- * 		Dereference list iterator (returns a node pointer because the UML
- * 		didn't say I should do otherwise)
+ * 		Dereference list iterator (returns the contents of the contained node
+ * 		(mutable version)
  * 	
  * 	Entry: 
  * 		Nothing
  * 	
  * 	Exit: 
- * 		A node pointer pointing to this->node
+ * 		returns node->getContents()
+ * 		(the contents of the node)
  * 	
  ********************************************************************************/
 template <typename T>
-Node<T>* Iterator<T>::operator* ()
+T& Iterator<T>::operator* ()
 {
-	return node;
+	if (!node)
+		throw Exception ("Tried to dereference empty iterator");
+	return node->getContents();
 }
+
+/********************************************************************************
+ * const T& operator* () const;
+ * 	Purpose: 
+ * 		Dereference list iterator (returns the contents of the contained node
+ * 		(const version)
+ * 	
+ * 	Entry: 
+ * 		Nothing
+ * 	
+ * 	Exit: 
+ * 		returns node->getContents()
+ * 		(the contents of the node)
+ * 	
+ ********************************************************************************/
+template <typename T>
+const T& Iterator<T>::operator*() const
+{
+	if (!node)
+		throw Exception ("Tried to dereference empty iterator");
+	return node->getContents();
+}
+
 
 /********************************************************************************
  * Iterator (Node<T>* nodeptr = 0);;

@@ -29,10 +29,10 @@
  *      Node<T>& Extract ( key T):
  *         (guessing from UML) returns the first node with contents matching <key> and drops it from the list
  * 
- *      void InsertAfter (T key, T* value):
+ *      void InsertAfter (T key, T value):
  *         (guessing from UML) find a node with Extract(key) and append an element after it
  * 
- *      void InsertBefore (T key, T* value):
+ *      void InsertBefore (T key, T value):
  *         (guessing from UML) find a node with Extract(key) and prepend an element before it
  * 
  *      Iterator<T> Begin ():

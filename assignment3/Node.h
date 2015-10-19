@@ -110,6 +110,7 @@ class Node
 		
 		// return the contents of the node
 		const T& getContents () const { return contents; }
+		T& getContents() { return contents; }
 
 		// set the contents of the node
 		void setContents (const T& val) { contents = val; }
