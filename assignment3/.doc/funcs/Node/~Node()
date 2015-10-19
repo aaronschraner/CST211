@@ -1,0 +1,16 @@
+/********************************************************************************
+ * ~Node();;
+ * 	Purpose: 
+ * 		Destructor for node class
+ * 		Doesn't really do anything but (currently) let you know
+ * 		that the destructor was called
+ * 		(for memory leak testing purposes
+ * 		)
+ * 	
+ * 	Entry: 
+ * 		A perfectly good node
+ * 	
+ * 	Exit: 
+ * 		the exact same node except now nobody knows it exists
+ * 	
+ ********************************************************************************/

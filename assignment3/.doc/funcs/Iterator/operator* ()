@@ -1,0 +1,13 @@
+/********************************************************************************
+ * Node<T>* operator* ();;
+ * 	Purpose: 
+ * 		Dereference list iterator (returns a node pointer because the UML
+ * 		didn't say I should do otherwise)
+ * 	
+ * 	Entry: 
+ * 		Nothing
+ * 	
+ * 	Exit: 
+ * 		A node pointer pointing to this->node
+ * 	
+ ********************************************************************************/

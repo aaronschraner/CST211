@@ -1,0 +1,13 @@
+/********************************************************************************
+ * ~Exception();
+ * 	Purpose: 
+ * 		Destructor for Exception class
+ * 		(just de-allocates the memory for the error message)
+ * 	
+ * 	Entry: 
+ * 		A still allocated exception (this)
+ * 	
+ * 	Exit: 
+ * 		A not allocated exception (that)
+ * 	
+ ********************************************************************************/

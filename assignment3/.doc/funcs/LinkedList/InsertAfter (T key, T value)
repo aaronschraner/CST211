@@ -1,0 +1,17 @@
+/********************************************************************************
+ * void InsertAfter (T key, T value);;
+ * 	Purpose: 
+ * 		(had to guess from UML diagram)
+ * 		Use Find() to locate the first instance of <key> in the list,
+ * 		and insert the element <value> after that node
+ * 	
+ * 	Entry: 
+ * 		T key: the element to search for in the list
+ * 		T value: the element to be inserted after the node matching <key>
+ * 	
+ * 	Exit: 
+ * 		Hopefully nothing (void)
+ * 		but can throw Exception if the requested key is not found in
+ * 		the list.
+ * 	
+ ********************************************************************************/

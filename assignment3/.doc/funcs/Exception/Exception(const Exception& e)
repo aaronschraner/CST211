@@ -1,0 +1,13 @@
+/********************************************************************************
+ * Exception(const Exception& e);
+ * 	Purpose: 
+ * 		Copy constructor for exception class
+ * 		just copies the message from e into the new exception
+ * 	
+ * 	Entry: 
+ * 		const Exception& e: the exception to be copied
+ * 	
+ * 	Exit: 
+ * 		constructed exception with message matching e's message
+ * 	
+ ********************************************************************************/

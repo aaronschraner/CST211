@@ -1,0 +1,13 @@
+/********************************************************************************
+ * void setMessage(const char* msg);
+ * 	Purpose: 
+ * 		Set the message contained in this exception
+ * 		(also deletes any existing message)
+ * 	
+ * 	Entry: 
+ * 		const char* msg (the message to be assigned)
+ * 	
+ * 	Exit: 
+ * 		Exception now contains the same message as <msg>
+ * 	
+ ********************************************************************************/

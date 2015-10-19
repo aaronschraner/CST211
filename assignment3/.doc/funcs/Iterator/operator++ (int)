@@ -1,0 +1,13 @@
+/********************************************************************************
+ * Iterator<T>& operator++ (int);;
+ * 	Purpose: 
+ * 		Increment operator (same as other operator but postfix instead of
+ * 		prefix)
+ * 	
+ * 	Entry: 
+ * 		nothing
+ * 	
+ * 	Exit: 
+ * 		A reference to the iterator before it got pointed to the next node
+ * 	
+ ********************************************************************************/

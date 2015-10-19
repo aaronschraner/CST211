@@ -1,0 +1,17 @@
+/********************************************************************************
+ * LinkedList<T>& operator=(const LinkedList<T>& ll);;
+ * 	Purpose: 
+ * 		Assignment operator for linked list
+ * 		- Purge/deletes every item in the list
+ * 		- Creates a new head node
+ * 		- Copies everything from the other list (ll) into this one
+ * 		by appending elements onto the end of this list
+ * 	
+ * 	Entry: 
+ * 		const LinkedList<T>& ll: the list that needs to be copied FROM
+ * 	
+ * 	Exit: 
+ * 		a const reference to the new copy of the list
+ * 		The list will now contain a copy of every element in <ll>
+ * 	
+ ********************************************************************************/

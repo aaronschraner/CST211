@@ -1,0 +1,14 @@
+/********************************************************************************
+ * Node<T>* getNext () const { return next;;
+ * 	Purpose: 
+ * 		(const disagreement because of UML diagram)
+ * 		returns a pointer to the next node linked after this one
+ * 		WARNING: can be 0, does not throw exception if so
+ * 	
+ * 	Entry: 
+ * 		nothing (operates on this node)
+ * 	
+ * 	Exit: 
+ * 		Pointer to next node in containing list
+ * 	
+ ********************************************************************************/

@@ -1,0 +1,12 @@
+/********************************************************************************
+ * const T& getContents () const { return contents;;
+ * 	Purpose: 
+ * 		Returns a const reference to the contents of this node
+ * 	
+ * 	Entry: 
+ * 		nothing
+ * 	
+ * 	Exit: 
+ * 		returns a const reference to the contents of the node
+ * 	
+ ********************************************************************************/

@@ -1,0 +1,14 @@
+/********************************************************************************
+ * Iterator<T>& operator-- (int);;
+ * 	Purpose: 
+ * 		Postfix decrement operator
+ * 		does the same thing as prefix but returns a reference to the
+ * 		iterator before it got changed
+ * 	
+ * 	Entry: 
+ * 		nothing (int doesn't do anything)
+ * 	
+ * 	Exit: 
+ * 		a reference to the iterator before it got changed
+ * 	
+ ********************************************************************************/

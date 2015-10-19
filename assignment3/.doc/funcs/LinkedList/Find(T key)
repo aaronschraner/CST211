@@ -1,0 +1,14 @@
+/********************************************************************************
+ * Node<T>& Find(T key);;
+ * 	Purpose: 
+ * 		Find the first instance of a node whose contents match <key>
+ * 		(iterates from head to tail, beginning to end)
+ * 	
+ * 	Entry: 
+ * 		T key: the element/object to search for in the list
+ * 	
+ * 	Exit: 
+ * 		a reference to the node that matched <key>
+ * 		(can throw Exception meaning that the key was not found)
+ * 	
+ ********************************************************************************/

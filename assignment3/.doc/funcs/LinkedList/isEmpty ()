@@ -1,0 +1,14 @@
+/********************************************************************************
+ * bool isEmpty () const;;
+ * 	Purpose: 
+ * 		Find out if the list is empty or not
+ * 	
+ * 	Entry: 
+ * 		nothing
+ * 	
+ * 	Exit: 
+ * 		true if list is empty
+ * 		false if list has nodes in it
+ * 		(uses head to find out)
+ * 	
+ ********************************************************************************/

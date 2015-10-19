@@ -26,6 +26,43 @@
  *      void setContents (const T& val):
  *         set the contents of the node to <val>
  * 
+ *      void setNext(Node<T>* n) 
+ *      	set the next pointer to <n>
+ * 
+ *      void setPrev(Node<T>* p) 
+ *      	set the prev pointer to <p>
+ * 
+ *      void unlinkPrev ():
+ *      	un-link the previous node (good for splitting lists)
+ * 
+ *      void unlinkNext ():
+ *			un-link the next node (good for splitting lists)
+ * 
+ *      void deletePrev():
+ *			drop and delete the previous node
+ * 
+ *      void deleteNext():
+ *			drop and delete the next node
+ *       
+ *      void drop():
+ *      	un-link a node from the list, and stitch the list around it to remain continuous
+ * 
+ *      Node():
+ *			default constructor (sets contents, prev, and next to 0)
+ *      	
+ *      Node(const T& val):
+ *			constructor given value for node (same as default but contents=val)
+ * 
+ *      Node(const Node<T>& node):
+ *			copy constructor
+ * 
+ *      Node<T>& operator=(const Node<T>& node):
+ *			assignment operator (does not copy node pointers, only contents)
+ * 
+ *      ~Node():
+ *			destructor (calls Purge())
+ *      	
+ * 
  ********************************************************************************/
 
 #ifndef NODE_H
@@ -34,31 +71,33 @@
 template < typename T >
 class Node
 {
-    private:
-        T contents;
+	private:
+		T contents;
 		Node<T>* next;
 		Node<T>* prev;
-		template <typename U>
-		friend class LinkedList;
 
-    public:
-        // return the address of the next node
-        Node<T>* getNext () const { return next; }
+	public:
+		// return the address of the next node
+		Node<T>* getNext () const { return next; }
 
-        // return the address of the previous node
-        Node<T>* getPrev () const { return prev; }
+		// return the address of the previous node
+		Node<T>* getPrev () const { return prev; }
 
-        // link a node in front of (next) this one
-        void append (Node<T>* node);
+		void setNext(Node<T>* n) { next=n; }
 
-        // link a node behind (prev) this one
-        void prepend (Node<T>* node);
+		void setPrev(Node<T>* p) { prev=p; }
 
-        // break the link between this node and prev
-        void unlinkPrev ();
+		// link a node in front of (next) this one
+		void append (Node<T>* node);
 
-        // break the link between this node and next
-        void unlinkNext ();
+		// link a node behind (prev) this one
+		void prepend (Node<T>* node);
+
+		// break the link between this node and prev
+		void unlinkPrev ();
+
+		// break the link between this node and next
+		void unlinkNext ();
 
 		// delete the node pointed to by prev
 		void deletePrev();
@@ -69,11 +108,12 @@ class Node
 		// unlink a node from its surrounding nodes (don't delete it)
 		void drop();
 		
-        // return the contents of the node
-        T& getContents () { return contents; }
+		// return the contents of the node
+		const T& getContents () const { return contents; }
+		T& getContents() { return contents; }
 
-        // set the contents of the node
-        void setContents (const T& val) { contents = val; }
+		// set the contents of the node
+		void setContents (const T& val) { contents = val; }
 
 		// default constructor (set everything to 0)
 		Node():Node(0) {}

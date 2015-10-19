@@ -1,0 +1,13 @@
+/********************************************************************************
+ * void Append (T elem);;
+ * 	Purpose: 
+ * 		Append a given element to the end of the list
+ * 		(automatically generates required node)
+ * 	
+ * 	Entry: 
+ * 		T elem: the element to be added to the end of the list
+ * 	
+ * 	Exit: 
+ * 		void (nothing)
+ * 	
+ ********************************************************************************/

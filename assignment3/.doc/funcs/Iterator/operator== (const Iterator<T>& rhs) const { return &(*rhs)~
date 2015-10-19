@@ -1,0 +1,13 @@
+/********************************************************************************
+ * bool operator== (const Iterator<T>& rhs) const { return &(*rhs)==node;;
+ * 	Purpose: 
+ * 		Compare this iterator to another one
+ * 	
+ * 	Entry: 
+ * 		A const reference to another iterator
+ * 	
+ * 	Exit: 
+ * 		true if the iterator's nodes are the same
+ * 		false otherwise
+ * 	
+ ********************************************************************************/

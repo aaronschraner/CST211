@@ -1,0 +1,14 @@
+/********************************************************************************
+ * ~LinkedList();;
+ * 	Purpose: 
+ * 		Linked list destructor
+ * 		(uses Purge to delete all elements in list)
+ * 	
+ * 	Entry: 
+ * 		nothing
+ * 	
+ * 	Exit: 
+ * 		even less nothing
+ * 		(list is now empty)
+ * 	
+ ********************************************************************************/

@@ -1,0 +1,14 @@
+/********************************************************************************
+ * void deletePrev();;
+ * 	Purpose: 
+ * 		Works exactly the same as deleteNext but deletes the previous
+ * 		node instead of the next one
+ * 	
+ * 	Entry: 
+ * 		nothing
+ * 		(but operates on this->prev)
+ * 	
+ * 	Exit: 
+ * 		nothing
+ * 	
+ ********************************************************************************/

@@ -10,12 +10,30 @@
  * Methods: 
  *     Iterator<T>& operator++ ():
  *         Make node point to node->next
+ *
  *     Iterator<T>& operator-- ():
  *         Make node point to node->prev
- *     Node<T>& operator* ():
- *         return a reference to the contained node
+ *
+ *     T operator* ():
+ *         return the contents of the contained node (has const and mutable versions)
+ *
  *      Iterator (Node<T>* nodeptr):
  *         Construct iterator from node pointer
+ *
+ *      bool operator== ( const Iterator<T>& rhs):
+ *         Returns true if the iterators point to the same node
+ * 
+ *      Iterator<T>& operator= (const Iterator<T>& rhs):
+ *         assigns this iterator's node to <rhs>'s
+ * 
+ *      Iterator<T>& operator++ (int):
+ *         same as the other operator++ but postfix
+ * 
+ *      Iterator<T>& operator-- (int):
+ *         same as the other operator-- but postfix
+ * 
+ *      Iterator ( const Iterator<T>& rhs):
+ *         copy constructor (sets node to <rhs>'s node)
  * 
  ********************************************************************************/
 
@@ -26,20 +44,41 @@
 template < typename T >
 class Iterator
 {
-    private:
-        Node<T>* node;
-    public:
-        //Compare iterator to another iterator
-        bool operator== (const Iterator<T>& lhs) const { return &(*lhs)==node; }
+	private:
+		// the node pointer that this iterator should operate on
+		Node<T>* node;
 
-        //TODO: brief description
-        Iterator<T>& operator++ ();
-        //TODO: brief description
-        Iterator<T>& operator-- ();
-        //TODO: brief description
-        Node<T>* operator* ();
-        //TODO: brief description
-        Iterator (Node<T>* nodeptr);
+	public:
+		// Compare iterator to another iterator
+		bool operator== (const Iterator<T>& rhs) const { return &(*rhs)==node; }
+
+		// Assignment operator
+		Iterator<T>& operator=(const Iterator<T>& rhs) { node=rhs.node; return *this; }
+
+		// Increment operator (node=node->next)
+		Iterator<T>& operator++ ();
+		Iterator<T>& operator++ (int);
+
+		// decremeent operator (node=node->prev)
+		Iterator<T>& operator-- ();
+		Iterator<T>& operator-- (int);
+
+		// dereference operator (returns contents of contained node)
+		T& operator* ();
+		const T& operator*() const;
+
+		//get a reference to the node
+		Node<T>& getNode() { return *node; }
+		const Node<T>& getNode() const { return *node; }
+
+		// find if the iterator is valid or not
+		bool isValid() const { return !!node; }
+
+		// constructor (takes pointer to node)
+		Iterator (Node<T>* nodeptr = 0);
+
+		// copy constructor
+		Iterator(const Iterator<T>& rhs);
 };
 
 #include "Iterator_impl.h"

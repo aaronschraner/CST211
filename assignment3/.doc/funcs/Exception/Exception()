@@ -1,0 +1,13 @@
+/********************************************************************************
+ * Exception();
+ * 	Purpose: 
+ * 		default constructor for Exception class
+ * 		sets message to "Undefined exception"
+ * 	
+ * 	Entry: 
+ * 		nothing
+ * 	
+ * 	Exit: 
+ * 		Constructs exception with a copy of the message "Undefined Exception"
+ * 	
+ ********************************************************************************/

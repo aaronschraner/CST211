@@ -1,0 +1,12 @@
+/********************************************************************************
+ * Iterator<T> End () ;;
+ * 	Purpose: 
+ * 		Returns an iterator to the last element in the list
+ * 	
+ * 	Entry: 
+ * 		nothing
+ * 	
+ * 	Exit: 
+ * 		iterator where Iterator->node = this->tail
+ * 	
+ ********************************************************************************/

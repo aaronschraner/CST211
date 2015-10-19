@@ -1,0 +1,13 @@
+/********************************************************************************
+ * const Node<T>& Last () const { return *tail;;
+ * 	Purpose: 
+ * 		Get a const reference to the last node in the list
+ * 	
+ * 	Entry: 
+ * 		nothing
+ * 	
+ * 	Exit: 
+ * 		const reference to last node in the list
+ * 		(&node=tail)
+ * 	
+ ********************************************************************************/

@@ -1,0 +1,13 @@
+/********************************************************************************
+ * void setNext(Node<T>* n) { next=n;;
+ * 	Purpose: 
+ * 		Sets the raw this->next pointer to <n>
+ * 	
+ * 	Entry: 
+ * 		Node<T>* n: the value that this->next should become
+ * 		(pointer to a node)
+ * 	
+ * 	Exit: 
+ * 		this->next now points to the same place as <n>
+ * 	
+ ********************************************************************************/
