@@ -4,10 +4,16 @@ labno="" #lab number
 assno="" #assignment number
 tempargs=""
 tempnames=""
+
+openheader()
+{
+	echo "/********************************************************************************"
+}
+
 fileheader()
 {
 	#only parameter is filename
-	echo "/********************************************************************************"
+	openheader
 	echo " * Author:            $author"
 	echo " * Date Created:      $(date "+%B %e, %Y")"
 	echo " * Last Modified:     $(date "+%B %e, %Y")"
@@ -18,24 +24,28 @@ fileheader()
 	echo " * "
 }
 
+lpref=""
+
 ioheader()
 {
 	#only parameter is output filename
-	echo "Documentation for \"$1\""
-	fields=("Overview" "Input" "Output")
+	[ -n "$lpref" ] || lpref=" * 	"
+	outfile="$1"
+	shift
+	fields=($*)
 
-	for n in $(seq 0 2)
+	echo "Please keep comments behind this line  (^D to move to next section)--------------|"
+	for n in $(seq 0 $(($# - 1)))
 	do
-		echo "Please keep comments behind this line  (^D to move to next section)--------------|"
-		echo " * ${fields[n]}: " | tee -a "$1"
-		echo -n " *     "
+		echo "${lpref}${fields[n]}: " | tee -a "$outfile"
+		echo -n "${lpref}	"
 		cat | while read ln
 	do
-		echo " *     $ln" >> "$1"
-		echo -n " *     "
+		echo "${lpref}	$ln" >> "$outfile"
+		echo -n "${lpref}	"
 	done
 	echo ""
-	echo " * " >> "$1"
+	echo "$lpref" >> "$outfile"
 done
 }
 
@@ -190,17 +200,50 @@ mkclass()
 
 }
 
-	echo -ne "Is this a lab or assignment?\n> "
-	{
+echo -ne "Is this a lab or assignment?\n> "
+{
 
-		read resp
-		if [[ $resp =~ ^[lL] ]]
-		then
-			echo -ne "What is the name/number of this lab?\n> "
-			read labno
-		else
-			echo -ne "What is the name/number of this assignment?\n> "
-			read assno
-		fi
-	}
-	mkclass
+	read resp
+	if [[ $resp =~ ^[lL] ]]
+	then
+		echo -ne "What is the name/number of this lab?\n> "
+		read labno
+	else
+		echo -ne "What is the name/number of this assignment?\n> "
+		read assno
+	fi
+}
+#mkclass
+
+#for class in Exception #Iterator Node LinkedList
+#do
+#class=Exception
+#echo "Documentation for $class"
+#mkdir -p .doc/funcs/$class
+#cat "${class}.h" | 
+#	grep -o "^\t*.*(.*).*;" | 
+#	sed "s/^\t\t//g" | 
+#	while read x;
+#	do
+#		echo -e "$x" > ".doc/funcs/$class/$(echo "$x" | grep -oE "[\~a-zA-Z_=*\+\-]* ?\(.*\)([[:blank:]]?const)?")"
+#   	done
+##done
+#
+#for x in .doc/funcs/*/*
+#do
+#	sig="$(cat "$x")"
+#	echo "Documentation for $sig"
+#	openheader > "$x"
+#	echo " * $sig" >> "$x"
+#	ioheader "$x" Purpose Entry Exit
+#	closeheader >> "$x"
+#done
+fileheader main.cpp > main.cpp
+ioheader main.cpp Overview Input Output
+closeheader >> main.cpp
+echo -ne "ready >"
+while read ln
+do
+	$ln
+	echo -ne "ready>"
+done
