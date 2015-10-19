@@ -14,7 +14,7 @@
 #define ITERATOR_IMPL_H
 
 /********************************************************************************
- * Iterator<T>& operator++ ();;
+ * Iterator<T>& operator++ ();
  * 	Purpose: 
  * 		Node iterator increment operator
  * 		(makes this->node point to node->next)
@@ -35,7 +35,7 @@ Iterator<T>& Iterator<T>::operator++ ()
 }
 
 /********************************************************************************
- * Iterator<T>& operator-- ();;
+ * Iterator<T>& operator-- ();
  * 	Purpose: 
  * 		Prefix decrement operator for iterator
  * 		makes this->node point to node->prev
@@ -56,7 +56,7 @@ Iterator<T>& Iterator<T>::operator-- ()
 }
 
 /********************************************************************************
- * Iterator<T>& operator++ (int);;
+ * Iterator<T>& operator++ (int);
  * 	Purpose: 
  * 		Increment operator (same as other operator but postfix instead of
  * 		prefix)
@@ -78,7 +78,7 @@ Iterator<T>& Iterator<T>::operator++ (int)
 }
 
 /********************************************************************************
- * Iterator<T>& operator-- (int);;
+ * Iterator<T>& operator-- (int);
  * 	Purpose: 
  * 		Postfix decrement operator
  * 		does the same thing as prefix but returns a reference to the
@@ -146,7 +146,7 @@ const T& Iterator<T>::operator*() const
 
 
 /********************************************************************************
- * Iterator (Node<T>* nodeptr = 0);;
+ * Iterator (Node<T>* nodeptr = 0);
  * 	Purpose: 
  * 		Iterator constructor given node pointer
  * 	
@@ -164,7 +164,7 @@ Iterator<T>::Iterator (Node<T>* nodeptr):
 }
 
 /********************************************************************************
- * Iterator(const Iterator& rhs);;
+ * Iterator(const Iterator& rhs);
  * 	Purpose: 
  * 		Copy constructor for iterator
  * 	

@@ -44,7 +44,26 @@
 
 using namespace std;
 
-// helper function to display lists
+/********************************************************************************
+ * ostream& operator<<(ostream& os, const LinkedList<T>& ll):
+ * 	Purpose: 
+ * 		Stream output operator for linked list class
+ * 		used only for demonstration purposes
+ * 		(uses ++Iterator, *Iterator, Iterator=LinkedList::Begin(), isEmpty())
+ * 		displays contents of a linked list in the same format as backDisp()
+ * 		but from front to back instead of back to front
+ * 		(head to tail instead of tail to head)
+ * 	
+ * 	Entry: 
+ * 		ostream& os: the output stream to print the contents to
+ * 		const LinkedList<T>& ll: the linked list to print
+ * 	
+ * 	Exit: 
+ * 		outputs the contents of the list <ll>
+ * 		uses same [element1] [element2] [element3] format as backDisp
+ * 		except in the correct order
+ * 	
+ ********************************************************************************/
 template <typename T>
 ostream& operator<<(ostream& os, const LinkedList<T>& ll)
 {
@@ -61,7 +80,22 @@ ostream& operator<<(ostream& os, const LinkedList<T>& ll)
 	return os;
 }
 
-// display list backwards
+/********************************************************************************
+ * ostream& backDisp(ostream& os, const LinkedList<T>& ll):
+ * 	Purpose: 
+ * 		Display a linked list using iterators moving from End() to Begin()
+ * 		(tests iterator functionality)
+ * 	
+ * 	Entry: 
+ * 		ostream& os: the output stream to print the list to
+ * 		const LinkedList<T>& ll: the list to be printed
+ * 	
+ * 	Exit: 
+ * 		outputs the contents of the list with each element in square
+ * 		brackets (eg: [element1] [element2] [element3])
+ * 		outputs <list is empty> if list is empty
+ * 	
+ ********************************************************************************/
 template <typename T>
 ostream& backDisp(ostream& os, const LinkedList<T>& ll)
 {
@@ -81,7 +115,31 @@ ostream& backDisp(ostream& os, const LinkedList<T>& ll)
 
 void oldLoop();
 
-
+/********************************************************************************
+ * int main():
+ * 	Purpose: 
+ * 		main test program for this class
+ * 		- creates a list
+ * 		- appends the numbers 0-9 to it
+ * 		- prepends the numbers -9 to 0
+ * 		- displays what the list looks like
+ * 		- removes one of the 0's
+ * 		- displays the list backwards
+ * 		- clears the list
+ * 		- appends 9001 and -1000 to the now empty list
+ * 		- inserts a 500 before the number -1000
+ * 		- inserts a 360 after the number 9001
+ * 		- displays the list
+ * 		- calls oldLoop()
+ * 		- destructs all nodes in the list
+ * 	
+ * 	Entry: 
+ * 		nothing really
+ * 	
+ * 	Exit: 
+ * 		should display output that makes sense with that ^^^
+ * 	
+ ********************************************************************************/
 int main()
 {
 	//create a new empty list
@@ -125,6 +183,28 @@ int main()
 
 }
 
+/********************************************************************************
+ * void oldLoop():
+ * 	Purpose: 
+ * 		some code I first used to test the class
+ * 		called oldLoop() because it is older than the current main()
+ * 	
+ * 	Entry: 
+ * 		nothing
+ * 	
+ * 	Exit: 
+ * 		(verbosely states what it is doing)
+ * 		- creates a list
+ * 		- appends the numbers 9000-9009 to it
+ * 		- creates a copy of the list with the assignment operator =
+ * 		- attempts to insert the number 9020 after 9002
+ * 		(throws error if 9002 isn't in there for some reason)
+ * 		- prints the contents of the first list with an iterator for loop
+ * 		- prints the contents of the copy with another iterator based loop
+ * 		- says if isEmpty() actually knows that the list is empty
+ * 		- (implicitly) calls destructor on list, destroying all nodes
+ * 	
+ ********************************************************************************/
 void oldLoop()
 {
 	//create an empty list
