@@ -11,7 +11,6 @@
 
 #include "Exception.h"
 
-// returns if the list is empty or not
 /********************************************************************************
  * bool isEmpty () const;
  * 	Purpose: 
@@ -33,7 +32,6 @@ bool LinkedList<T>::isEmpty () const
 }
 
 
-// insert an element before the start of the list
 /********************************************************************************
  * void Prepend (T elem);
  * 	Purpose: 
@@ -66,7 +64,6 @@ void LinkedList<T>::Prepend (T elem)
 	head -> setPrev(0);
 }
 
-// insert an element after the end of the list
 /********************************************************************************
  * void Append (T elem);
  * 	Purpose: 
@@ -100,7 +97,6 @@ void LinkedList<T>::Append (T elem)
 	tail -> setNext(0);
 }
 
-//delete everything in the list
 /********************************************************************************
  * void Purge ();
  * 	Purpose: 
@@ -154,7 +150,6 @@ Node<T>& LinkedList<T>::Find(T key)
 	throw Exception ("Key not found");
 }
 
-// (guessing from UML) returns the first node with contents matching <key> and drops it from the list
 /********************************************************************************
  * Node<T>& Extract ( T key );
  * 	Purpose: 
@@ -181,7 +176,6 @@ Node<T>& LinkedList<T>::Extract (T key )
 	return res;
 }
 
-// (guessing from UML) find a node with Extract(key) and append an element after it
 /********************************************************************************
  * void InsertAfter (T key, T value);
  * 	Purpose: 
@@ -205,7 +199,6 @@ void LinkedList<T>::InsertAfter (T key, T value)
 	Find(key).append(new Node<T>(value));
 }
 
-// (guessing from UML) find a node with Extract(key) and prepend an element before it
 /********************************************************************************
  * void InsertBefore (T key, T value);
  * 	Purpose: 
@@ -227,7 +220,6 @@ void LinkedList<T>::InsertBefore (T key, T value)
 	Find(key).prepend(new Node<T>(value));
 }
 
-// return an iterator to the first node in the list
 /********************************************************************************
  * Iterator<T> Begin () ;
  * 	Purpose: 
@@ -264,7 +256,6 @@ const Iterator<T> LinkedList<T>::Begin () const
 	return Iterator<T>(head);
 }
 
-// return an iterator to the last node in the list
 /********************************************************************************
  * Iterator<T> End () ;
  * 	Purpose: 
@@ -283,7 +274,6 @@ Iterator<T> LinkedList<T>::End ()
 	return Iterator<T>(tail);
 }
 
-// return a const iterator to the last node in the list
 /********************************************************************************
  * const Iterator<T> End() const;
  * 	Purpose: 
@@ -303,7 +293,6 @@ const Iterator<T> LinkedList<T>::End() const
 	return Iterator<T>(tail);
 }
 
-// assignment operator
 /********************************************************************************
  * LinkedList<T>& operator=(const LinkedList<T>& ll);
  * 	Purpose: 
@@ -346,7 +335,6 @@ LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>& ll)
 
 }
 
-// destructor
 /********************************************************************************
  * ~LinkedList();
  * 	Purpose: 

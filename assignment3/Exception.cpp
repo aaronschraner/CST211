@@ -1,11 +1,13 @@
-/*
- * Author: Aaron Schraner
- * Date created: September 30, 2015
- * Last modified: October 10, 2015
- * Filename: Exception.cpp
- *
- * Purpose: generic exception class containing error message (c-string)
-*/
+/********************************************************************************
+ * Author:            Aaron Schraner
+ * Date Created:      September 30, 2015
+ * Last Modified:     October 18, 2015
+ * Assignment number: 3
+ * Filename:          Exception.cpp
+ * 
+ * Class: Exception
+ ********************************************************************************/ 
+
 #include "Exception.h"
 #include <cstring>
 #include <iostream>

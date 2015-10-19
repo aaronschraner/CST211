@@ -1,0 +1,54 @@
+ * 	Node<T>* getNext () const { return next; }
+ * 		
+ * 
+ * 	Node<T>* getPrev () const { return prev; }
+ * 		
+ * 
+ * 	void setNext(Node<T>* n) { next=n; }
+ * 		
+ * 
+ * 	void setPrev(Node<T>* p) { prev=p; }
+ * 		
+ * 
+ * 	void append (Node<T>* node):
+ * 		
+ * 
+ * 	void prepend (Node<T>* node):
+ * 		
+ * 
+ * 	void unlinkPrev ():
+ * 		
+ * 
+ * 	void unlinkNext ():
+ * 		
+ * 
+ * 	void deletePrev():
+ * 		
+ * 
+ * 	void deleteNext():
+ * 		
+ * 
+ * 	void drop():
+ * 		
+ * 
+ * 	const T& getContents () const { return contents; }
+ * 		
+ * 
+ * 	void setContents (const T& val) { contents = val; }
+ * 		
+ * 
+ * 	Node():Node(0) {}
+ * 		
+ * 
+ * 	Node(const T& val):next(0), prev(0), contents(val) {}
+ * 		
+ * 
+ * 	Node(const Node<T>& node):
+ * 		
+ * 
+ * 	Node<T>& operator=(const Node<T>& node):
+ * 		
+ * 
+ * 	~Node():
+ * 		
+ * 

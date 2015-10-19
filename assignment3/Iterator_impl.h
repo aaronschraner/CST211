@@ -12,8 +12,6 @@
 #ifndef ITERATOR_IMPL_H
 #define ITERATOR_IMPL_H
 
-// prefix increment operator
-// make node point to the next node
 /********************************************************************************
  * Iterator<T>& operator++ ();;
  * 	Purpose: 
@@ -35,8 +33,6 @@ Iterator<T>& Iterator<T>::operator++ ()
 	return *this;
 }
 
-// prefix decrement operator
-// make node point to the previous node
 /********************************************************************************
  * Iterator<T>& operator-- ();;
  * 	Purpose: 
@@ -58,8 +54,6 @@ Iterator<T>& Iterator<T>::operator-- ()
 	return *this;
 }
 
-// postfix increment operator
-// same as operator++ but returns value before increment
 /********************************************************************************
  * Iterator<T>& operator++ (int);;
  * 	Purpose: 
@@ -82,8 +76,6 @@ Iterator<T>& Iterator<T>::operator++ (int)
 	return oldnode;
 }
 
-// postfix decrement operator
-// same as operator-- but returns value before decrement
 /********************************************************************************
  * Iterator<T>& operator-- (int);;
  * 	Purpose: 
@@ -107,8 +99,6 @@ Iterator<T>& Iterator<T>::operator-- (int)
 	return oldnode;
 }
 
-// dereference operator
-// returns the contained node pointer
 /********************************************************************************
  * Node<T>* operator* ();;
  * 	Purpose: 
@@ -128,8 +118,6 @@ Node<T>* Iterator<T>::operator* ()
 	return node;
 }
 
-// constructor
-// takes optional node pointer
 /********************************************************************************
  * Iterator (Node<T>* nodeptr = 0);;
  * 	Purpose: 
@@ -148,7 +136,6 @@ Iterator<T>::Iterator (Node<T>* nodeptr):
 {
 }
 
-//copy constructor
 /********************************************************************************
  * Iterator(const Iterator& rhs);;
  * 	Purpose: 
@@ -162,7 +149,7 @@ Iterator<T>::Iterator (Node<T>* nodeptr):
  * 	
  ********************************************************************************/
 template <typename T>
-Iterator<T>::Iterator(const Iterator& rhs):
+Iterator<T>::Iterator(const Iterator<T>& rhs):
 	node(rhs.node)
 {}
 

@@ -11,7 +11,6 @@
 #ifndef NODE_IMPL_H
 #define NODE_IMPL_H
 
-// link a node after this one (node goes in this->next)
 /********************************************************************************
  * void append (Node<T>* node);
  * 	Purpose: 
@@ -38,7 +37,6 @@ void Node<T>::append (Node<T>* node)
 	next = node;
 }
 
-// link a node before this one (node goes in this->prev)
 /********************************************************************************
  * void prepend (Node<T>* node);
  * 	Purpose: 
@@ -66,7 +64,6 @@ void Node<T>::prepend (Node<T>* node)
 	prev = node;
 }
 
-// break the link between this node and prev
 /********************************************************************************
  * void unlinkPrev ();
  * 	Purpose: 
@@ -89,7 +86,6 @@ void Node<T>::unlinkPrev ()
 	prev = 0;
 }
 
-// break the link between this node and next
 /********************************************************************************
  * void unlinkNext ();
  * 	Purpose: 
@@ -111,7 +107,6 @@ void Node<T>::unlinkNext ()
 	next = 0;
 }
 
-// unlink and delete the next node
 /********************************************************************************
  * void deleteNext();
  * 	Purpose: 
@@ -138,7 +133,6 @@ void Node<T>::deleteNext ()
 	}
 }
 
-//unlink and delete the previous node
 /********************************************************************************
  * void deletePrev();
  * 	Purpose: 
@@ -167,7 +161,6 @@ void Node<T>::deletePrev ()
 
 
 
-// remove a node and patch the nodes around it 
 /********************************************************************************
  * void drop();
  * 	Purpose: 
@@ -203,8 +196,7 @@ void Node<T>::drop()
  * 		Destructor for node class
  * 		Doesn't really do anything but (currently) let you know
  * 		that the destructor was called
- * 		(for memory leak testing purposes
- * 		)
+ * 		(for memory leak testing purposes)
  * 	
  * 	Entry: 
  * 		A perfectly good node

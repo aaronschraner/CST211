@@ -19,6 +19,21 @@
  *
  *      Iterator (Node<T>* nodeptr):
  *         Construct iterator from node pointer
+ *
+ *      bool operator== ( const Iterator<T>& rhs):
+ *         Returns true if the iterators point to the same node
+ * 
+ *      Iterator<T>& operator= (const Iterator<T>& rhs):
+ *         assigns this iterator's node to <rhs>'s
+ * 
+ *      Iterator<T>& operator++ (int):
+ *         same as the other operator++ but postfix
+ * 
+ *      Iterator<T>& operator-- (int):
+ *         same as the other operator-- but postfix
+ * 
+ *      Iterator ( const Iterator<T>& rhs):
+ *         copy constructor (sets node to <rhs>'s node)
  * 
  ********************************************************************************/
 
@@ -30,7 +45,9 @@ template < typename T >
 class Iterator
 {
 	private:
+		// the node pointer that this iterator should operate on
 		Node<T>* node;
+
 	public:
 		// Compare iterator to another iterator
 		bool operator== (const Iterator<T>& rhs) const { return &(*rhs)==node; }
@@ -53,7 +70,7 @@ class Iterator
 		Iterator (Node<T>* nodeptr = 0);
 
 		// copy constructor
-		Iterator(const Iterator& rhs);
+		Iterator(const Iterator<T>& rhs);
 };
 
 #include "Iterator_impl.h"

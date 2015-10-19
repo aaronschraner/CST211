@@ -26,6 +26,43 @@
  *      void setContents (const T& val):
  *         set the contents of the node to <val>
  * 
+ *      void setNext(Node<T>* n) 
+ *      	set the next pointer to <n>
+ * 
+ *      void setPrev(Node<T>* p) 
+ *      	set the prev pointer to <p>
+ * 
+ *      void unlinkPrev ():
+ *      	un-link the previous node (good for splitting lists)
+ * 
+ *      void unlinkNext ():
+ *			un-link the next node (good for splitting lists)
+ * 
+ *      void deletePrev():
+ *			drop and delete the previous node
+ * 
+ *      void deleteNext():
+ *			drop and delete the next node
+ *       
+ *      void drop():
+ *      	un-link a node from the list, and stitch the list around it to remain continuous
+ * 
+ *      Node():
+ *			default constructor (sets contents, prev, and next to 0)
+ *      	
+ *      Node(const T& val):
+ *			constructor given value for node (same as default but contents=val)
+ * 
+ *      Node(const Node<T>& node):
+ *			copy constructor
+ * 
+ *      Node<T>& operator=(const Node<T>& node):
+ *			assignment operator (does not copy node pointers, only contents)
+ * 
+ *      ~Node():
+ *			destructor (calls Purge())
+ *      	
+ * 
  ********************************************************************************/
 
 #ifndef NODE_H

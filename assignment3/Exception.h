@@ -2,7 +2,7 @@
  * Author:            Aaron Schraner
  * Date Created:      September 30, 2015
  * Last Modified:     October 18, 2015
- * Assignment number: 
+ * Assignment number: 3
  * Filename:          Exception.h
  * 
  * Purpose: generic exception class containing error message (c-string)

@@ -11,16 +11,16 @@
  *      bool isEmpty ():
  *         returns if the list is empty
  * 
- *      const Node<T>& First ():
+ *      Node<T>& First ():
  *         returns a reference to the first node in the list
  * 
- *      const Node<T>& Last ():
+ *      Node<T>& Last ():
  *         returns a reference to the last node in the list
  * 
- *     void Prepend (T* elem):
+ *     void Prepend (T elem):
  *         prepend a given element at the start of the list
  * 
- *     void Append (T* elem):
+ *     void Append (T elem):
  *         append a given element at the end of the list
  * 
  *      void Purge ():
@@ -41,8 +41,7 @@
  *      Iterator<T> End ():
  *         return an iterator to the last node in the list
  * 
- * 
- * this design is awful and I am sorry for bringing an implementation of it into the world. 
+ * block headers suck
  ********************************************************************************/
 
 #ifndef LINKEDLIST_H
@@ -60,40 +59,33 @@ class LinkedList
 
 	public:
 
-		////---- Methods from UML diagram ----////
+		//finds if list is empty
 		bool isEmpty () const;
 
-		//TODO: brief description
-		const Node<T>& First () const { return *head; }
-		Node<T>& First() { return *head; }
+		//get const/mutable references to the first/last nodes
+		// (uses inline because it's easier to read and more efficient)
+		const Node<T>&	First() const	{ return *head; }
+		Node<T>&		First()			{ return *head; }
+		const Node<T>&	Last() const	{ return *tail; }
+		Node<T>&		Last()			{ return *tail; }
 
-		//TODO: brief description
-		const Node<T>& Last () const { return *tail; }
-		Node<T>& Last() { return *tail; }
-
-		//TODO: brief description
+		// append/prepend an element at the end/beginning of the list
+		void Append (T elem);
 		void Prepend (T elem);
 
-		//TODO: brief description
-		void Append (T elem);
-
-		//TODO: brief description
+		// delete all elements in the list
 		void Purge ();
 
-		//TODO: brief description
+		// find the first instance of <key>, remove it from the list, and return the node
 		Node<T>& Extract ( T key );
 
-		//TODO: brief description
+		//find the first instance of <key> and insert <value> before/after it
+		void InsertBefore (T key, T value);
 		void InsertAfter (T key, T value);
 
-		//TODO: brief description
-		void InsertBefore (T key, T value);
-
-		//TODO: brief description
+		//get const/mutable iterators to the first/last list nodes
 		Iterator<T> Begin () ;
 		const Iterator<T> Begin () const;
-
-		//TODO: brief description
 		Iterator<T> End () ;
 		const Iterator<T> End() const;
 
@@ -109,6 +101,7 @@ class LinkedList
 		// destructor (calls purge)
 		~LinkedList();
 
+		//Find the first instance of <key> in the list and return a reference to the containing node
 		Node<T>& Find(T key);
 
 };
