@@ -177,6 +177,8 @@ void Minesweeper::gameLoop ()
 				break;
 			case Board::GameOver::_WON:
 				cout << "You won!" << endl;
+				print();
+				cout << "You won!" << endl;
 				break;
 		}
 		delete gameOverCode;
