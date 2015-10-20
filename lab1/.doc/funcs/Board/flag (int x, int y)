@@ -1,0 +1,17 @@
+/********************************************************************************
+ * void flag (int x, int y);
+ * 	Purpose: 
+ * 		Put a flag on the cell at (x, y)
+ * 		Can throw a gameover exception if you flag all of the mines
+ * 		on the board.
+ * 	
+ * 	Entry: 
+ * 		x: the x coordinate of the cell to be flagged
+ * 		y: the y coordinate of the cell to be flagged
+ * 	
+ * 	Exit: 
+ * 		Nothing (usually)
+ * 		but can throw GameOver::_WON if you happen to flag the last mine on
+ * 		the board.
+ * 	
+ ********************************************************************************/

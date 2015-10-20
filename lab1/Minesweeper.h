@@ -22,6 +22,9 @@
  * 
  *      void gameLoop ():
  *         Prompts for an action and coords and does the action at those coords
+ *
+ *      void print():
+ *		   Print some statistics about the game followed by an ASCII art version of the board
  * 
  * 
  ********************************************************************************/
@@ -33,26 +36,29 @@
 class Minesweeper
 {
     private:
-        //TODO: add member variables
+        // the Minesweeper board with all the cells in it
 		Board game;
+
+		// stores any win/lose exceptions that come up during click()ing or flag()ing
 		Board::GameOver* gameOverCode;
 
     public:
-        //TODO: brief description
+		// constructor
         Minesweeper (int rows, int cols, int mines);
 
-        //TODO: brief description
+		// find out if the game has ended yet
         bool gameOver()  const;
 
-        //TODO: brief description
+		// click/uncover the cell at (x, y)
         void click (int x, int y);
 
-        //TODO: brief description
+		// flag/unflag the cell at (x, y) (toggles flag state)
         void flag (int x, int y);
 
-        //TODO: brief description
+		//main game routine to be used by main()
         void gameLoop ();
 
+		//print game statistics and an ASCII art depiction of the game board
 		void print();
 
 

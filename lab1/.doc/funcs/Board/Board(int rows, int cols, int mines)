@@ -1,0 +1,19 @@
+/********************************************************************************
+ * Board(int rows, int cols, int mines);
+ * 	Purpose: 
+ * 		Board constructor given the number of rows (height)
+ * 		and number of columns (width) of the board,
+ * 		and also the number of mines to randomly disperse through the board
+ * 	
+ * 	Entry: 
+ * 		int rows: the number of rows to create the board with
+ * 		int cols : the number of columns to create the board with
+ * 		int mines: the number of mines to randomly place on the board
+ * 	
+ * 	Exit: 
+ * 		Constructs the board with requested dimensions and randomly places
+ * 		the mines
+ * 		BUG/WARNING: can re-create the same mine pattern multiple times if
+ * 		constructor is run more than once within <mines> seconds
+ * 	
+ ********************************************************************************/

@@ -1,0 +1,18 @@
+/********************************************************************************
+ * void click (int x, int y);
+ * 	Purpose: 
+ * 		Click (uncover) the cell at (x, y)
+ * 		Throws an exception if you either:
+ * 		- win the game by clicking every non-mined cell
+ * 		- lose the game by clicking a mined cell
+ * 	
+ * 	Entry: 
+ * 		x: the column of the cell to be clicked
+ * 		y: the row of the cell to be clicked
+ * 	
+ * 	Exit: 
+ * 		Can throw GameOver exception
+ * 		_WON if you click all non-mined tiles
+ * 		_LOST if you click a mine
+ * 	
+ ********************************************************************************/

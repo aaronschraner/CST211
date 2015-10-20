@@ -1,0 +1,14 @@
+/********************************************************************************
+ * void flag (int x, int y);
+ * 	Purpose: 
+ * 		Toggle the flag on the cell at (x, y)
+ * 	
+ * 	Entry: 
+ * 		x: the x coordinate of the cell being flagged
+ * 		y: the y coordinate of the cell being flagged
+ * 	
+ * 	Exit: 
+ * 		Can put a game over exception in gameOverCode if you cover the
+ * 		last mine in the game with a flag
+ * 	
+ ********************************************************************************/

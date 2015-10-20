@@ -1,0 +1,14 @@
+/********************************************************************************
+ * void setFlag (bool m) {flagged=m;
+ * 	Purpose: 
+ * 		Flag or unflag this cell
+ * 	
+ * 	Entry: 
+ * 		m: the value <flag> should take
+ * 		if m is true, the cell is flagged
+ * 		if m is false, the cell is unflagged
+ * 	
+ * 	Exit: 
+ * 		nothing
+ * 	
+ ********************************************************************************/

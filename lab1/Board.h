@@ -32,34 +32,41 @@
 class Board
 {
     private:
+		//the board containing all the minesweeper cells
         Array2D <Cell> board;
+
+		//the number of mines, rows, and columns in the board
 		int mines;
 		int rows;
 		int cols;
 
 
     public:
-        //TODO: brief description
+		//calculate the number of adjacent mines for each cell and store them in the cells
         void generateNeighbors ();
 
-        //TODO: brief description
+		//uncover a continuous area with no adjacent mines (works the same as in normal minesweeper)
         void uncoverArea (int x, int y);
 
-        //TODO: brief description
+		//print the minesweeper board in ASCII art
         void print ();
 
-        //TODO: brief description
+		//click (uncover) the selected cell
         void click (int x, int y);
 
-        //TODO: brief description
+		//flag the cell at (x, y)
         void flag (int x, int y);
 		
+		//find the number of unflagged mines left on the board
 		int getRemainingMines();
 
+		//find the number of mines on the board that the user has flagged
 		int getFlaggedMines();
 
+		//constructor given board dimensions and number of randomly placed mines
 		Board(int rows, int cols, int mines);
 
+		//for use with end-game exception throwing
 		enum GameOver
 		{
 			_LOST,

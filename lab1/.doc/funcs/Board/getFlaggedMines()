@@ -1,0 +1,17 @@
+/********************************************************************************
+ * int getFlaggedMines();
+ * 	Purpose: 
+ * 		Get the number of correctly flagged mines on the board
+ * 		This can technically be used to cheat, but it would be extremely
+ * 		time consuming to use it for that (especially on expert mode)
+ * 		
+ * 		A "correctly flagged" mine is a cell that has a mine in it and is flagged.
+ * 	
+ * 	Entry: 
+ * 		no arguments
+ * 	
+ * 	Exit: 
+ * 		Returns the total number of correctly flagged mines
+ * 		(iterates through entire board to figure that out)
+ * 	
+ ********************************************************************************/

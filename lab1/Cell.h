@@ -32,7 +32,7 @@
  *      void setNeighbors (short n):
  *         set the number of adjacent mines (Game/Board use only)
  * 
- * 
+ * more detailed documentation on inline functions is available in .doc/funcs/Cell/
  ********************************************************************************/
 #ifndef CELL_H
 #define CELL_H
@@ -48,31 +48,35 @@ class Cell
 		friend std::ostream& operator<< (std::ostream& os, const Cell& c);
 
     public:
-        //TODO: brief description
+		//find if the cell has a mine on it
         bool hasMine () { return mine; }
 
-        //TODO: brief description
+		//find if the cell has been uncovered or not
         bool isVisible () { return visible; }
 
-        //TODO: brief description
+		//find if the cell has been flagged or not
         bool isFlagged () { return flagged; }
 
-        //TODO: brief description
+		//either put/remove a mine on/from the cell (depending on if m is true/false)
         void setMine (bool m) { mine=m; }
 
-        //TODO: brief description
+		//place or remove the flag on/from the cell
         void setFlag (bool m) {flagged=m;}
 
-        //TODO: brief description
+		//change the visibility of the cell
         void setVisible (bool m) {visible=m;}
 
-        //TODO: brief description
+		//return the number of neighbors the cell has
+		//(depends on Board class to be accurate)
         short getNeighbors () { return neighbors;}
 
+		//get a character representation of the cell
 		char charRep() const;
 
-        //TODO: brief description
+		//set the number of neighbors the cell has (only for use by Board class)
         void setNeighbors (short n) { neighbors=n; }
+
+		//default constructor for cell (set everything to 0 or false)
 		Cell(): neighbors(0), mine(0), visible(0), flagged(0) {}
 
 

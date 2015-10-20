@@ -1,0 +1,14 @@
+/********************************************************************************
+ * friend std::ostream& operator<< (std::ostream& os, const Cell& c);
+ * 	Purpose: 
+ * 		Stream output operator for Cell objects
+ * 		Outputs the character representation of the cell (as defined by charRep())
+ * 	
+ * 	Entry: 
+ * 		os: the output stream to print to
+ * 		c: the cell to be outputted
+ * 	
+ * 	Exit: 
+ * 		returns a reference to the ostream
+ * 	
+ ********************************************************************************/

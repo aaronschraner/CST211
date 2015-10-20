@@ -1,0 +1,13 @@
+/********************************************************************************
+ * bool gameOver()  const;
+ * 	Purpose: 
+ * 		Returns true if the game has been won or lost, false if it is still
+ * 		in progress.
+ * 	
+ * 	Entry: 
+ * 		nothing
+ * 	
+ * 	Exit: 
+ * 		see Purpose section
+ * 	
+ ********************************************************************************/

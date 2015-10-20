@@ -1,0 +1,20 @@
+/********************************************************************************
+ * void gameLoop ();
+ * 	Purpose: 
+ * 		The main loop routine for the Minesweeper game
+ * 		- Prints the state of the board in ASCII art
+ * 		- Asks the user to either uncover or flag a cell
+ * 		- does what the user asks
+ * 		- Checks if the last move ended the game
+ * 		- If it did, find out if the player won or lost
+ * 		- print a victory/failure message depending on what happened
+ * 		- deallocate gameOverCode
+ * 	
+ * 	Entry: 
+ * 		Nothing (operates on constructed Minesweeper class and member variables)
+ * 	
+ * 	Exit: 
+ * 		Designed to be called in a while (!gameOver()) loop
+ * 		Cannot exit the game on its own, but can break such a while loop
+ * 	
+ ********************************************************************************/

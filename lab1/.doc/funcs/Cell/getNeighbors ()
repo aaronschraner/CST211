@@ -1,0 +1,13 @@
+/********************************************************************************
+ * short getNeighbors () { return neighbors;
+ * 	Purpose: 
+ * 		Returns the number of mines adjacent to this cell
+ * 		(just reads the member variable, doesn't actually calculate how many)
+ * 	
+ * 	Entry: 
+ * 		nothing
+ * 	
+ * 	Exit: 
+ * 		returns the number of adjacent mines
+ * 	
+ ********************************************************************************/

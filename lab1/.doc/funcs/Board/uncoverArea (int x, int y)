@@ -1,0 +1,16 @@
+/********************************************************************************
+ * void uncoverArea (int x, int y);
+ * 	Purpose: 
+ * 		Uncover this cell and all the cells around it
+ * 		(not just adjacent, recursively uncovers cells in the same way as
+ * 		classic minesweeper)
+ * 	
+ * 	Entry: 
+ * 		x: the x coordinate to start uncovering at
+ * 		y: the y coordinate to start uncovering at
+ * 	
+ * 	Exit: 
+ * 		Nothing
+ * 		(might throw exception if you happen to win)
+ * 	
+ ********************************************************************************/

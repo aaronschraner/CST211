@@ -1,0 +1,17 @@
+/********************************************************************************
+ * void generateNeighbors ();
+ * 	Purpose: 
+ * 		Calculate the number of neighbors for each cell on the board
+ * 		(using an array of ints like this was the simplest solution
+ * 		I could think of for this problem)
+ * 		A "neighbor" is an adjacent cell with a mine in it.
+ * 	
+ * 	Entry: 
+ * 		Nothing
+ * 		(but operates on the cells' <neighbors> member variables)
+ * 	
+ * 	Exit: 
+ * 		All elements on the board now have accurate counts for how many
+ * 		adjacent mines they have.
+ * 	
+ ********************************************************************************/

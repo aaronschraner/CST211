@@ -1,0 +1,12 @@
+/********************************************************************************
+ * bool isFlagged () { return flagged;
+ * 	Purpose: 
+ * 		Find out if the cell has been flagged or not
+ * 	
+ * 	Entry: 
+ * 		nothing
+ * 	
+ * 	Exit: 
+ * 		returns true if the cell is flagged, false if it isn't.
+ * 	
+ ********************************************************************************/
