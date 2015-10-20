@@ -7,17 +7,22 @@
  * 
  ********************************************************************************/
 #include "Cell.h"
-
+#include <iostream>
 //character representation for cell
-char Cell::charRep()
+char Cell::charRep() const
 {
-	if(!visible)
-		return ' ';
-	if(mine)
-		return 'X';
 	if(flagged)
 		return '<';
-	return '0' + neighbors;
+	if(!visible)
+		return '#';
+	if(mine)
+		return 'X';
+	return neighbors ? ('0' + neighbors) : '_';
 }
 
 	
+std::ostream& operator<<( std::ostream& os, const Cell& c)
+{
+	os << c.charRep() ;
+	return os;
+}

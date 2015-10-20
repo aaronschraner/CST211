@@ -33,6 +33,9 @@ class Board
 {
     private:
         Array2D <Cell> board;
+		int mines;
+		int rows;
+		int cols;
 
 
     public:
@@ -51,7 +54,17 @@ class Board
         //TODO: brief description
         void flag (int x, int y);
 		
+		int getRemainingMines();
+
+		int getFlaggedMines();
+
 		Board(int rows, int cols, int mines);
+
+		enum GameOver
+		{
+			_LOST,
+			_WON
+		};
 
 };
 #endif

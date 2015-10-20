@@ -36,6 +36,8 @@
  ********************************************************************************/
 #ifndef CELL_H
 #define CELL_H
+
+#include <iostream>
 class Cell
 {
     private:
@@ -43,6 +45,7 @@ class Cell
 		short neighbors; //the number of adjacent mines
 		bool visible; 
 		bool flagged;
+		friend std::ostream& operator<< (std::ostream& os, const Cell& c);
 
     public:
         //TODO: brief description
@@ -58,7 +61,7 @@ class Cell
         void setMine (bool m) { mine=m; }
 
         //TODO: brief description
-        void setFlag (bool m) {flag=m;}
+        void setFlag (bool m) {flagged=m;}
 
         //TODO: brief description
         void setVisible (bool m) {visible=m;}
@@ -66,7 +69,7 @@ class Cell
         //TODO: brief description
         short getNeighbors () { return neighbors;}
 
-		char charRep();
+		char charRep() const;
 
         //TODO: brief description
         void setNeighbors (short n) { neighbors=n; }
