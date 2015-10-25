@@ -1,0 +1,10 @@
+ Stack ()
+ Stack (const Stack<T>& st)
+ Stack (int size)
+ ~Stack ()
+ void Push (const T& element)
+T Pop ()
+Peek()  T const
+Size()  int const
+isEmpty()  bool const
+isFull()  bool const

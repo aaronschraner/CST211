@@ -1,0 +1,13 @@
+/********************************************************************************
+ * isFull()  bool const;
+ * 	Purpose: 
+ * 		Find out if the stack is full or not
+ * 	
+ * 	Entry: 
+ * 		Nothing (relies on currSize)
+ * 	
+ * 	Exit: 
+ * 		Returns true if stack is full
+ * 		False if it isn't
+ * 	
+ ********************************************************************************/

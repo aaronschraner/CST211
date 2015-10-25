@@ -1,0 +1,12 @@
+/********************************************************************************
+ * Peek()  T const;
+ * 	Purpose: 
+ * 		Return the element on the top of the stack without removing it
+ * 	
+ * 	Entry: 
+ * 		Nothing
+ * 	
+ * 	Exit: 
+ * 		Returns a reference to the top element on the stack
+ * 	
+ ********************************************************************************/

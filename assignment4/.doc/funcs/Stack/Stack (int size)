@@ -1,0 +1,13 @@
+/********************************************************************************
+ * Stack (int size);
+ * 	Purpose: 
+ * 		Construct a stack with <size> maximum elements
+ * 		Starts with 0 elements
+ * 	
+ * 	Entry: 
+ * 		size: the maximum number of elements the stack can contain
+ * 	
+ * 	Exit: 
+ * 		Constructed stack with <size> max elements
+ * 	
+ ********************************************************************************/

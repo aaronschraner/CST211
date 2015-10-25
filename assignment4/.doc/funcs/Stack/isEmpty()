@@ -1,0 +1,13 @@
+/********************************************************************************
+ * isEmpty()  bool const;
+ * 	Purpose: 
+ * 		Find out if the Stack is empty or not
+ * 	
+ * 	Entry: 
+ * 		Nothing (relies on currSize)
+ * 	
+ * 	Exit: 
+ * 		Returns true if stack is empty
+ * 		False if it isn't
+ * 	
+ ********************************************************************************/

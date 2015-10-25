@@ -1,0 +1,13 @@
+/********************************************************************************
+ * void Push (const T& element);
+ * 	Purpose: 
+ * 		Push an element onto the top of the stack.
+ * 	
+ * 	Entry: 
+ * 		const T& element: the element to be pushed onto the stack
+ * 	
+ * 	Exit: 
+ * 		Does not return anything
+ * 		(can throw Overflow exception if stack is full)
+ * 	
+ ********************************************************************************/

@@ -228,7 +228,7 @@ do
 	done
 done
 
-for x in .doc/funcs/Stack/*
+for x in .doc/funcs/*/*
 do
 	sig="$(cat "$x")"
 	echo "Documentation for $sig"

@@ -1,0 +1,12 @@
+/********************************************************************************
+ * Size()  int const;
+ * 	Purpose: 
+ * 		Returns the current number of elements in the stack
+ * 	
+ * 	Entry: 
+ * 		Nothing (relies on currSize being correct)
+ * 	
+ * 	Exit: 
+ * 		Returns the number of elements in the stack
+ * 	
+ ********************************************************************************/
