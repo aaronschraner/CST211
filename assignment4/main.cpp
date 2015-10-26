@@ -26,12 +26,120 @@
 
 #include "Stack.h"
 #include <iostream>
+#include <climits>
 
 using namespace std;
 
-
+// typedef for the exceptions thrown by a Stack of ints
 typedef typename Stack<int>::Error StackError;
 
+// Take a Stack<int> Error and explain what it means
+void handleException(StackError e);
+
+// Say if the stack is empty and if it is full
+template <typename T>
+void checkEmptyFull(const Stack<T>& stack);
+
+// Test overflow and underflow condition handling
+void testOverUnderflow(int maxElements);
+
+// Test the stack constructors
+void testStackCtors();
+
+
+int main()
+{
+	cout << " --- Testing over/underflow cases. --- " << endl;
+	testOverUnderflow(10);
+
+	cout << endl << endl << " --- Testing constructors --- " << endl;
+	testStackCtors();
+}
+
+/********************************************************************************
+ * void testOverUnderflow(int maxElements)
+ *	Purpose:
+ *		Test overflow and underflow conditions for the Stack class by:
+ *		 - Creating a new stack with maximum capacity of <maxElements>
+ *		 - Pushing <maxElements> integers onto it
+ *		 - Showing the user the contents and statistics on the Stack
+ *		 - Trying to push another integer onto the now-full Stack
+ *		 - Popping each element off the stack
+ *		 - Trying to pop an element off the now-empty Stack
+ *
+ *	Entry:
+ *		int maxElements:
+ *			The number of elements to test the stack with.
+ *			Smaller values are generally easier to read but large (>20) values 
+ *			are still cleanly formatted
+ *
+ *	Exit:
+ *		Program output should make logical sense with the description in the
+ *			Purpose section. 
+ *			(this function prints the stack elements as it pops them off.)
+ *			(compile with VERBOSE defined to show destructor calls)
+ *
+ ********************************************************************************/
+void testOverUnderflow(int maxElements)
+{
+	//create a new Stack of ints with <maxElements> maximum elements
+	cout << "Creating a new stack with maximum of " << maxElements << " elements." << endl;
+	Stack<int> myStack (maxElements);
+
+	// Push <maxElements> integers (from 0 to 10*maxElements in intervals of 10) onto the stack
+	cout << "Pushing " << maxElements << " integers onto the stack." << endl;
+	for(int i=0; i<maxElements; i++)
+		myStack.Push(i*10);
+
+	// print information about the stack
+	myStack.print(0, "\t");
+	checkEmptyFull(myStack);
+	cout << endl;
+
+	// Try to push an integer onto the now-full stack
+	cout << "Attempting to push another integer onto the stack." << endl;
+	try { 
+		myStack.Push(9000);
+	} catch (StackError e) { 
+		handleException(e);
+	}
+	
+	// Pop every element off the stack (and print it)
+	cout << "Popping: ";
+	while(!myStack.isEmpty())
+		cout << myStack.Pop() << " ";
+	cout << endl;
+
+	// Print statistics about the stack (should be empty)
+	checkEmptyFull(myStack);
+	myStack.print(0, "\t");
+	
+	// Try to pop an int off the now-empty stack
+	cout << "Trying to pop an int off the empty stack." << endl;
+	try {
+		myStack.Pop();
+	} catch (StackError e) {
+		handleException(e);
+	}
+
+}
+
+
+
+
+
+/********************************************************************************
+ * void handleException(StackError e)
+ *	Purpose:
+ *		Take a Stack<int> Error and explain what it means to the user
+ *
+ *	Entry:
+ *		StackError (Stack<int>::Error) e: the exception to be explained
+ *
+ *	Exit:
+ *		outputs what the exception means to stdout
+ *
+ ********************************************************************************/
 void handleException(StackError e)
 {
 	switch(e)
@@ -45,6 +153,22 @@ void handleException(StackError e)
 	}
 }
 
+/********************************************************************************
+ * void checkEmptyFull(const Stack<T>& stack)
+ *	Purpose:
+ *		Take a stack and find out if it is...
+ *		 - empty
+ *		 - full
+ *		Keeping in mind that a stack with a maxSize of 0 is both empty and full
+ *
+ *	Entry:
+ *		const Stack<T>& stack: the stack to check the (empti|full)ness of.
+ *
+ *	Exit:
+ *		Tells the user (via stdout) if the stack is empty/full
+ *		Note: output is indented with tabs
+ *
+ ********************************************************************************/
 template <typename T>
 void checkEmptyFull(const Stack<T>& stack)
 {
@@ -53,40 +177,34 @@ void checkEmptyFull(const Stack<T>& stack)
 	cout << "\t\t" << (stack.isFull () ? "" : "not ") << "full." << endl;
 }
 
-int maxElements = 30;
-int main()
+void testStackCtors()
 {
-	cout << "Creating a new stack with maximum of " << maxElements << " elements." << endl;
-	Stack<int> myStack (maxElements);
-
-	cout << "Pushing " << maxElements << " integers onto the stack." << endl;
-	for(int i=0; i<maxElements; i++)
-		myStack.Push(i*10);
-
-	myStack.print(0, "\t");
-	checkEmptyFull(myStack);
+	cout << " Creating stack with default constructor:\n";
+	Stack<int> defaultStack;
+	defaultStack.print(0, "\t");
 	cout << endl;
 
-	cout << "Attempting to push another integer onto the stack." << endl;
-	try { 
-		myStack.Push(9000);
-	} catch (StackError e) { 
-		handleException(e);
-	}
-	
-	cout << "Popping: ";
-	while(!myStack.isEmpty())
-		cout << myStack.Pop() << " ";
+	cout << "Creating stack with maximum of 20 elements:\n";
+	Stack<int> sizeStack(20);
+	sizeStack.print(0, "\t");
 	cout << endl;
-	checkEmptyFull(myStack);
-	myStack.print(0, "\t");
-	
-	cout << "Trying to pop an int off the empty stack." << endl;
-	try {
-		myStack.Pop();
-	} catch (StackError e) {
-		handleException(e);
-	}
 
+	cout << "Adding 10 elements to previous stack\n";
+	for(int i=0; i<10; i++)
+		sizeStack.Push(i+1);
+
+	cout << "Stack with elements added:\n";
+	sizeStack.print(0, "\t");
+	cout << endl;
+
+	cout << "Creating stack using copy constructor from previous stack:\n";
+	Stack <int> copyStack (sizeStack);
+	copyStack.print(0, "\t");
+	cout << endl;
+
+	cout << "Destroying stacks." << endl;
+#ifndef VERBOSE
+	cout << "Compile with VERBOSE defined to show destructor calls (run \"make debug\" if using make)" << endl;
+#endif
 }
 

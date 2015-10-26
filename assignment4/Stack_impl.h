@@ -35,11 +35,10 @@ Stack<T>::Stack ():
  * Stack (const Stack<T>& st);
  * 	Purpose: 
  * 		Copy constructor for stack class
- * 		Copies <st>
- * 		's
- * 		- maximum number of elements
- * 		- current number of elements
- * 		- every element in <st>
+ * 		Copies <st>'s...
+ * 		 - maximum number of elements
+ * 		 - current number of elements
+ * 		 - every element in <st>
  * 	
  * 	Entry: 
  * 		const Stack<T>& st: the  stack to be copied from
@@ -51,10 +50,12 @@ Stack<T>::Stack ():
 template < typename T >
 Stack<T>::Stack (const Stack<T>& st):
 	maxSize(st.maxSize),
-	currSize(st.currSize)
+	currSize(0)
 {
-	for(Iterator<T> it = elements.Begin(); it.isValid(); ++it)
-		Push(*it); //real good
+	// iterate through <st>'s elements and push them onto this stack
+	for(Iterator<T> it = st.elements.Begin(); it.isValid(); ++it)
+
+		Push( *it ); // real good
 }
 
 /********************************************************************************
@@ -95,6 +96,7 @@ Stack<T>::Stack (int size):
 template < typename T >
 Stack<T>::~Stack ()
 {
+	// Just clean up the stack elements
 	elements.Purge();
 }
 
@@ -114,11 +116,15 @@ Stack<T>::~Stack ()
 template < typename T >
 void Stack<T>::Push (const T& element)
 {
+	//Throw an overflow exception if the stack is already full
 	if(isFull())
 		throw Stack<T>::_Overflow;
-	currSize++;
-	elements.Append(element);
 
+	//Increase the current size of the stack
+	currSize++;
+
+	// Append <element> onto the stack
+	elements.Append(element);
 
 }
 
@@ -138,39 +144,56 @@ void Stack<T>::Push (const T& element)
 template < typename T >
 T Stack<T>::Pop ()
 {
+	//If the stack is empty, throw an Underflow exception
 	if(isEmpty())
 		throw Stack<T>::_Underflow;
+
+	//Decrease the stack size by 1
 	currSize--;
+
+	// Get a pointer to the last element in the list
 	Node<T>* node = &elements.Last();
+
+	// Store the contents of it
 	T res = node->getContents();
+
+	// Remove the last element from the list
 	elements.dropNode(node);
+
+	//return the stored contents from the last element
 	return res;
 }
 
 /********************************************************************************
- * Peek()  T const;
+ * const T& Peek() const;
  * 	Purpose: 
  * 		Return the element on the top of the stack without removing it
+ * 		(returns a const reference)
  * 	
  * 	Entry: 
  * 		Nothing
  * 	
  * 	Exit: 
- * 		Returns a reference to the top element on the stack
+ * 		Returns a const reference to the top element on the stack
  * 	
  ********************************************************************************/
 template < typename T >
 const T& Stack<T>::Peek() const
 {
+	//if the stack is empty, throw an underflow exception
 	if(isEmpty())
 		throw Stack::_Underflow;
+
+	//return the value of the top element on the stack
 	return elements.Last().getContents();
 }
 
 /********************************************************************************
- * Peek()  T const;
+ * T& Peek()  ;
  * 	Purpose: 
  * 		Return the element on the top of the stack without removing it
+ * 		(returns a mutable reference to the element - this is the only way to modify
+ *			elements from outside the Stack class)
  * 	
  * 	Entry: 
  * 		Nothing
@@ -182,13 +205,16 @@ const T& Stack<T>::Peek() const
 template < typename T >
 T Stack<T>::Peek() 
 {
+	//if the stack is empty, throw an underflow exception
 	if(isEmpty())
 		throw Stack::_Underflow;
+
+	//return the value of the top element on the stack
 	return elements.Last().getContents();
 }
 
 /********************************************************************************
- * Size()  int const;
+ * int Size() const;
  * 	Purpose: 
  * 		Returns the current number of elements in the stack
  * 	
@@ -206,7 +232,7 @@ int Stack<T>::Size() const
 }
 
 /********************************************************************************
- * isEmpty()  bool const;
+ * bool isEmpty()  const;
  * 	Purpose: 
  * 		Find out if the Stack is empty or not
  * 	
@@ -225,7 +251,7 @@ bool Stack<T>::isEmpty()  const
 }
 
 /********************************************************************************
- * isFull()  bool const;
+ * bool isFull()  const;
  * 	Purpose: 
  * 		Find out if the stack is full or not
  * 	
@@ -243,25 +269,62 @@ bool Stack<T>::isFull()  const
 	return currSize==maxSize ;
 }
 
+/********************************************************************************
+ * void print( bool reverse, const char* indent ) const
+ * 	Purpose: 
+ *		Helper function to print:
+ *		 - Current stack size (number of active elements)
+ *		 - Maximum stack size
+ *		 - Elements on the stack
+ *		With nice indentation
+ *
+ *		(this function was made purely for testing purposes)
+ *
+ * 	Entry: 
+ *		bool reverse: If this parameter is true, the stack will be printed in 
+ *			reverse (last element pushed on the stack gets printed first), Otherwise
+ *			stack is printed from the first element pushed to the last.
+ *		const char* indent: Gets prepended before every line of output (used for
+ *			neat output formatting)
+ * 
+ * 	Exit: 
+ *		Prints the current and maximum size of the stack.
+ *		Then prints each element it contains in neat rows of up to 10 elements
+ *		Columns of output will line up if elements are less than 5 characters wide
+ *		when printed with cout
+ *
+ ********************************************************************************/
 template < typename T >
 void Stack<T>::print(bool reverse, const char* indent) const
 {
+	//print the current and maximum size
 	std::cout << indent << "Current size: " << currSize << " | Max size: " << maxSize << std::endl;
+
+	//print all the elements in the array in neatly formatted rows
 	std::cout << indent;
 	int lineNum=0;
+
+	// if <reverse> is true, traverse the stack from the end to the beginning
+	// otherwise, start at the beginning and iterate to the end
 	for(auto it = reverse ? elements.End() : elements.Begin(); 
 			it.isValid(); (reverse?--it:++it), ++lineNum)
 	{
+		// break rows into new lines after 10 elements
 		if ( lineNum >= 10 )
 		{
 			lineNum = 0;
 			std::cout << std::endl << indent;
 		}
+
+		//print each element with square brackets around it and consistent spacing
 		std::cout << "[" << std::setw(5) << std::left << *it << "] ";
 
 	}
+
+	//if the stack is empty, say so.
 	if (isEmpty())
 		std::cout << "<stack is empty>";
+
 	std::cout << std::endl;
 }
 

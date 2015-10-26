@@ -258,7 +258,6 @@ Node<T>::Node(const Node<T>& node):
 template <typename T>
 Node<T>& Node<T>::operator=(const Node<T>& node)
 {
-	//TODO
 	contents=node.contents;
 	return node;
 }

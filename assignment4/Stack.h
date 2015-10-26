@@ -37,6 +37,12 @@
  * 
  *     isFull()  bool const:
  *         Returns true if the stack is full
+ *
+ *      void print(bool reverse, const char* indent):
+ *		   Print the maximum and current size of the stack with all its elements
+ *	Enums:
+ *		enum Error:
+ *			Error type to indicate stack overflow/underflow errors
  * 
  * 
  ********************************************************************************/
@@ -54,39 +60,41 @@ class Stack
 		int currSize;
 
     public:
-        //TODO: brief description
+		// default constructor
         Stack ();
 
-        //TODO: brief description
+        // copy constructor
         Stack (const Stack<T>& st);
 
-        //TODO: brief description
+        // constructor given maximum number of elements
         Stack (int size);
 
-        //TODO: brief description
+        // destructor
         ~Stack ();
 
-        //TODO: brief description
+        // Push an element onto the stack
         void Push (const T& element);
 
-        //TODO: brief description
+        // Pop an element off the stack and return it
         T Pop ();
 
-        //TODO: brief description
+        // Return the top element on the stack without removing it
         T Peek()  ;
         const T& Peek() const;
 
-        //TODO: brief description
+        // get the current size (number of elements on the stack)
         int Size()  const;
 
-        //TODO: brief description
+        // Find out if the stack is empty
         bool isEmpty()  const;
 
-        //TODO: brief description
+        // Find out if the stack is full
         bool isFull()  const;
 
-		void print(bool reverse=0, const char* indent="") const ; // just for debugging
+		// print the contents of the stack (just for debugging purposes)
+		void print(bool reverse=0, const char* indent="") const ; 
 
+		// Error type for overflow and underflow exceptions
 		enum Error
 		{
 			_Overflow,
