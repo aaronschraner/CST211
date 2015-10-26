@@ -1,0 +1,14 @@
+/********************************************************************************
+ * ~Stack ();
+ * 	Purpose: 
+ * 		Destructor for Stack class
+ * 		De-allocates every element in the stack using LinkedList::Purge()
+ * 	
+ * 	Entry: 
+ * 		No parameters
+ * 		operates on the Stack's linked list
+ * 	
+ * 	Exit: 
+ * 		Destructed stack
+ * 	
+ ********************************************************************************/

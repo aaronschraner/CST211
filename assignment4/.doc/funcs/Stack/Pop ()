@@ -1,0 +1,13 @@
+/********************************************************************************
+ * T Pop ();
+ * 	Purpose: 
+ * 		Remove the element on the top of the stack and return a copy of it
+ * 	
+ * 	Entry: 
+ * 		Nothing (removes top element)
+ * 	
+ * 	Exit: 
+ * 		Returns a copy of the top element
+ * 		(can throw an Underflow exception if stack is empty when called)
+ * 	
+ ********************************************************************************/
