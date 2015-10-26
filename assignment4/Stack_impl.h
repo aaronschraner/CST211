@@ -328,5 +328,19 @@ void Stack<T>::print(bool reverse, const char* indent) const
 	std::cout << std::endl;
 }
 
+template <typename T>
+Stack<T>& Stack<T>::operator=(const Stack<T>& stack)
+{
+	elements.Purge();
+	currSize=0;
+	maxSize=stack.maxSize;
+
+	// iterate through <stack>'s elements and push them onto this stack
+	for(Iterator<T> it = stack.elements.Begin(); it.isValid(); ++it)
+
+		Push( *it ); 
+	return *this;
+}
+
 #endif
 

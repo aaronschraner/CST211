@@ -101,6 +101,9 @@ class Stack
 			_Underflow
 		};
 
+		// assignment operator
+		Stack<T>& operator=(const Stack<T>& stack);
+
 };
 
 #include "Stack_impl.h"

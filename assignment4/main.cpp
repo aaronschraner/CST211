@@ -202,6 +202,12 @@ void testStackCtors()
 	copyStack.print(0, "\t");
 	cout << endl;
 
+	cout << "Creating a default stack and assigning it to the previous stack\n";
+	Stack <int> equalsStack;
+	equalsStack = sizeStack;
+	equalsStack.print(0, "\t");
+	cout << endl;
+
 	cout << "Destroying stacks." << endl;
 #ifndef VERBOSE
 	cout << "Compile with VERBOSE defined to show destructor calls (run \"make debug\" if using make)" << endl;
