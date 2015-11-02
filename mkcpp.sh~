@@ -215,28 +215,30 @@ mkclass()
 #}
 #mkclass
 
-for class in Queue
-do
-	mkdir -p .doc/funcs/$class
-	cat "${class}.h" | 
-	grep -oE "^[[:blank:]]*.*\(.*\).*;" | 
-	sed -r "s/^[[:blank:]]*//g" | 
-	while read x
-	do
-		echo "$x"
-		echo -e "$x" > ".doc/funcs/$class/$(echo "$x" | sed -r 's/^[[:blank:]]*(~?[a-zA-Z_]*[[:blank:]]*\(.*\))[[:blank:]]*(const)?;/\1 \2/g')"
-	done
-
-done
-
-for x in .doc/funcs/Queue/*
-do
-	sig="$(cat "$x")"
-	echo "Documentation for $sig"
-	openheader > "$x"
-	echo " * $sig" >> "$x"
-	ioheader "$x" Purpose Entry Exit
-	closeheader >> "$x"
-done
+#for class in Queue
+#do
+#	mkdir -p .doc/funcs/$class
+#	cat "${class}.h" | 
+#	grep -oE "^[[:blank:]]*.*\(.*\).*;" | 
+#	sed -r "s/^[[:blank:]]*//g" | 
+#	while read x
+#	do
+#		echo "$x"
+#		echo -e "$x" > ".doc/funcs/$class/$(echo "$x" | sed -r 's/^[[:blank:]]*(~?[a-zA-Z_]*[[:blank:]]*\(.*\))[[:blank:]]*(const)?;/\1 \2/g')"
+#	done
+#
+#done
+#
+#for x in .doc/funcs/Queue/*
+#do
+#	sig="$(cat "$x")"
+#	echo "Documentation for $sig"
+#	openheader > "$x"
+#	echo " * $sig" >> "$x"
+#	ioheader "$x" Purpose Entry Exit
+#	closeheader >> "$x"
+#done
 #
 #ioheader "main_cblock.cpp" Purpose Input Output
+openheader
+closeheader >> main_cblock.cpp

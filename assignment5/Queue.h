@@ -57,36 +57,37 @@ class Queue
 
 
     public:
-        //TODO: brief description
+        // copy constructor
         Queue ( const Queue& q);
 
-        //TODO: brief description
+        // default constructor (sets maximum size to DEFAULT_QUEUE_SIZE)
         Queue ();
 
-        //TODO: brief description
+		// constructor given maximum queue size
         Queue (int size);
 
-        //TODO: brief description
+		// destructor (list dtor gets called implicitly)
         ~Queue ();
 
-        //TODO: brief description
+        // add an element at the end of the queue
         void Enqueue ( const T& elem);
 
-        //TODO: brief description
+        // remove and return an element from the front of the queue
         T Dequeue ();
 
-        //TODO: brief description
+        // get a reference to the front element in the queue
         T& Front ();
 
-        //TODO: brief description
+        // get the size of the queue
         int Size () const { return size; }
 
-        //TODO: brief description
+        // find if the queue is empty
         bool isEmpty() const;
 
-        //TODO: brief description
+        // find if the queue is full
         bool isFull () const;
 
+		// exceptions that can be thrown
 		enum Error
 		{
 			_Overflow,
