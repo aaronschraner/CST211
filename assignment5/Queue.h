@@ -35,18 +35,26 @@
  *		bool isEmpty() const:
  *         Find if the queue is empty or not
  * 
- *      bool isFull ():
+ *      bool isFull () const:
  *         Find if the queue is full
  * 
  * 
  ********************************************************************************/
 #ifndef QUEUE_H
 #define QUEUE_H
-template < typename  >
+
+#include "LinkedList.h"
+
+#define DEFAULT_QUEUE_SIZE 10
+
+template < typename T >
 class Queue
 {
     private:
-        //TODO: add member variables
+		LinkedList<T> list;
+		int size;
+		int maxSize;
+
 
     public:
         //TODO: brief description
@@ -71,13 +79,19 @@ class Queue
         T& Front ();
 
         //TODO: brief description
-        int Size ();
+        int Size () const { return size; }
 
         //TODO: brief description
-        isEmpty()  bool const;
+        bool isEmpty() const;
 
         //TODO: brief description
-        bool isFull ();
+        bool isFull () const;
+
+		enum Error
+		{
+			_Overflow,
+			_Underflow
+		};
 
 };
 #include "Queue_impl.h"
