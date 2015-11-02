@@ -1,0 +1,13 @@
+/********************************************************************************
+ * T& Front ();
+ * 	Purpose: 
+ * 		Get a mutable reference to the element at the front of the queue
+ * 		(next to be removed)
+ * 	
+ * 	Entry: 
+ * 		nothign
+ * 	
+ * 	Exit: 
+ * 		returns a reference to the front element
+ * 	
+ ********************************************************************************/

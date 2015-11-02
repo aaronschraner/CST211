@@ -1,0 +1,15 @@
+/********************************************************************************
+ * /********************************************************************************
+ * CircularQueue ( const CircularQueue& cq);
+ * 	Purpose: 
+ * 		Copy constructor for CircularQueue class
+ * 		Constructs a copy of cq
+ * 	
+ * 	Entry: 
+ * 		const CircularQueue& cq: the Circular Queue to be copied
+ * 	
+ * 	Exit: 
+ * 		Constructs the circular queue so each element matches the one in <cq>
+ * 	
+ ********************************************************************************/
+ * 	Purpose: 

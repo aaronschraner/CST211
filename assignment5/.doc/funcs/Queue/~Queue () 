@@ -1,0 +1,14 @@
+/********************************************************************************
+ * ~Queue ();
+ * 	Purpose: 
+ * 		destructor for queue class
+ * 		doesn't need to do anything
+ * 		(list destructor called implicitly)
+ * 	
+ * 	Entry: 
+ * 		nothing
+ * 	
+ * 	Exit: 
+ * 		nothing
+ * 	
+ ********************************************************************************/

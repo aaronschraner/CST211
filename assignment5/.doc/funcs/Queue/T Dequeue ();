@@ -1,0 +1,11 @@
+/********************************************************************************
+ * T Dequeue ();
+ * 	Purpose: 
+ * 		Pop the element at the front of the queue off and return a copy of it
+ * 	
+ * 	Entry: 
+ * 	
+ * 	Exit: 
+ * 		Returns a copy of the element in the queue that was just popped off
+ * 	
+ ********************************************************************************/

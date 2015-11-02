@@ -1,0 +1,13 @@
+/********************************************************************************
+ * bool isFull () const;
+ * 	Purpose: 
+ * 		returns true if the queue is full
+ * 		false otherwise
+ * 	
+ * 	Entry: 
+ * 		nothing
+ * 	
+ * 	Exit: 
+ * 		see Purpose section
+ * 	
+ ********************************************************************************/

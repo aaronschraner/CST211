@@ -1,0 +1,13 @@
+/********************************************************************************
+ * void Enqueue  (const T& item);
+ * 	Purpose: 
+ * 		Put an item on the end of the queue
+ * 	
+ * 	Entry: 
+ * 		item: the element to be added
+ * 	
+ * 	Exit: 
+ * 		returns nothing
+ * 		(adds <item> to the end/tail of the queue)
+ * 	
+ ********************************************************************************/

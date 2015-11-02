@@ -1,0 +1,14 @@
+/********************************************************************************
+ * ~CircularQueue();
+ * 	Purpose: 
+ * 		Destructor for circular queue class
+ * 		doesn't need to do anything because Array's destructor is implicitly
+ * 		called.
+ * 	
+ * 	Entry: 
+ * 		A valid circular queue
+ * 	
+ * 	Exit: 
+ * 		A de-allocated circular queue
+ * 	
+ ********************************************************************************/

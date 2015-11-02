@@ -1,0 +1,14 @@
+/********************************************************************************
+ * int Size () const { return size;
+ * 	Purpose: 
+ * 		get the current number of active elements in the queue
+ * 		(those that have been Enqueue()'d but not Dequeue()'d)
+ * 	
+ * 	Entry: 
+ * 		nothing
+ * 		(depends on size being accurate)
+ * 	
+ * 	Exit: 
+ * 		returns the current number of active queue elements
+ * 	
+ ********************************************************************************/
