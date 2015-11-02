@@ -1,0 +1,10 @@
+ Queue ( const Queue& q)
+ Queue ()
+ Queue (int size)
+ ~Queue ()
+ void Enqueue ( const T& elem)
+ T Dequeue ()
+ T& Front ()
+ int Size ()
+isEmpty()  bool const
+ bool isFull ()

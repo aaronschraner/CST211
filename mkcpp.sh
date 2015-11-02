@@ -215,12 +215,21 @@ mkclass()
 #}
 #mkclass
 
-for class in Iterator Node LinkedList
+for class in Queue
 do
-	mkdir -p .doc/funcs/$class; cat "${class}.h" | grep -o "^\t*.*(.*).*;" | sed "s/^\t\t//g" | while read x; do echo -e "$x" > ".doc/funcs/$class/$(echo "$x" | grep -o "[\~a-zA-Z_=*+\-]* \?(.*) \(const\)\?")"; done
+	mkdir -p .doc/funcs/$class
+	cat "${class}.h" | 
+	grep -oE "^[[:blank:]]*.*\(.*\).*;" | 
+	sed -r "s/^[[:blank:]]*//g" | 
+	while read x
+	do
+		echo "$x"
+		echo -e "$x" > ".doc/funcs/$class/$(echo "$x" | sed -r 's/^[[:blank:]]*(~?[a-zA-Z_]*[[:blank:]]*\(.*\))[[:blank:]]*(const)?;/\1 \2/g')"
+	done
+
 done
 
-for x in .doc/funcs/*/*
+for x in .doc/funcs/Queue/*
 do
 	sig="$(cat "$x")"
 	echo "Documentation for $sig"
