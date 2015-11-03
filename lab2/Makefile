@@ -1,6 +1,7 @@
 
 CC=g++
-CFLAGS=-std=c++11 -DSHOWSORTS
+#uncomment this ----v  to show sorted numbers
+CFLAGS=-std=c++11 #-DSHOWSORTS
 CPPFILES=main.cpp Exception.cpp
 HFILES=*.h sorts/*.h
 EXE=sort
