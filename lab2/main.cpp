@@ -2,7 +2,7 @@
 #include <vector>
 #include <iostream>
 #include <iterator>
-
+#include <time.h>
 
 using namespace std;
 
@@ -24,9 +24,15 @@ void sort (Sortable<T> array, SortingAlgorithm algorithm)
 
 	static void (* SortingAlgorithms [])(Sortable<T>) = {
 		bruteForceBubbleSort, selectionSort, insertionSort, shellSort, heapSort, mergeSort, quickSort};
+	clock_t start, end;
+	double cpu_time_used;
 
+	start = clock();
 	(SortingAlgorithms[algorithm])(array);
-	cout << array << endl << endl;
+	end = clock();
+	cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
+
+	cout << array << "(sorting took " << cpu_time_used << " CPU seconds" << endl << endl;
 
 
 }
