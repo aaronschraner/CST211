@@ -1,8 +1,0 @@
- Queue::Queue ( const Queue& q)
- Queue::Queue ()
- Queue::Queue (int size)
- ~Queue::Queue ()
- void Queue::Enqueue ( const T& elem)
- T Queue::Dequeue ()
- T& Queue::Front ()
- Return the number of items currently in the queue Queue::Size ()
