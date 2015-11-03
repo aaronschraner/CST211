@@ -99,7 +99,7 @@ void Exception::setMessage(const char* msg)
 		delete[] message;
 	
 	//allocate space for and copy the message
-	message = new char [ strlen(msg) ];
+	message = new char [ strlen(msg) + 1];
 	strcpy(message, msg);
 }
 

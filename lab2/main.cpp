@@ -1,106 +1,77 @@
 #include "sorts.h"
 #include <vector>
 #include <iostream>
+#include <fstream>
 #include <iterator>
 #include <time.h>
+#include <stdlib.h>
+
+
+#include "sort.h"
 
 using namespace std;
 
-template <typename T>
-void sort (Sortable<T> array, SortingAlgorithm algorithm)
+/********************************************************************************
+ * int main(int argc, char* argv[]):
+ *	Purpose: 
+ *		driver program to test sorting algorithms
+ *		Tests each sorting algorithm in sorts/ using the containers:
+ *		 - vector
+ *		 - Array (my class)
+ *		 - C-array
+ *
+ *		and displays compute time required for each algorithm
+ *	Entry: 
+ *		Can take a number as first parameter. This corresponds to the number of 
+ *		elements to be randomly generated and sorted (defaults to 16)
+ *
+ *	Exit: 
+ *		Displays each algorithm as it is run with the container, algorithm, and
+ *		compute time used.
+ *	
+ ********************************************************************************/
+int main(int argc, char* argv[])
 {
-	cout << " using [";
-	switch(algorithm)
+	ofstream logFile("sort.log");
+	dualstream log(cout, logFile);
+	//number of elements to create (defaults to 16)
+	long numElements=16;
+
+	//if the user gave a number as a parameter, use that many elements
+	if (argc > 1)
+		numElements=atol(argv[1]);
+
+	//create a vector with the requested size and fill it with random numbers
+	vector<int> myVector(numElements);
+	for(int i=0; i<numElements; i++)
 	{
-		case _BubbleSort: cout << "bubble sort"; break;
-		case _SelectionSort: cout << "selection sort"; break;
-		case _InsertionSort: cout << "insertion sort"; break;
-		case _ShellSort: cout << "shell sort"; break;
-		case _HeapSort: cout << "heap sort"; break;
-		case _MergeSort: cout << "merge sort"; break;
-		case _QuickSort: cout << "quick sort"; break;
-	}
-	cout << "]." << endl;
-
-	static void (* SortingAlgorithms [])(Sortable<T>) = {
-		bruteForceBubbleSort, selectionSort, insertionSort, shellSort, heapSort, mergeSort, quickSort};
-	clock_t start, end;
-	double cpu_time_used;
-
-	start = clock();
-	(SortingAlgorithms[algorithm])(array);
-	end = clock();
-	cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
-
-	cout << array << "(sorting took " << cpu_time_used << " CPU seconds" << endl << endl;
-
-
-}
-
-template <typename T>
-void sort (vector<T> &array, ContainerType container, SortingAlgorithm algorithm)
-{
-	switch(container)
-	{
-		case _vector:
-			{
-				cout << "Sorting [vector]";
-				vector<T> myvec = array;
-				sort(Sortable<T>(myvec), algorithm);
-			}
-			break;
-
-		case _myarray:
-			{
-				cout << "Sorting [custom array]";
-				Array<T> myArray(array.size(), 0);
-				for(int i=0; i<array.size(); i++)
-					myArray[i]=array[i];
-				sort(Sortable<T>(myArray), algorithm);
-			}
-			break;
-
-		case _carray:
-			{
-				cout << "Sorting [c-array]";
-				T* cArray = new T [array.size()];
-				for(int i=0; i<array.size(); i++)
-					cArray[i] = array[i];
-				sort(Sortable<T>(cArray, array.size()), algorithm);
-			}
-			break;
-
+		srand(time(NULL)+i);
+		myVector[i]=rand();
 	}
 
-}
+	//tell the user how many elements are being sorted
+	log << "sorting array with " << numElements << " integers.\n" ;
 
-
-int main()
-{
-
-	vector<int> myVector;
-	for(int i=0; i<16; i++)
-		myVector.push_back(i^5);
-
-	int myCarray [16] ;
-	for(int i=0; i<16; i++)
-		myCarray[i]=myVector[i];
-
-	cout << "Array to be sorted:" << endl;
+	//if user wants to see all the elements that will be sorted (specified at compile time) 
+	//show all the integers that will be sorted
+#ifdef SHOWSORTS
+	log << "Array to be sorted:\n" ;
 	copy(myVector.begin(), myVector.end(), ostream_iterator<int>(cout, " "));
-	cout << endl << endl;
+#endif
 
+	log << "\n\n";
+
+
+	//for each possible container type
 	for (int ct = 0; ct < 3; ct++)
 	{
+		//for each possible sorting algorithm
 		for (int sa = 0; sa < 7; sa++)
 		{
-			sort(myVector, (ContainerType)ct, (SortingAlgorithm)sa);
+			//sort a copy of the vector and display how long it takes
+			sort(myVector, (ContainerType)ct, (SortingAlgorithm)sa, log);
 		}
 	}
-
-
-
-
-
+	logFile.close();
 }
 
