@@ -1,0 +1,66 @@
+sorting array with 9000 integers.
+
+
+Sorting [vector] using [bubble sort].
+(sorting took 1.02316 CPU seconds
+
+Sorting [vector] using [selection sort].
+(sorting took 0.332853 CPU seconds
+
+Sorting [vector] using [insertion sort].
+(sorting took 0.385724 CPU seconds
+
+Sorting [vector] using [shell sort].
+(sorting took 0.003048 CPU seconds
+
+Sorting [vector] using [heap sort].
+(sorting took 0.003711 CPU seconds
+
+Sorting [vector] using [merge sort].
+(sorting took 0.003177 CPU seconds
+
+Sorting [vector] using [quick sort].
+(sorting took 0.002236 CPU seconds
+
+Sorting [custom array] using [bubble sort].
+(sorting took 1.37418 CPU seconds
+
+Sorting [custom array] using [selection sort].
+(sorting took 0.488503 CPU seconds
+
+Sorting [custom array] using [insertion sort].
+(sorting took 0.529207 CPU seconds
+
+Sorting [custom array] using [shell sort].
+(sorting took 0.003959 CPU seconds
+
+Sorting [custom array] using [heap sort].
+(sorting took 0.004754 CPU seconds
+
+Sorting [custom array] using [merge sort].
+(sorting took 0.00396 CPU seconds
+
+Sorting [custom array] using [quick sort].
+(sorting took 0.002806 CPU seconds
+
+Sorting [c-array] using [bubble sort].
+(sorting took 0.68512 CPU seconds
+
+Sorting [c-array] using [selection sort].
+(sorting took 0.190173 CPU seconds
+
+Sorting [c-array] using [insertion sort].
+(sorting took 0.23121 CPU seconds
+
+Sorting [c-array] using [shell sort].
+(sorting took 0.002087 CPU seconds
+
+Sorting [c-array] using [heap sort].
+(sorting took 0.002532 CPU seconds
+
+Sorting [c-array] using [merge sort].
+(sorting took 0.002255 CPU seconds
+
+Sorting [c-array] using [quick sort].
+(sorting took 0.00167 CPU seconds
+
