@@ -70,7 +70,7 @@ void sort (Sortable<T> array, SortingAlgorithm algorithm, dualstream& log)
 #endif
 
 	//say how long the sort took.
-	log << "(sorting took " << cpu_time_used << " CPU seconds\n\n";
+	log << "(sorting took " << cpu_time_used << " CPU seconds)\n\n";
 
 
 }
