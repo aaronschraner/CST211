@@ -1,5 +1,0 @@
- bool operator== ( const Iterator<T>& rhs)
- Iterator<T>& operator= (const Iterator<T>& rhs)
- Iterator<T>& operator++ (int)
- Iterator<T>& operator-- (int)
- Iterator ( const Iterator<T>& rhs)

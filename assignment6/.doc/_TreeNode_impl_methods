@@ -1,0 +1,4 @@
+TreeNode(T value)
+ ~TreeNode::TreeNode ()
+void Insert(TreeNode::value (T)
+void TreeNode::Delete (T value)

@@ -1,0 +1,4 @@
+TreeNode(T value)
+ ~TreeNode ()
+void Insert(value (T)
+void Delete (T value)

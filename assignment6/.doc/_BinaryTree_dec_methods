@@ -1,0 +1,8 @@
+ BinaryTree ()
+ ~BinaryTree ()
+ BinaryTree (const BinaryTree& bt)
+void Insert (T item)
+ void Delete (T& item)
+void Purge ()
+ int Height ()
+void Traverse (TreeFunc tf, TraversalPath path)
