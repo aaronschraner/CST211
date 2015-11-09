@@ -1,7 +1,7 @@
 CC=g++
 CFLAGS=-std=c++11 
-CPPFILES=*.cpp
-HFILES=*.h 
+CPPFILES=main.cpp 
+HFILES=BinaryTree.h BinaryTree_impl.h TreeNode.h TreeNode_impl.h 
 EXE=tree
 
 $(EXE):$(CPPFILES) $(HFILES) Makefile

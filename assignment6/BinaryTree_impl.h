@@ -1,7 +1,7 @@
 /********************************************************************************
  * Author:            Aaron Schraner
  * Date Created:      November  6, 2015
- * Last Modified:     November  6, 2015
+ * Last Modified:     November  8, 2015
  * Assignment number: 6
  * Filename:          BinaryTree_impl.h
  * 
@@ -65,7 +65,7 @@ BinaryTree<T>::~BinaryTree ()
 template < typename T >
 BinaryTree<T>::BinaryTree (const BinaryTree& bt)
 {
-	root = root ? bt.root -> deepCopy() : 0;
+	root = bt.root ? bt.root -> deepCopy() : 0;
 }
 
 /********************************************************************************
@@ -106,7 +106,10 @@ void BinaryTree<T>::Insert (T item)
 template < typename T >
 void BinaryTree<T>::Delete (T item)
 {
-	//TODO
+	if(!root)
+		return;
+	root->remove(item);
+	
 }
 
 /********************************************************************************

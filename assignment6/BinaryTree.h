@@ -1,7 +1,7 @@
 /********************************************************************************
  * Author:            Aaron Schraner
  * Date Created:      November  6, 2015
- * Last Modified:     November  6, 2015
+ * Last Modified:     November  8, 2015
  * Assignment number: 6
  * Filename:          BinaryTree.h
  * 
@@ -44,7 +44,7 @@ template < typename T >
 class BinaryTree
 {
 	private:
-		//TODO: add member variables
+		//tree's root node
 		TreeNode<T>* root;
 
 	public:
@@ -78,10 +78,10 @@ class BinaryTree
 		//types of traversals that can be passed to Traverse()
 		enum TraversalPath
 		{
-			_InOrder,
-			_PreOrder,
-			_PostOrder,
-			_BreadthFirst
+			_InOrder = 0,
+			_PreOrder = 1,
+			_PostOrder = 2,
+			_BreadthFirst = 3
 		};
 		//breadth-first traversal algorithm
 

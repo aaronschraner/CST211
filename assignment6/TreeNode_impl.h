@@ -1,7 +1,7 @@
 /********************************************************************************
  * Author:            Aaron Schraner
  * Date Created:      November  6, 2015
- * Last Modified:     November  6, 2015
+ * Last Modified:     November  8, 2015
  * Assignment number: 6
  * Filename:          TreeNode_impl.h
  * 
@@ -15,6 +15,7 @@
 #include <iostream>
 #include <vector>
 
+//generic swap function
 template <typename T >
 void swap(T& lhs, T& rhs)
 {
@@ -57,8 +58,11 @@ TreeNode<T>::TreeNode(T value):
 template < typename T >
 TreeNode<T>::~TreeNode ()
 {
+	//delete right child if present
 	if(right)
 		delete right;
+
+	//delete left child if present
 	if(left)
 		delete left;
 }
@@ -78,6 +82,7 @@ TreeNode<T>::~TreeNode ()
 template < typename T >
 void TreeNode<T>::insert(T newval)
 {
+	//initial construction
 	if (newval > value)
 		if (right)
 			right->insert(newval);
@@ -89,8 +94,10 @@ void TreeNode<T>::insert(T newval)
 		else
 			left = new TreeNode(newval);
 
+	//handles conditions where values are inserted out of order
 	if (left && left->value > value)
 		swap(left->value, value);
+
 	if(right && right->value < value)
 		swap(right->value, value);
 }
@@ -106,44 +113,101 @@ void TreeNode<T>::insert(T newval)
  * 	Exit: 
  * 		removes the node and exits
  * 		does not throw exception if node is not found
- * 		TODO: actually implement
+ * 		TODO: fix segfault problem
  * 	
  ********************************************************************************/
 template < typename T >
-void TreeNode<T>::remove(T rmval)
+void TreeNode<T>::remove(T rmval, TreeNode<T>* parent )
 {
-	//TODO
-	if (numChildren() == 0)
-		return this;
-	if (numChildren() == 1)
+	//DOES NOT WORK
+	if(rmval < value && left)
+		left->remove(rmval,this);
+	else if(rmval > value && right)
+		right->remove(rmval,this);
+	else
 	{
-		if(right)
+		if(left && right)
 		{
-			TreeNode<T>* rptr = right;
-			value = right->value;
-			left = right->left;
-			right = right->right;
-			rptr -> left = 0;
-			rptr -> right = 0;
-			delete rptr;
+			TreeNode<T>* successor = right->leastChild();
+			value = successor->value;
+			successor->remove(value);
 		}
 		else if(left)
-		{
-			TreeNode<T>* lptr = left;
-			value = left->value;
-			right = left->right;
-			right = right->right;
-			lptr -> right = 0;
-			lptr -> left = 0;
-			delete lptr;
-		}
+			replaceInParent(this,left);
+		else if(right)
+			replaceInParent(this,right);
+		else
+			replaceInParent(parent,0);
+
 	}
 }
 
+template <typename T>
+void TreeNode<T>::replaceInParent(TreeNode<T>* parent,TreeNode<T>* newval)
+{
+	if(parent)
+	{
+		if(this==parent->left)
+			parent->left = newval;
+		else
+			parent->right = newval;
+	}
+}
+
+//template <typename T>
+//void TreeNode<T>::remove(TreeNode<T>* parent, TreeNode<T>* child)
+//{
+//	TreeNode<T>* &childref = parent->left == child ? parent->left : parent->right;
+//	switch(child->numChildren())
+//	{
+//		case 0:
+//			std::cout << "removing node with no children" << std::endl;
+//			childref=0;
+//			delete child;
+//
+//			break;
+//
+//		case 1:
+//			std::cout << "removing node with one child" << std::endl;
+//			{
+//				TreeNode<T>* &childref = parent->left == child ? parent->left : parent->right;
+//				if(child->left)
+//				{
+//					childref = child->left;
+//					child->left = 0;
+//				}
+//				else
+//				{
+//					childref = child->right;
+//					child->right = 0;
+//				}
+//				delete child;
+//			}
+//			break;
+//		case 2:
+//			{
+//				TreeNode<T>* successor = child->right->leastChild()
+//			}
+//	}	
+//	std::cout << "leaving remove(parent,child)\n";
+//}
+
+template <typename T>
+TreeNode<T>* TreeNode<T>::findParent(TreeNode<T>* child)
+{
+	if(right == child || left == child)
+		return this;
+	if(child->value < value)
+		return right->findParent(child);
+	if(child->value > value)
+		return left->findParent(child);
+	std::cout << "FAILED TO FIND PARENT" << std::endl;
+	return 0;
+}
 /********************************************************************************
  * TreeNode<T>* greatestChild();
  * 	Purpose: 
- * 		Find the greatest child of a node recursively
+ * 		Find the parent of the greatest child of a node recursively
  * 	
  * 	Entry: 
  * 		nothing
@@ -153,12 +217,14 @@ void TreeNode<T>::remove(T rmval)
  * 	
  ********************************************************************************/
 template <typename T>
-TreeNode<T>* TreeNode<T>::greatestChild()
+TreeNode<T>* TreeNode<T>::greatestChildsParent()
 {
-	if(right)
-		return right->greatestChild();
-	else
+	if(right && !right->right)
 		return this;
+	else if(right)
+		return right->greatestChildsParent();
+	std::cout << "No GCP found\n";
+	return 0;
 }
 
 /********************************************************************************
@@ -185,8 +251,7 @@ TreeNode<T>* TreeNode<T>::leastChild()
 /********************************************************************************
  * int numChildren() const;
  * 	Purpose: 
- * 		Find the number of children a node jas
- * 		TODO: fix typo
+ * 		Find the number of children a node has
  * 	
  * 	Entry: 
  * 		nothing
@@ -219,11 +284,16 @@ int TreeNode<T>::numChildren() const
 template <typename T>
 void TreeNode<T>::display(std::ostream& os, int tablevel, NodeRelationship NR)
 {
+	//each bit is one indent
 	static unsigned long pipes=0;
+
+
+	//display in-order
+	//right children first
 	if(right)
-	{
 		right->display(os,tablevel+1, _right);
-	}
+
+	//used to explicitly display null children
 	else if(0)
 	{
 		for(int i=0; i<tablevel + 1; i++)
@@ -235,21 +305,24 @@ void TreeNode<T>::display(std::ostream& os, int tablevel, NodeRelationship NR)
 		pipes |= 1<<tablevel;
 	else
 		pipes &= ~(1<<tablevel);
+
+	//indent with pipes where necessary
 	for(int i=0; i<tablevel; i++)
 		os << (pipes&1<<i?"|   ":"    ");
 
+	//display a thing to graphically draw the tree better
 	switch(NR)
 	{
 		case _right: os << "/```";  break;
 		case _left:  os << "\\___"; break;
 		case _root:  os << "----";	 break;
 	}
+
+	//display the value of the node
 	os << value << std::endl;
 
 	if(left)
-	{
 		left->display(os,tablevel+1, _left);
-	}
 	else if(0)
 	{
 		for(int i=0; i<tablevel + 1; i++)
@@ -316,23 +389,21 @@ TreeNode<T>* TreeNode<T>::find(T key)
  * TreeNode(const TreeNode<T>& tn);
  * 	Purpose: 
  * 		Copy constructor for tree node
- * 		I was originally going to make this a deep copy but I didn't want
- * 		to accidentally invoke it and copy the entire tree.
- * 		See deepCopy() if you want deep copying.
+ *		(does a deep copy)
  * 	
  * 	Entry: 
  * 		tn: the tree node to be copied
  * 	
  * 	Exit: 
- * 		returns an exact copy of <tn>
- * 		(pointers point to the same spot, don't ever use this or you could
- * 		get a double-free.)
+ * 		returns an exact copy of <tn>'s tree
  * 	
  ********************************************************************************/
 template <typename T>
 TreeNode<T>::TreeNode(const TreeNode<T>& tn):
-	value(tn.value), right(tn.right), left(tn.left)
+	value (tn.value)
 {
+	left = tn.left ? tn.left->deepCopy() : 0;
+	right = tn.right ? tn.right->deepCopy():0;
 }
 
 /********************************************************************************
