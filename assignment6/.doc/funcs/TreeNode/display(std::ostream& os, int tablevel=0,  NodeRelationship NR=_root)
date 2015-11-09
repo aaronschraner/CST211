@@ -1,0 +1,14 @@
+/********************************************************************************
+ * void display(std::ostream& os, int tablevel=0,  NodeRelationship NR=_root);
+ * 	Purpose: 
+ * 		Recursively display a tree node and all its children
+ * 	
+ * 	Entry: 
+ * 		os: the output stream object to print to
+ * 		tablevel: the number of indents to put before drawing the value and children
+ * 		NR: an enum corresponding to if this is a left child, right child, or root node.
+ * 	
+ * 	Exit: 
+ * 		displays the node's tree of children
+ * 	
+ ********************************************************************************/

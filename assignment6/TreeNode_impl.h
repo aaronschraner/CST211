@@ -13,6 +13,7 @@
 #define MAX(x,y) ((x > y) ? (x) : (y))
 #endif
 #include <iostream>
+#include <vector>
 
 template <typename T >
 void swap(T& lhs, T& rhs)
@@ -22,14 +23,37 @@ void swap(T& lhs, T& rhs)
 	rhs=temp;
 }
 
-//TODO: make method comment blocks
+/********************************************************************************
+ * TreeNode(T value);
+ * 	Purpose: 
+ * 		Construct a tree node with no left or right children and this value
+ * 	
+ * 	Entry: 
+ * 		value: the value that the new TreeNode should have
+ * 	
+ * 	Exit: 
+ * 		constructs the node
+ * 	
+ ********************************************************************************/
 template < typename T >
 TreeNode<T>::TreeNode(T value):
 	left(0), right(0), value(value)
 {
 }
 
-//TODO: make method comment blocks
+/********************************************************************************
+ * ~TreeNode ();
+ * 	Purpose: 
+ * 		Destructor for tree node
+ * 		recursively deletes children
+ * 	
+ * 	Entry: 
+ * 		nothing
+ * 	
+ * 	Exit: 
+ * 		destructs node and children
+ * 	
+ ********************************************************************************/
 template < typename T >
 TreeNode<T>::~TreeNode ()
 {
@@ -39,7 +63,18 @@ TreeNode<T>::~TreeNode ()
 		delete left;
 }
 
-//TODO: make method comment blocks
+/********************************************************************************
+ * void insert(T newval);
+ * 	Purpose: 
+ * 		Recursively insert a value into the search tree
+ * 	
+ * 	Entry: 
+ * 		newval: the value to be inserted
+ * 	
+ * 	Exit: 
+ * 		returns nothing
+ * 	
+ ********************************************************************************/
 template < typename T >
 void TreeNode<T>::insert(T newval)
 {
@@ -60,9 +95,20 @@ void TreeNode<T>::insert(T newval)
 		swap(right->value, value);
 }
 
-//TODO: make method comment blocks
-//
-//return true if node should be deleted, false if it shouldn't.
+/********************************************************************************
+ * void remove (T rmval);
+ * 	Purpose: 
+ * 		Recursively remove a value from the node
+ * 	
+ * 	Entry: 
+ * 		rmval: the value to be removed (first instance)
+ * 	
+ * 	Exit: 
+ * 		removes the node and exits
+ * 		does not throw exception if node is not found
+ * 		TODO: actually implement
+ * 	
+ ********************************************************************************/
 template < typename T >
 void TreeNode<T>::remove(T rmval)
 {
@@ -94,6 +140,18 @@ void TreeNode<T>::remove(T rmval)
 	}
 }
 
+/********************************************************************************
+ * TreeNode<T>* greatestChild();
+ * 	Purpose: 
+ * 		Find the greatest child of a node recursively
+ * 	
+ * 	Entry: 
+ * 		nothing
+ * 	
+ * 	Exit: 
+ * 		returns a pointer to the greatest child
+ * 	
+ ********************************************************************************/
 template <typename T>
 TreeNode<T>* TreeNode<T>::greatestChild()
 {
@@ -103,6 +161,18 @@ TreeNode<T>* TreeNode<T>::greatestChild()
 		return this;
 }
 
+/********************************************************************************
+ * TreeNode<T>* leastChild();
+ * 	Purpose: 
+ * 		finds the child of this node with least value recursively
+ * 	
+ * 	Entry: 
+ * 		nothing
+ * 	
+ * 	Exit: 
+ * 		returns a pointer to the least child
+ * 	
+ ********************************************************************************/
 template <typename T>
 TreeNode<T>* TreeNode<T>::leastChild()
 {
@@ -112,6 +182,19 @@ TreeNode<T>* TreeNode<T>::leastChild()
 		return this;
 }
 
+/********************************************************************************
+ * int numChildren() const;
+ * 	Purpose: 
+ * 		Find the number of children a node jas
+ * 		TODO: fix typo
+ * 	
+ * 	Entry: 
+ * 		nothing
+ * 	
+ * 	Exit: 
+ * 		returns the number of children (0, 1, or 2)
+ * 	
+ ********************************************************************************/
 template <typename T>
 int TreeNode<T>::numChildren() const
 {
@@ -119,6 +202,20 @@ int TreeNode<T>::numChildren() const
 }
 
 
+/********************************************************************************
+ * void display(std::ostream& os, int tablevel=0,  NodeRelationship NR=_root);
+ * 	Purpose: 
+ * 		Recursively display a tree node and all its children
+ * 	
+ * 	Entry: 
+ * 		os: the output stream object to print to
+ * 		tablevel: the number of indents to put before drawing the value and children
+ * 		NR: an enum corresponding to if this is a left child, right child, or root node.
+ * 	
+ * 	Exit: 
+ * 		displays the node's tree of children
+ * 	
+ ********************************************************************************/
 template <typename T>
 void TreeNode<T>::display(std::ostream& os, int tablevel, NodeRelationship NR)
 {
@@ -162,7 +259,20 @@ void TreeNode<T>::display(std::ostream& os, int tablevel, NodeRelationship NR)
 	}
 }
 
-//deep copy
+/********************************************************************************
+ * TreeNode<T>* deepCopy() const;
+ * 	Purpose: 
+ * 		Dynamically allocate and create a deep copy of this tree.
+ * 		This was originally going to be part of the copy constructor but
+ * 		I didn't want to accidentally invoke it and copy the whole tree
+ * 	
+ * 	Entry: 
+ * 		Copies all elements and children of <this>
+ * 	
+ * 	Exit: 
+ * 		Returns a pointer to the new dynamic tree
+ * 	
+ ********************************************************************************/
 template <typename T>
 TreeNode<T>* TreeNode<T>::deepCopy() const
 {
@@ -172,6 +282,20 @@ TreeNode<T>* TreeNode<T>::deepCopy() const
 	return newNode;
 }
 
+/********************************************************************************
+ * TreeNode<T>* find(T key) ;
+ * 	Purpose: 
+ * 		Find the first instance of an element in the tree that matches <key>.
+ * 		Then return a pointer to the node that contains it.
+ * 	
+ * 	Entry: 
+ * 		key: the value to search for
+ * 	
+ * 	Exit: 
+ * 		Returns a pointer to the key's containing node if it is found
+ * 		otherwise returns NULLPTR
+ * 	
+ ********************************************************************************/
 template <typename T>
 TreeNode<T>* TreeNode<T>::find(T key)
 {
@@ -188,13 +312,41 @@ TreeNode<T>* TreeNode<T>::find(T key)
 	return 0;
 }
 
-//shallow copy
+/********************************************************************************
+ * TreeNode(const TreeNode<T>& tn);
+ * 	Purpose: 
+ * 		Copy constructor for tree node
+ * 		I was originally going to make this a deep copy but I didn't want
+ * 		to accidentally invoke it and copy the entire tree.
+ * 		See deepCopy() if you want deep copying.
+ * 	
+ * 	Entry: 
+ * 		tn: the tree node to be copied
+ * 	
+ * 	Exit: 
+ * 		returns an exact copy of <tn>
+ * 		(pointers point to the same spot, don't ever use this or you could
+ * 		get a double-free.)
+ * 	
+ ********************************************************************************/
 template <typename T>
 TreeNode<T>::TreeNode(const TreeNode<T>& tn):
 	value(tn.value), right(tn.right), left(tn.left)
 {
 }
 
+/********************************************************************************
+ * int Height(TreeNode<T>* tn) const;
+ * 	Purpose: 
+ * 		Recursively determine the height of the tree's tallest branch
+ * 	
+ * 	Entry: 
+ * 		tn: used for recursion purposes (call Height(root) to find height of tree)
+ * 	
+ * 	Exit: 
+ * 		Returns the height of the tallest branch
+ * 	
+ ********************************************************************************/
 template <typename T>
 int TreeNode<T>::Height(TreeNode<T>* node) const
 {
@@ -203,6 +355,19 @@ int TreeNode<T>::Height(TreeNode<T>* node) const
 	return 1 + MAX(Height(node->left), Height(node->right));
 }
 
+/********************************************************************************
+ * void InOrderTraverse(TreeFunc tf);
+ * 	Purpose: 
+ * 		Traverse the tree in sorted order from least to greatest, executing
+ * 		<tf> on each node.
+ * 	
+ * 	Entry: 
+ * 		tf: the function to be executed on each node
+ * 	
+ * 	Exit: 
+ * 		returns nothing
+ * 	
+ ********************************************************************************/
 template <typename T> 
 void TreeNode<T>::InOrderTraverse(TreeFunc tf)
 {
@@ -215,6 +380,18 @@ void TreeNode<T>::InOrderTraverse(TreeFunc tf)
 	
 }
 
+/********************************************************************************
+ * void PostOrderTraverse(TreeFunc tf);
+ * 	Purpose: 
+ * 		Traverse the tree in post-order, executing <tf> on each node
+ * 	
+ * 	Entry: 
+ * 		tf: the function to be executed on each node
+ * 	
+ * 	Exit: 
+ * 		returns nothing
+ * 	
+ ********************************************************************************/
 template <typename T> 
 void TreeNode<T>::PostOrderTraverse(TreeFunc tf)
 {
@@ -226,6 +403,18 @@ void TreeNode<T>::PostOrderTraverse(TreeFunc tf)
 
 }
 
+/********************************************************************************
+ * void PreOrderTraverse(TreeFunc tf);
+ * 	Purpose: 
+ * 		Traverse the list in pre-order, firing arrows at each node
+ * 	
+ * 	Entry: 
+ * 		tf: the function to be executed on each node
+ * 	
+ * 	Exit: 
+ * 		returns nothing
+ * 	
+ ********************************************************************************/
 template <typename T> 
 void TreeNode<T>::PreOrderTraverse(TreeFunc tf)
 {
@@ -236,6 +425,45 @@ void TreeNode<T>::PreOrderTraverse(TreeFunc tf)
 		right->PreOrderTraverse(tf);
 }
 
+/********************************************************************************
+ * void BreadthFirstTraverse(TreeFunc tf);
+ * 	Purpose: 
+ * 		Traverse the tree under this node breadth-first,
+ * 		executing <tf> on each node in that order
+ * 	
+ * 	Entry: 
+ * 		tf: the function to be executed on each node
+ * 		this: should be the root node of the tree
+ * 		(root->BreadthFirstTraverse(tf))
+ * 	
+ * 	Exit: 
+ * 		returns nothing
+ * 	
+ ********************************************************************************/
+template <typename T> 
+void TreeNode<T>::BreadthFirstTraverse(TreeFunc tf)
+{
+	//this is so bad
+	int height=Height(this);
+	std::vector<TreeNode<T>*>* values= new std::vector<TreeNode<T>*> [height];
+	values[0].push_back(this);
+	for(int level = 1; level < height; level++)
+	{
+		for(int i = 0; i < values[level-1].size(); i++)
+		{
+			TreeNode<T>* ptr = values[level-1][i];
+			if(ptr->left)
+				values[level].push_back(ptr->left);
+			if(ptr->right)
+				values[level].push_back(ptr->right);
+		}
+	}
+
+	for(int level=0; level < height; level++)
+		for(int x=0; x < values[level].size(); x++)
+			tf(*(values[level][x]));
+
+}
 
 #endif
 

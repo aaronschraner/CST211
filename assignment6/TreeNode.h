@@ -38,16 +38,16 @@ enum NodeRelationship
 template < typename T >
 class TreeNode
 {
-    private:
-        //TODO: add member variables
+	private:
+		//TODO: add member variables
 		typedef void(*TreeFunc)(TreeNode<T>&);
 
-    public:
+	public:
 		TreeNode<T>* left;
 		TreeNode<T>* right;
 		T value;
-        //TODO: brief description
-        TreeNode(T value);
+		//TODO: brief description
+		TreeNode(T value);
 		TreeNode(const TreeNode<T>&);
 
 		TreeNode<T>* deepCopy() const;
@@ -56,23 +56,24 @@ class TreeNode
 		TreeNode<T>* greatestChild();
 		TreeNode<T>* leastChild();
 		int Height(TreeNode<T>* tn) const;
-		
+
 		const T& getValue() const { return value; }
 		int numChildren() const;
 
-        //TODO: brief description
-        ~TreeNode ();
+		//TODO: brief description
+		~TreeNode ();
 
-        //TODO: brief description
-        void insert(T newval);
+		//TODO: brief description
+		void insert(T newval);
 
-        //TODO: brief description
-        void remove (T rmval);
+		//TODO: brief description
+		void remove (T rmval);
 		void display(std::ostream& os, int tablevel=0,  NodeRelationship NR=_root);
 
 		void InOrderTraverse(TreeFunc tf);
 		void PostOrderTraverse(TreeFunc tf);
 		void PreOrderTraverse(TreeFunc tf);
+		void BreadthFirstTraverse(TreeFunc tf);
 
 };
 #include "TreeNode_impl.h"

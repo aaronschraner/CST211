@@ -1,0 +1,12 @@
+/********************************************************************************
+ * TreeNode<T>* leastChild();
+ * 	Purpose: 
+ * 		finds the child of this node with least value recursively
+ * 	
+ * 	Entry: 
+ * 		nothing
+ * 	
+ * 	Exit: 
+ * 		returns a pointer to the least child
+ * 	
+ ********************************************************************************/

@@ -215,9 +215,12 @@ mkclass()
 #}
 #mkclass
 
-for class in Iterator Node LinkedList
+pwd
+for class in BinaryTree TreeNode
 do
-	mkdir -p .doc/funcs/$class; cat "${class}.h" | grep -o "^\t*.*(.*).*;" | sed "s/^\t\t//g" | while read x; do echo -e "$x" > ".doc/funcs/$class/$(echo "$x" | grep -o "[\~a-zA-Z_=*+\-]* \?(.*) \(const\)\?")"; done
+	mkdir -p .doc/funcs/$class; cat "${class}.h" | 
+	grep -o "^\t*.*(.*).*;" | 
+	sed "s/^\t\t//g" | while read x; do echo -e "$x" > ".doc/funcs/$class/$(echo "$x" | grep -Eo "[\~a-zA-Z_\=\*\+\-]* \?\(.*\)( const)\?")"; done
 done
 
 for x in .doc/funcs/*/*

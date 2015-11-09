@@ -1,0 +1,12 @@
+/********************************************************************************
+ * BinaryTree (const BinaryTree& bt);
+ * 	Purpose: 
+ * 		Copy constructor for binary tree
+ * 	
+ * 	Entry: 
+ * 		bt: the tree being copied
+ * 	
+ * 	Exit: 
+ * 		An exact deep copy of <bt>
+ * 	
+ ********************************************************************************/

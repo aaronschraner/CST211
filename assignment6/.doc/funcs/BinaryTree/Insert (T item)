@@ -1,0 +1,13 @@
+/********************************************************************************
+ * void Insert (T item);
+ * 	Purpose: 
+ * 		Insert an item into the tree where it belongs
+ * 		note: does not attempt to balance tree.
+ * 	
+ * 	Entry: 
+ * 		item: the item to be inserted into the tree
+ * 	
+ * 	Exit: 
+ * 		returns nothing
+ * 	
+ ********************************************************************************/

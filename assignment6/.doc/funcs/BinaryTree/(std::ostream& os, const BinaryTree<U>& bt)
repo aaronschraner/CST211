@@ -1,0 +1,11 @@
+/********************************************************************************
+ * friend std::ostream& operator<<(std::ostream& os, const BinaryTree<U>& bt);
+ * 	Purpose: 
+ * 		Stream output operator for binary tree class
+ * 		calls display on root node
+ * 	
+ * 	Entry: 
+ * 	
+ * 	Exit: 
+ * 	
+ ********************************************************************************/

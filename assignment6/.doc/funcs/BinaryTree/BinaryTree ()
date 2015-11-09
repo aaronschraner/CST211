@@ -1,0 +1,13 @@
+/********************************************************************************
+ * BinaryTree ();
+ * 	Purpose: 
+ * 		Default constructor for binary tree.
+ * 		Initializes root node to NULLPTR
+ * 	
+ * 	Entry: 
+ * 		takes no parameters
+ * 	
+ * 	Exit: 
+ * 		creates an empty tree
+ * 	
+ ********************************************************************************/

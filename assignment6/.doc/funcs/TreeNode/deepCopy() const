@@ -1,0 +1,14 @@
+/********************************************************************************
+ * TreeNode<T>* deepCopy() const;
+ * 	Purpose: 
+ * 		Dynamically allocate and create a deep copy of this tree.
+ * 		This was originally going to be part of the copy constructor but
+ * 		I didn't want to accidentally invoke it and copy the whole tree
+ * 	
+ * 	Entry: 
+ * 		Copies all elements and children of <this>
+ * 	
+ * 	Exit: 
+ * 		Returns a pointer to the new dynamic tree
+ * 	
+ ********************************************************************************/

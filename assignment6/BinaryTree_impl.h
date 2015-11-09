@@ -8,17 +8,40 @@
  ********************************************************************************/
 #ifndef BINARYTREE_IMPL_H
 #define BINARYTREE_IMPL_H
-#include <vector>
 
 
-//TODO: make method comment blocks
+/********************************************************************************
+ * BinaryTree ();
+ * 	Purpose: 
+ * 		Default constructor for binary tree.
+ * 		Initializes root node to NULLPTR
+ * 	
+ * 	Entry: 
+ * 		takes no parameters
+ * 	
+ * 	Exit: 
+ * 		creates an empty tree
+ * 	
+ ********************************************************************************/
 template < typename T >
 BinaryTree<T>::BinaryTree ():
 	root(0)
 {
 }
 
-//TODO: make method comment blocks
+/********************************************************************************
+ * ~BinaryTree ();
+ * 	Purpose: 
+ * 		Destructor for binary tree
+ * 		Uses recursive tree node destructor for root node
+ * 	
+ * 	Entry: 
+ * 		no parameters
+ * 	
+ * 	Exit: 
+ * 		destructed tree
+ * 	
+ ********************************************************************************/
 template < typename T >
 BinaryTree<T>::~BinaryTree ()
 {
@@ -27,14 +50,37 @@ BinaryTree<T>::~BinaryTree ()
 		delete root;
 }
 
-//TODO: make method comment blocks
+/********************************************************************************
+ * BinaryTree (const BinaryTree& bt);
+ * 	Purpose: 
+ * 		Copy constructor for binary tree
+ * 	
+ * 	Entry: 
+ * 		bt: the tree being copied
+ * 	
+ * 	Exit: 
+ * 		An exact deep copy of <bt>
+ * 	
+ ********************************************************************************/
 template < typename T >
 BinaryTree<T>::BinaryTree (const BinaryTree& bt)
 {
 	root = root ? bt.root -> deepCopy() : 0;
 }
 
-//TODO: make method comment blocks
+/********************************************************************************
+ * void Insert (T item);
+ * 	Purpose: 
+ * 		Insert an item into the tree where it belongs
+ * 		note: does not attempt to balance tree.
+ * 	
+ * 	Entry: 
+ * 		item: the item to be inserted into the tree
+ * 	
+ * 	Exit: 
+ * 		returns nothing
+ * 	
+ ********************************************************************************/
 template < typename T >
 void BinaryTree<T>::Insert (T item)
 {
@@ -44,14 +90,39 @@ void BinaryTree<T>::Insert (T item)
 		root = new TreeNode<T>(item);
 }
 
-//TODO: make method comment blocks
+/********************************************************************************
+ * void Delete (T item);
+ * 	Purpose: 
+ * 		Delete an item from the tree
+ * 		(TODO)
+ * 	
+ * 	Entry: 
+ * 		item: the item to be searched for and removed from the tree
+ * 	
+ * 	Exit: 
+ * 		returns nothing
+ * 	
+ ********************************************************************************/
 template < typename T >
 void BinaryTree<T>::Delete (T item)
 {
 	//TODO
 }
 
-//TODO: make method comment blocks
+/********************************************************************************
+ * void Purge ();
+ * 	Purpose: 
+ * 		Delete all nodes from the tree using the recursive node deconstructor
+ * 		Then set root equal to NULLPTR
+ * 	
+ * 	Entry: 
+ * 		no parameters
+ * 	
+ * 	Exit: 
+ * 		returns nothing
+ * 		just empties the tree
+ * 	
+ ********************************************************************************/
 template < typename T >
 void BinaryTree<T>::Purge ()
 {
@@ -59,13 +130,44 @@ void BinaryTree<T>::Purge ()
 	root=0;
 }
 
+/********************************************************************************
+ * int Height () const;
+ * 	Purpose: 
+ * 		Find the height of the tallest branch of the tree
+ * 	
+ * 	Entry: 
+ * 		no parameters
+ * 	
+ * 	Exit: 
+ * 		returns the height of the tallest tree branch
+ * 	
+ ********************************************************************************/
 template <typename T>
 int BinaryTree<T>::Height() const
 {
 	return root->Height(root);
 }
 
-//TODO: make method comment blocks
+/********************************************************************************
+ * void Traverse (TreeFunc tf, TraversalPath path);
+ * 	Purpose: 
+ * 		Traverse the entire tree in the path specified by TraversalPath,
+ * 		executing <tf> on each TreeNode in the tree.
+ * 		Available traversal options are:
+ * 		- In-order (BinaryTree::_InOrder)
+ * 		- Pre-order (BinaryTree::_PreOrder)
+ * 		- Post-order (BinaryTree::_PostOrder)
+ * 		- Breadth first (BinaryTree::_BreadthFirst)
+ * 		The actual traversal methods are defined in TreeNode_impl.h
+ * 	
+ * 	Entry: 
+ * 		tf: the function (void (TreeNode<T>&)) to be executed on each element in the tree
+ * 		path: the path the function should go in when executing.
+ * 	
+ * 	Exit: 
+ * 		returns nothing
+ * 	
+ ********************************************************************************/
 template < typename T >
 void BinaryTree<T>::Traverse (TreeFunc tf, TraversalPath path)
 {
@@ -76,17 +178,41 @@ void BinaryTree<T>::Traverse (TreeFunc tf, TraversalPath path)
 		case BinaryTree::_InOrder: root->InOrderTraverse(tf); break;
 		case BinaryTree::_PreOrder: root->PreOrderTraverse(tf); break;
 		case BinaryTree::_PostOrder: root->PostOrderTraverse(tf); break;
-		case BinaryTree::_BreadthFirst: BreadthFirstTraverse(tf,root); break;
+		case BinaryTree::_BreadthFirst: root->BreadthFirstTraverse(tf); break;
 	}
 
 }
 
+/********************************************************************************
+ * TreeNode<T>* find(T value);
+ * 	Purpose: 
+ * 		Find the first node in the tree containing the specified value
+ * 	
+ * 	Entry: 
+ * 		value: the item to be searched for
+ * 	
+ * 	Exit: 
+ * 		Returns a pointer to the node containing that value
+ * 		(NULLPTR if not found)
+ * 	
+ ********************************************************************************/
 template < typename T >
 TreeNode<T>* BinaryTree<T>::find(T value)
 {
 	return root->find(value);
 }
 
+/********************************************************************************
+ * friend std::ostream& operator<<(std::ostream& os, const BinaryTree<U>& bt);
+ * 	Purpose: 
+ * 		Stream output operator for binary tree class
+ * 		calls display on root node
+ * 	
+ * 	Entry: 
+ * 	
+ * 	Exit: 
+ * 	
+ ********************************************************************************/
 template <typename T>
 std::ostream& operator<<(std::ostream& os, const BinaryTree<T>& bs)
 {
@@ -95,31 +221,5 @@ std::ostream& operator<<(std::ostream& os, const BinaryTree<T>& bs)
 	return os;
 }
 
-template <typename T> 
-void BinaryTree<T>::BreadthFirstTraverse(TreeFunc tf, TreeNode<T>* node)
-{
-	//this is so bad
-	std::vector<TreeNode<T>*>* values= new std::vector<TreeNode<T>*> [Height()];
-	if(!root)
-		return;
-	std::cout << "assigned [0][0] to root" << std::endl;
-	values[0].push_back(root);
-	for(int level = 1; level < Height(); level++)
-	{
-		for(int i = 0; i < values[level-1].size(); i++)
-		{
-			TreeNode<T>* ptr = values[level-1][i];
-			if(ptr->left)
-				values[level].push_back(ptr->left);
-			if(ptr->right)
-				values[level].push_back(ptr->right);
-		}
-	}
-
-	for(int level=0; level < Height(); level++)
-		for(int x=0; x < values[level].size(); x++)
-			tf(*(values[level][x]));
-
-}
 #endif
 

@@ -1,0 +1,12 @@
+/********************************************************************************
+ * int Height () const;
+ * 	Purpose: 
+ * 		Find the height of the tallest branch of the tree
+ * 	
+ * 	Entry: 
+ * 		no parameters
+ * 	
+ * 	Exit: 
+ * 		returns the height of the tallest tree branch
+ * 	
+ ********************************************************************************/

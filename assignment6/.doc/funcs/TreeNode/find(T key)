@@ -1,0 +1,14 @@
+/********************************************************************************
+ * TreeNode<T>* find(T key) ;
+ * 	Purpose: 
+ * 		Find the first instance of an element in the tree that matches <key>.
+ * 		Then return a pointer to the node that contains it.
+ * 	
+ * 	Entry: 
+ * 		key: the value to search for
+ * 	
+ * 	Exit: 
+ * 		Returns a pointer to the key's containing node if it is found
+ * 		otherwise returns NULLPTR
+ * 	
+ ********************************************************************************/

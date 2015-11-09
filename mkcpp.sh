@@ -200,33 +200,36 @@ mkclass()
 
 }
 
-echo -ne "Is this a lab or assignment?\n> "
-{
-
-	read resp
-	if [[ $resp =~ ^[lL] ]]
-	then
-		echo -ne "What is the name/number of this lab?\n> "
-		read labno
-	else
-		echo -ne "What is the name/number of this assignment?\n> "
-		read assno
-	fi
-}
-mkclass
-
-#for class in 
-#do
-#	mkdir -p .doc/funcs/$class; cat "${class}.h" | grep -o "^\t*.*(.*).*;" | sed "s/^\t\t//g" | while read x; do echo -e "$x" > ".doc/funcs/$class/$(echo "$x" | grep -o "[\~a-zA-Z_=*+\-]* \?(.*) \(const\)\?")"; done
-#done
+#echo -ne "Is this a lab or assignment?\n> "
+#{
 #
-#for x in .doc/funcs/*/*
-#do
-#	sig="$(cat "$x")"
-#	echo "Documentation for $sig"
-#	openheader > "$x"
-#	echo " * $sig" >> "$x"
-#	ioheader "$x" Purpose Entry Exit
-#	closeheader >> "$x"
-#done
+#	read resp
+#	if [[ $resp =~ ^[lL] ]]
+#	then
+#		echo -ne "What is the name/number of this lab?\n> "
+#		read labno
+#	else
+#		echo -ne "What is the name/number of this assignment?\n> "
+#		read assno
+#	fi
+#}
+#mkclass
+
+pwd
+for class in BinaryTree TreeNode
+do
+	mkdir -p .doc/funcs/$class; cat "${class}.h" | 
+	grep -o "^\t*.*(.*).*;" | 
+	sed "s/^\t\t//g" | while read x; do echo -e "$x" > ".doc/funcs/$class/$(echo "$x" | grep -Eo "\~?[a-zA-Z_]*[\=\+\-]? ?\(.*\)( const)?")"; done
+done
+
+for x in .doc/funcs/*/*
+do
+	sig="$(cat "$x")"
+	echo "Documentation for $sig"
+	openheader > "$x"
+	echo " * $sig" >> "$x"
+	ioheader "$x" Purpose Entry Exit
+	closeheader >> "$x"
+done
 

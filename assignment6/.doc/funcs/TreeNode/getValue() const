@@ -1,0 +1,12 @@
+/********************************************************************************
+ * const T& getValue() const { return value;
+ * 	Purpose: 
+ * 		Return the value of the node
+ * 	
+ * 	Entry: 
+ * 		nothing
+ * 	
+ * 	Exit: 
+ * 		returns the node's value
+ * 	
+ ********************************************************************************/

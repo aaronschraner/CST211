@@ -1,0 +1,14 @@
+/********************************************************************************
+ * void Purge ();
+ * 	Purpose: 
+ * 		Delete all nodes from the tree using the recursive node deconstructor
+ * 		Then set root equal to NULLPTR
+ * 	
+ * 	Entry: 
+ * 		no parameters
+ * 	
+ * 	Exit: 
+ * 		returns nothing
+ * 		just empties the tree
+ * 	
+ ********************************************************************************/

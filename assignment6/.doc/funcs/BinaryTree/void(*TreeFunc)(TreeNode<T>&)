@@ -1,0 +1,10 @@
+/********************************************************************************
+ * typedef void(*TreeFunc)(TreeNode<T>&);
+ * 	Purpose: 
+ * 		Typedef for the functions that can be executed by Traverse()
+ * 	
+ * 	Entry: 
+ * 	
+ * 	Exit: 
+ * 	
+ ********************************************************************************/

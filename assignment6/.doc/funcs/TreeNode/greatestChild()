@@ -1,0 +1,12 @@
+/********************************************************************************
+ * TreeNode<T>* greatestChild();
+ * 	Purpose: 
+ * 		Find the greatest child of a node recursively
+ * 	
+ * 	Entry: 
+ * 		nothing
+ * 	
+ * 	Exit: 
+ * 		returns a pointer to the greatest child
+ * 	
+ ********************************************************************************/

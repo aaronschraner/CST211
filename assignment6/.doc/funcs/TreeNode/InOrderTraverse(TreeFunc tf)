@@ -1,0 +1,13 @@
+/********************************************************************************
+ * void InOrderTraverse(TreeFunc tf);
+ * 	Purpose: 
+ * 		Traverse the tree in sorted order from least to greatest, executing
+ * 		<tf> on each node.
+ * 	
+ * 	Entry: 
+ * 		tf: the function to be executed on each node
+ * 	
+ * 	Exit: 
+ * 		returns nothing
+ * 	
+ ********************************************************************************/

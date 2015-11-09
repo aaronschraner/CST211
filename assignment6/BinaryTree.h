@@ -43,33 +43,34 @@
 template < typename T >
 class BinaryTree
 {
-    private:
-        //TODO: add member variables
+	private:
+		//TODO: add member variables
 		TreeNode<T>* root;
 
-    public:
+	public:
+		// Typedef for the functions that can be executed by Traverse()
 		typedef void(*TreeFunc)(TreeNode<T>&);
 
 		//default constructor (creates empty tree)
-        BinaryTree ();
+		BinaryTree ();
 
 		//destructor (deletes everything from tree)
-        ~BinaryTree ();
+		~BinaryTree ();
 
-        //copy constructor (creates a copy of the tree)
-        BinaryTree (const BinaryTree& bt);
+		//copy constructor (creates a copy of the tree)
+		BinaryTree (const BinaryTree& bt);
 
-        //Insert (insert an item into the tree)
-        void Insert (T item);
+		//Insert (insert an item into the tree)
+		void Insert (T item);
 
-        //Delete (delete an item from the tree)
-        void Delete (T item);
+		//Delete (delete an item from the tree)
+		void Delete (T item);
 
 		//Purge all elements from the tree
-        void Purge ();
+		void Purge ();
 
-        //Find the height of the tree (recursively)
-        int Height () const;
+		//Find the height of the tree (recursively)
+		int Height () const;
 
 		//Find the first occurrence of a value in the tree
 		TreeNode<T>* find(T value);
@@ -82,14 +83,14 @@ class BinaryTree
 			_PostOrder,
 			_BreadthFirst
 		};
-		void BreadthFirstTraverse(TreeFunc tf, TreeNode<T>* node);
+		//breadth-first traversal algorithm
 
 		//Traverse a binary tree using the specified path, executing <tf> on each element.
-        void Traverse (TreeFunc tf, TraversalPath path);
-		//
+		void Traverse (TreeFunc tf, TraversalPath path);
+
 		//stream output operator
 		template <typename U>
-		friend std::ostream& operator<<(std::ostream& os, const BinaryTree<U>& bt);
+			friend std::ostream& operator<<(std::ostream& os, const BinaryTree<U>& bt);
 
 };
 #include "BinaryTree_impl.h"

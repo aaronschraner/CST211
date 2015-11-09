@@ -1,0 +1,13 @@
+/********************************************************************************
+ * ~TreeNode ();
+ * 	Purpose: 
+ * 		Destructor for tree node
+ * 		recursively deletes children
+ * 	
+ * 	Entry: 
+ * 		nothing
+ * 	
+ * 	Exit: 
+ * 		destructs node and children
+ * 	
+ ********************************************************************************/

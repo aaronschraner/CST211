@@ -1,0 +1,17 @@
+/********************************************************************************
+ * TreeNode(const TreeNode<T>&);
+ * 	Purpose: 
+ * 		Copy constructor for tree node
+ * 		I was originally going to make this a deep copy but I didn't want
+ * 		to accidentally invoke it and copy the entire tree.
+ * 		See deepCopy() if you want deep copying.
+ * 	
+ * 	Entry: 
+ * 		tn: the tree node to be copied
+ * 	
+ * 	Exit: 
+ * 		returns an exact copy of <tn>
+ * 		(pointers point to the same spot, don't ever use this or you could
+ * 		get a double-free.)
+ * 	
+ ********************************************************************************/

@@ -1,0 +1,12 @@
+/********************************************************************************
+ * TreeNode(T value);
+ * 	Purpose: 
+ * 		Construct a tree node with no left or right children and this value
+ * 	
+ * 	Entry: 
+ * 		value: the value that the new TreeNode should have
+ * 	
+ * 	Exit: 
+ * 		constructs the node
+ * 	
+ ********************************************************************************/

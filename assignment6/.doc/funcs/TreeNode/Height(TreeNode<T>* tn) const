@@ -1,0 +1,12 @@
+/********************************************************************************
+ * int Height(TreeNode<T>* tn) const;
+ * 	Purpose: 
+ * 		Recursively determine the height of the tree's tallest branch
+ * 	
+ * 	Entry: 
+ * 		tn: used for recursion purposes (call Height(root) to find height of tree)
+ * 	
+ * 	Exit: 
+ * 		Returns the height of the tallest branch
+ * 	
+ ********************************************************************************/
