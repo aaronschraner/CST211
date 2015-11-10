@@ -1,4 +1,0 @@
- Card::Card (CardSuit suit, int value)
-void Card::display ()
-int Card::getSuit ()
-int Card::getNumber ()
