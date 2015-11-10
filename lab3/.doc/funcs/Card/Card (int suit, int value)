@@ -1,15 +1,13 @@
 /********************************************************************************
- * void initGame ();
+ * Card (int suit, int value);
  * 	Purpose: 
- * 		Initialize the freecell game
- * 		- shuffle the deck
- * 		- deal the cards out
- * 		- show a welcome message
+ * 		constructor given suit and rank
+ * 		does exactly what it looks like
  * 	
  * 	Entry: 
- * 		nothing
+ * 		suit: the suit of the new card
+ * 		value: the rank of the new card
  * 	
  * 	Exit: 
- * 		game is ready to play
  * 	
  ********************************************************************************/

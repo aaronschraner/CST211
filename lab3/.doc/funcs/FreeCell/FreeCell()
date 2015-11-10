@@ -1,15 +1,12 @@
 /********************************************************************************
- * void initGame ();
+ * FreeCell();
  * 	Purpose: 
- * 		Initialize the freecell game
- * 		- shuffle the deck
- * 		- deal the cards out
- * 		- show a welcome message
+ * 		default constructor for freecell class
  * 	
  * 	Entry: 
  * 		nothing
  * 	
  * 	Exit: 
- * 		game is ready to play
+ * 		Initializes freeCells, foundations (home cells), and play cells
  * 	
  ********************************************************************************/

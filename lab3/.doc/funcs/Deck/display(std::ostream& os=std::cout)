@@ -1,15 +1,15 @@
 /********************************************************************************
  * /********************************************************************************
- * Deck ();
+ * void display(std::ostream& os=std::cout);
  * 	Purpose: 
- * 		desfault constructor for deck class
- * 		Creates a full deck with 13 cards each in 4 suits
+ * 		display the deck of cards
  * 	
  * 	Entry: 
- * 		nothing
+ * 		os: the output stream to use
+ * 		(in case you want to write to a file instead)
  * 	
  * 	Exit: 
- * 		constructs full deck of cards
+ * 		displays deck in neatly formatted table
  * 	
  ********************************************************************************/
  * 	Purpose: 

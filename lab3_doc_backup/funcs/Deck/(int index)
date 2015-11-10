@@ -1,15 +1,13 @@
 /********************************************************************************
- * void initGame ();
+ * Card& operator[](int index);
  * 	Purpose: 
- * 		Initialize the freecell game
- * 		- shuffle the deck
- * 		- deal the cards out
- * 		- show a welcome message
+ * 		Index operator for deck class
+ * 		access the <index>th card in the deck
  * 	
  * 	Entry: 
- * 		nothing
+ * 		index: the index of the card to be accessed
  * 	
  * 	Exit: 
- * 		game is ready to play
+ * 		returns a reference to the card
  * 	
  ********************************************************************************/

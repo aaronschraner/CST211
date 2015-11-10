@@ -1,15 +1,11 @@
 /********************************************************************************
- * void initGame ();
+ * int getSuit () const;
  * 	Purpose: 
- * 		Initialize the freecell game
- * 		- shuffle the deck
- * 		- deal the cards out
- * 		- show a welcome message
+ * 		return the suit of the card
  * 	
  * 	Entry: 
- * 		nothing
  * 	
  * 	Exit: 
- * 		game is ready to play
+ * 		returns the suit (suit)
  * 	
  ********************************************************************************/

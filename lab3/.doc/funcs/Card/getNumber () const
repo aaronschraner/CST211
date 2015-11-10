@@ -1,15 +1,11 @@
 /********************************************************************************
- * void initGame ();
+ * int getNumber () const;
  * 	Purpose: 
- * 		Initialize the freecell game
- * 		- shuffle the deck
- * 		- deal the cards out
- * 		- show a welcome message
+ * 		return the rank of the card
  * 	
  * 	Entry: 
- * 		nothing
  * 	
  * 	Exit: 
- * 		game is ready to play
+ * 		returns rank of card (value)
  * 	
  ********************************************************************************/

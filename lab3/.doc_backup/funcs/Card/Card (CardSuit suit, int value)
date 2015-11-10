@@ -1,0 +1,13 @@
+/********************************************************************************
+ * Card (CardSuit suit, int value);
+ * 	Purpose: 
+ * 		Constructor for Card class given suit and value
+ * 	
+ * 	Entry: 
+ * 		suit: the suit of the new card
+ * 		value: the numeric value of the new card
+ * 	
+ * 	Exit: 
+ * 		constructs a card with requested parameters
+ * 	
+ ********************************************************************************/

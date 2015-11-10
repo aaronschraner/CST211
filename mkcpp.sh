@@ -200,36 +200,35 @@ mkclass()
 
 }
 
-echo -ne "Is this a lab or assignment?\n> "
-{
-
-	read resp
-	if [[ $resp =~ ^[lL] ]]
-	then
-		echo -ne "What is the name/number of this lab?\n> "
-		read labno
-	else
-		echo -ne "What is the name/number of this assignment?\n> "
-		read assno
-	fi
-}
-
+#echo -ne "Is this a lab or assignment?\n> "
+#{
+#
+#	read resp
+#	if [[ $resp =~ ^[lL] ]]
+#	then
+#		echo -ne "What is the name/number of this lab?\n> "
+#		read labno
+#	else
+#		echo -ne "What is the name/number of this assignment?\n> "
+#		read assno
+#	fi
+#}
+#
 pwd
 for class in $*
 do
-	mkclass $class
 	mkdir -p .doc/funcs/$class; cat "${class}.h" | 
 	grep -o "^\t*.*(.*).*;" | 
 	sed "s/^\t\t//g" | while read x; do echo -e "$x" > ".doc/funcs/$class/$(echo "$x" | grep -Eo "\~?[a-zA-Z_]*[\=\+\-]? ?\(.*\)( const)?")"; done
 done
 
-#for x in .doc/funcs/*/*
-#do
-#	sig="$(cat "$x")"
-#	echo "Documentation for $sig"
-#	openheader > "$x"
-#	echo " * $sig" >> "$x"
-#	ioheader "$x" Purpose Entry Exit
-#	closeheader >> "$x"
-#done
-#
+for x in .doc/funcs/*/*
+do
+	sig="$(cat "$x")"
+	echo "Documentation for $sig"
+	openheader > "$x"
+	echo " * $sig" >> "$x"
+	ioheader "$x" Purpose Entry Exit
+	closeheader >> "$x"
+done
+

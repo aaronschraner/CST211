@@ -213,11 +213,11 @@ mkclass()
 #		read assno
 #	fi
 #}
-#mkclass
-
+#
 pwd
-for class in BinaryTree TreeNode
+for class in $*
 do
+	mkclass $class
 	mkdir -p .doc/funcs/$class; cat "${class}.h" | 
 	grep -o "^\t*.*(.*).*;" | 
 	sed "s/^\t\t//g" | while read x; do echo -e "$x" > ".doc/funcs/$class/$(echo "$x" | grep -Eo "\~?[a-zA-Z_]*[\=\+\-]? ?\(.*\)( const)?")"; done

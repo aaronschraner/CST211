@@ -1,0 +1,15 @@
+/********************************************************************************
+ * bool gameOver() const;
+ * 	Purpose: 
+ * 		return true if the player has won the game
+ * 	
+ * 	Entry: 
+ * 		Depends _ONLY_ on the home stacks
+ * 		It does NOT do the magic thing that windows solitaire does
+ * 		where it moves all the cards onto the pile if you've already arranged
+ * 		them in the right order in the play area
+ * 	
+ * 	Exit: 
+ * 		returns true if the game has ended
+ * 	
+ ********************************************************************************/

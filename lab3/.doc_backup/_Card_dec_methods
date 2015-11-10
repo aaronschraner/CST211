@@ -1,0 +1,4 @@
+ Card (CardSuit suit, int value)
+void display ()
+int getSuit ()
+int getNumber ()

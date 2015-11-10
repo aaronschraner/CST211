@@ -1,21 +1,15 @@
 /********************************************************************************
  * /********************************************************************************
- * Deck ();
+ * void shuffle ();
  * 	Purpose: 
- * 		desfault constructor for deck class
- * 		Creates a full deck with 13 cards each in 4 suits
+ * 		randomly shuffle the deck
+ * 		works by swapping random numbers SHUFFLE_ITERATIONS times
  * 	
  * 	Entry: 
- * 		nothing
+ * 		SHUFFLE_ITERATIONS: how many times random cards should be swapped
  * 	
  * 	Exit: 
- * 		constructs full deck of cards
+ * 		shuffles the deck
  * 	
  ********************************************************************************/
  * 	Purpose: 
- * 	
- * 	Entry: 
- * 	
- * 	Exit: 
- * 	
- ********************************************************************************/

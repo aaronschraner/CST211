@@ -1,0 +1,13 @@
+/********************************************************************************
+ * Card getCard(CardLocation location);
+ * 	Purpose: 
+ * 		Get a copy of the card at a given location
+ * 		MAKE SURE YOU CHECK THAT IT EXISTS FIRST
+ * 	
+ * 	Entry: 
+ * 		location: the place in the game to find the card
+ * 	
+ * 	Exit: 
+ * 		returns a copy of the card at that location
+ * 	
+ ********************************************************************************/

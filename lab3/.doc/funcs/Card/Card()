@@ -1,15 +1,12 @@
 /********************************************************************************
- * void initGame ();
+ * Card();
  * 	Purpose: 
- * 		Initialize the freecell game
- * 		- shuffle the deck
- * 		- deal the cards out
- * 		- show a welcome message
+ * 		default constructor for card
+ * 		sets value and rank to 0
+ * 		note that card ranks are never below 1 unless the card is not really present
  * 	
  * 	Entry: 
- * 		nothing
  * 	
  * 	Exit: 
- * 		game is ready to play
  * 	
  ********************************************************************************/

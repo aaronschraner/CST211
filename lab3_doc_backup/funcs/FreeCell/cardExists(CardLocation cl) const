@@ -1,0 +1,13 @@
+/********************************************************************************
+ * bool cardExists(CardLocation cl) const ;
+ * 	Purpose: 
+ * 		Find if there is a card in existence at the location specified
+ * 		by <cl>.
+ * 	
+ * 	Entry: 
+ * 		cl: the location to look for a card in
+ * 	
+ * 	Exit: 
+ * 		returns true if there is a card at that spot in the game
+ * 	
+ ********************************************************************************/

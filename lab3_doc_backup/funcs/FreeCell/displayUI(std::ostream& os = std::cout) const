@@ -1,0 +1,13 @@
+/********************************************************************************
+ * void displayUI(std::ostream& os = std::cout) const;
+ * 	Purpose: 
+ * 		Display the user interface for the game
+ * 		First drawing free cells, then home cells, then the play area
+ * 	
+ * 	Entry: 
+ * 		os: the output stream to use (defaults to cout)
+ * 	
+ * 	Exit: 
+ * 		prints the current game
+ * 	
+ ********************************************************************************/

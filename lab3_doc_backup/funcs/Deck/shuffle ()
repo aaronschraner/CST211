@@ -1,15 +1,13 @@
 /********************************************************************************
- * void initGame ();
+ * void shuffle ();
  * 	Purpose: 
- * 		Initialize the freecell game
- * 		- shuffle the deck
- * 		- deal the cards out
- * 		- show a welcome message
+ * 		randomly shuffle the deck
+ * 		works by swapping random numbers SHUFFLE_ITERATIONS times
  * 	
  * 	Entry: 
- * 		nothing
+ * 		SHUFFLE_ITERATIONS: how many times random cards should be swapped
  * 	
  * 	Exit: 
- * 		game is ready to play
+ * 		shuffles the deck
  * 	
  ********************************************************************************/

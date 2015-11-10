@@ -1,0 +1,15 @@
+/********************************************************************************
+ * bool tryMove(CardLocation src, CardLocation dest);
+ * 	Purpose: 
+ * 		attempt to move a card from <src> to <dest>
+ * 		return 0 if it succeeds, 1 if it doesn't.
+ * 	
+ * 	Entry: 
+ * 		src: the location of the card to be moved
+ * 		dest: the place it should be moved to
+ * 	
+ * 	Exit: 
+ * 		returns true if moving failed
+ * 		false if it succeeded
+ * 	
+ ********************************************************************************/

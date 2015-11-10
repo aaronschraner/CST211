@@ -14,7 +14,19 @@
 
 #define SHUFFLE_ITERATIONS 10000
 
-//TODO: make method comment blocks
+/********************************************************************************
+ * Deck ();
+ * 	Purpose: 
+ * 		desfault constructor for deck class
+ * 		Creates a full deck with 13 cards each in 4 suits
+ * 	
+ * 	Entry: 
+ * 		nothing
+ * 	
+ * 	Exit: 
+ * 		constructs full deck of cards
+ * 	
+ ********************************************************************************/
 Deck::Deck ():
 	cards(52,0)
 {
@@ -23,7 +35,19 @@ Deck::Deck ():
 			cards[suit*13+value-1] = Card(suit, value);
 }
 
-//TODO: make method comment blocks
+/********************************************************************************
+ * void shuffle ();
+ * 	Purpose: 
+ * 		randomly shuffle the deck
+ * 		works by swapping random numbers SHUFFLE_ITERATIONS times
+ * 	
+ * 	Entry: 
+ * 		SHUFFLE_ITERATIONS: how many times random cards should be swapped
+ * 	
+ * 	Exit: 
+ * 		shuffles the deck
+ * 	
+ ********************************************************************************/
 void Deck::shuffle ()
 {
 	for(int i=0; i<SHUFFLE_ITERATIONS; i++)
@@ -34,6 +58,19 @@ void Deck::shuffle ()
 
 }
 
+/********************************************************************************
+ * void display(std::ostream& os=std::cout);
+ * 	Purpose: 
+ * 		display the deck of cards
+ * 	
+ * 	Entry: 
+ * 		os: the output stream to use
+ * 		(in case you want to write to a file instead)
+ * 	
+ * 	Exit: 
+ * 		displays deck in neatly formatted table
+ * 	
+ ********************************************************************************/
 void Deck::display(std::ostream& os)
 {
 	for(int x=0; x < 13; x++)
@@ -43,6 +80,20 @@ void Deck::display(std::ostream& os)
 		os << std::endl;
 	}
 }
+
+/********************************************************************************
+ * Card& operator[](int index);
+ * 	Purpose: 
+ * 		Index operator for deck class
+ * 		access the <index>th card in the deck
+ * 	
+ * 	Entry: 
+ * 		index: the index of the card to be accessed
+ * 	
+ * 	Exit: 
+ * 		returns a reference to the card
+ * 	
+ ********************************************************************************/
 Card& Deck::operator[](int index)
 {
 	return cards[index];

@@ -1,15 +1,15 @@
 /********************************************************************************
  * /********************************************************************************
- * Deck ();
+ * Card& operator[](int index);
  * 	Purpose: 
- * 		desfault constructor for deck class
- * 		Creates a full deck with 13 cards each in 4 suits
+ * 		Index operator for deck class
+ * 		access the <index>th card in the deck
  * 	
  * 	Entry: 
- * 		nothing
+ * 		index: the index of the card to be accessed
  * 	
  * 	Exit: 
- * 		constructs full deck of cards
+ * 		returns a reference to the card
  * 	
  ********************************************************************************/
  * 	Purpose: 

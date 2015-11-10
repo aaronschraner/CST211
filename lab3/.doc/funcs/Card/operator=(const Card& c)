@@ -1,15 +1,12 @@
 /********************************************************************************
- * void initGame ();
+ * Card& operator=(const Card& c);
  * 	Purpose: 
- * 		Initialize the freecell game
- * 		- shuffle the deck
- * 		- deal the cards out
- * 		- show a welcome message
+ * 		assignment operator for card class
+ * 		sets suit and value to match c's
  * 	
  * 	Entry: 
- * 		nothing
+ * 		c: the card to be copied
  * 	
  * 	Exit: 
- * 		game is ready to play
  * 	
  ********************************************************************************/

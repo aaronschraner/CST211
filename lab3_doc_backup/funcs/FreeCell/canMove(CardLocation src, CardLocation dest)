@@ -1,0 +1,14 @@
+/********************************************************************************
+ * bool canMove(CardLocation src, CardLocation dest);
+ * 	Purpose: 
+ * 		Find if a card can be moved to a given spot based on the rules
+ * 		of FreeCell.
+ * 	
+ * 	Entry: 
+ * 		src: a CardLocation for the card being moved
+ * 		dest: a CardLocation for where the card will go
+ * 	
+ * 	Exit: 
+ * 		returns true if the card can be moved
+ * 	
+ ********************************************************************************/

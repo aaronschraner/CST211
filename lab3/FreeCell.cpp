@@ -24,7 +24,21 @@ using std::istream;
 using std::string;
 using std::cout;
 
-//TODO: make method comment blocks
+/********************************************************************************
+ * void initGame ();
+ * 	Purpose: 
+ * 		Initialize the freecell game
+ * 		- shuffle the deck
+ * 		- deal the cards out
+ * 		- show a welcome message
+ * 	
+ * 	Entry: 
+ * 		nothing
+ * 	
+ * 	Exit: 
+ * 		game is ready to play
+ * 	
+ ********************************************************************************/
 void FreeCell::initGame ()
 {
 	//shuffle the deck
@@ -33,9 +47,23 @@ void FreeCell::initGame ()
 	//push the cards into the play area
 	for(int i=0; i<52; i++)
 		playArea[i%NUM_PLAYCELLS].Push(gameDeck[i]);
+
+	//show a welcome message
 	showIntro();
 }
 
+/********************************************************************************
+ * FreeCell();
+ * 	Purpose: 
+ * 		default constructor for freecell class
+ * 	
+ * 	Entry: 
+ * 		nothing
+ * 	
+ * 	Exit: 
+ * 		Initializes freeCells, foundations (home cells), and play cells
+ * 	
+ ********************************************************************************/
 FreeCell::FreeCell():
 	freeCells(NUM_FREECELLS,0),
 	foundations(4, 0),
@@ -49,13 +77,26 @@ char suitChar(int suit)
 	switch(suit)
 	{
 		case 0: return 'H';
-		case 1: return 'D';
-		case 2: return 'S';
+		case 1: return 'S';
+		case 2: return 'D';
 		case 3: return 'C';
 		default: return 'X';
 	}
 }
 
+/********************************************************************************
+ * void displayUI(std::ostream& os = std::cout) const;
+ * 	Purpose: 
+ * 		Display the user interface for the game
+ * 		First drawing free cells, then home cells, then the play area
+ * 	
+ * 	Entry: 
+ * 		os: the output stream to use (defaults to cout)
+ * 	
+ * 	Exit: 
+ * 		prints the current game
+ * 	
+ ********************************************************************************/
 void FreeCell::displayUI(ostream& os) const
 {
 	os << "H - red heart, D - black diamond, S - red spade, C - black club" << endl;
@@ -73,9 +114,13 @@ void FreeCell::displayUI(ostream& os) const
 			os << foundations[i].Peek();
 	os << endl << endl;
 
+	//Main play cells
 	os << setw(45) << right << "--Play cells--" << endl;
 
+	//create an array of iterators for the card stacks
 	Array<Iterator<Card>> iterators(NUM_PLAYCELLS,0);
+
+	//draw the numbers for card stacks
 	os << setw(20) << right << ' ';
 	for(int i=0; i<NUM_PLAYCELLS; i++)
 	{
@@ -84,6 +129,7 @@ void FreeCell::displayUI(ostream& os) const
 	}
 	os << endl;
 
+	//iterate through the stacks breadth-first, displaying one card at a time.
 	bool levelHasCard = 1;
 	for(int y = 0; y < 52 && levelHasCard; y++)
 	{
@@ -106,6 +152,19 @@ void FreeCell::displayUI(ostream& os) const
 	}
 }
 
+/********************************************************************************
+ * bool cardExists(CardLocation cl) const ;
+ * 	Purpose: 
+ * 		Find if there is a card in existence at the location specified
+ * 		by <cl>.
+ * 	
+ * 	Entry: 
+ * 		cl: the location to look for a card in
+ * 	
+ * 	Exit: 
+ * 		returns true if there is a card at that spot in the game
+ * 	
+ ********************************************************************************/
 bool FreeCell::cardExists(CardLocation cl) const
 {
 	switch(cl.field)
@@ -119,6 +178,19 @@ bool FreeCell::cardExists(CardLocation cl) const
 	}
 }
 
+/********************************************************************************
+ * Card getCard(CardLocation location);
+ * 	Purpose: 
+ * 		Get a copy of the card at a given location
+ * 		MAKE SURE YOU CHECK THAT IT EXISTS FIRST
+ * 	
+ * 	Entry: 
+ * 		location: the place in the game to find the card
+ * 	
+ * 	Exit: 
+ * 		returns a copy of the card at that location
+ * 	
+ ********************************************************************************/
 Card FreeCell::getCard(CardLocation location)
 {
 	//assumes you already made sure it exists
@@ -132,24 +204,46 @@ Card FreeCell::getCard(CardLocation location)
 			return playArea[location.index].Peek();
 	}
 }
+
+/********************************************************************************
+ * bool canMove(CardLocation src, CardLocation dest);
+ * 	Purpose: 
+ * 		Find if a card can be moved to a given spot based on the rules
+ * 		of FreeCell.
+ * 	
+ * 	Entry: 
+ * 		src: a CardLocation for the card being moved
+ * 		dest: a CardLocation for where the card will go
+ * 	
+ * 	Exit: 
+ * 		returns true if the card can be moved
+ * 	
+ ********************************************************************************/
 bool FreeCell::canMove(CardLocation src, CardLocation dest)
 {
 	Card srcCard = getCard(src);
 	switch(dest.field)
 	{
 		case CardLocation::_HomeCells:
-			return (srcCard.getNumber() == foundations[dest.index].Peek().getNumber() + 1 &&
+			//can only move if card being moved is one greater than card being covered
+			return ((foundations[dest.index].isEmpty() || srcCard.getNumber() == foundations[dest.index].Peek().getNumber() + 1 )&&
 					(srcCard.getSuit() == dest.index));
 
+			//can only be moved if free cell is empty
 		case CardLocation::_FreeCells:
 			return freeCells[dest.index].getNumber() == 0;
+
+			//can only be moved if either the stack is empty or the card is one less than the one 
+			//being covered with a different color.
 		case CardLocation::_PlayCells:
 			{
+				//return if the stack is empty
 				Stack<Card>& stackref = playArea[dest.index];
 				if (stackref.isEmpty())
 					return true;
 				else
 				{
+					//return true if the criteria are met
 					Card under = stackref.Peek();
 					return under.getNumber() == srcCard.getNumber() + 1 && (srcCard.getSuit() ^ under.getSuit()) & 1;
 				}
@@ -160,23 +254,50 @@ bool FreeCell::canMove(CardLocation src, CardLocation dest)
 	return 0;
 			
 }
-//0 for success
+
+/********************************************************************************
+ * bool tryMove(CardLocation src, CardLocation dest);
+ * 	Purpose: 
+ * 		attempt to move a card from <src> to <dest>
+ * 		return 0 if it succeeds, 1 if it doesn't.
+ * 	
+ * 	Entry: 
+ * 		src: the location of the card to be moved
+ * 		dest: the place it should be moved to
+ * 	
+ * 	Exit: 
+ * 		returns true if moving failed
+ * 		false if it succeeded
+ * 	
+ ********************************************************************************/
 bool FreeCell::tryMove(CardLocation src, CardLocation dest)
 {
 	Card moveCard;
+	
+	//make sure the card being moved exists
 	if(!cardExists(src))
 	{
 		cout << "Source card doesn't exist." << endl;
 		return 1;
 	}
 
+	//try to move the card
 	cout << "Trying to move card " << getCard(src);
+
+	//say what card is being covered if applicable
 	if (cardExists(dest))
 		cout << "onto " << getCard(dest);
-	cout << endl;
-	if(!canMove(src, dest))
-		return 1;
 
+	cout << endl;
+
+	//if the move is against the rules, return failure
+	if(!canMove(src, dest))
+	{
+		cout << "Moving card here violates rules." << endl;
+		return 1;
+	}
+
+	//get a copy of the card and remove it from its source location
 	switch(src.field)
 	{
 		case CardLocation::_HomeCells:
@@ -194,6 +315,7 @@ bool FreeCell::tryMove(CardLocation src, CardLocation dest)
 			break;
 	}
 
+	//add the card copy to the destination
 	switch(dest.field)
 	{
 		case CardLocation::_HomeCells:
@@ -210,8 +332,24 @@ bool FreeCell::tryMove(CardLocation src, CardLocation dest)
 	return 0;
 }
 
+/********************************************************************************
+ * bool gameOver() const;
+ * 	Purpose: 
+ * 		return true if the player has won the game
+ * 	
+ * 	Entry: 
+ * 		Depends _ONLY_ on the home stacks
+ * 		It does NOT do the magic thing that windows solitaire does
+ * 		where it moves all the cards onto the pile if you've already arranged
+ * 		them in the right order in the play area
+ * 	
+ * 	Exit: 
+ * 		returns true if the game has ended
+ * 	
+ ********************************************************************************/
 bool FreeCell::gameOver() const
 {
+	//add up all the numbers in the home cells
 	int cardcount=0;
 	for(int i=0; i<4; i++)
 		for(Iterator<Card> it = foundations[i].startIterator();
@@ -230,6 +368,18 @@ CardLocation::Field getField(char c)
 	}
 }
 
+/********************************************************************************
+ * void showIntro(std::ostream& os = std::cout) const;
+ * 	Purpose: 
+ * 		Show a text introduction to the game and explain how it is played.
+ * 	
+ * 	Entry: 
+ * 		os: the output stream to use
+ * 	
+ * 	Exit: 
+ * 		shows the intro and exits
+ * 	
+ ********************************************************************************/
 void FreeCell::showIntro(std::ostream& os ) const
 {
 	os << "Welcome to FreeCell!" << endl;

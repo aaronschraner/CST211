@@ -1,15 +1,12 @@
 /********************************************************************************
- * void initGame ();
+ * void showIntro(std::ostream& os = std::cout) const;
  * 	Purpose: 
- * 		Initialize the freecell game
- * 		- shuffle the deck
- * 		- deal the cards out
- * 		- show a welcome message
+ * 		Show a text introduction to the game and explain how it is played.
  * 	
  * 	Entry: 
- * 		nothing
+ * 		os: the output stream to use
  * 	
  * 	Exit: 
- * 		game is ready to play
+ * 		shows the intro and exits
  * 	
  ********************************************************************************/

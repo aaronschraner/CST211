@@ -44,7 +44,6 @@ class FreeCell
 		Array<Stack<Card>> playArea;
 
     public:
-        //TODO: brief description
 		FreeCell();
         void initGame ();
 		void displayUI(std::ostream& os = std::cout) const;

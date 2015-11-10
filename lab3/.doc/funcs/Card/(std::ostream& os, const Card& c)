@@ -1,0 +1,17 @@
+/********************************************************************************
+ * friend std::ostream& operator<<(std::ostream& os, const Card& c);
+ * 	Purpose: 
+ * 		stream output operator for card
+ * 		outputs card in square brackets [] with suit on the left (H,S,D,C)
+ * 		and rank/number on the right
+ * 		ex: [S  8] (8 of spades)
+ * 		does not currently do color, so please use your imagination
+ * 	
+ * 	Entry: 
+ * 		os: the output stream to print to
+ * 		c: the card to print
+ * 	
+ * 	Exit: 
+ * 		returns a reference to os
+ * 	
+ ********************************************************************************/

@@ -1,15 +1,12 @@
 /********************************************************************************
- * void initGame ();
+ * Card(const Card& c);
  * 	Purpose: 
- * 		Initialize the freecell game
- * 		- shuffle the deck
- * 		- deal the cards out
- * 		- show a welcome message
+ * 		copy constructor for card class
+ * 		just copies suit and value
  * 	
  * 	Entry: 
- * 		nothing
+ * 		c: the card to be copied
  * 	
  * 	Exit: 
- * 		game is ready to play
  * 	
  ********************************************************************************/
