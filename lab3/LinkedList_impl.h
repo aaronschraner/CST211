@@ -48,10 +48,10 @@ template < typename T >
 void LinkedList<T>::Prepend (T elem)
 {
 	//store the old first element
-	Node<T>* temp = head;
+	ListNode<T>* temp = head;
 
 	//create the new first element
-	head = new Node<T>(elem);
+	head = new ListNode<T>(elem);
 
 	//if there was an old first element, make it's prev point to the new first one
 	if(temp)
@@ -81,10 +81,10 @@ template < typename T >
 void LinkedList<T>::Append (T elem)
 {
 	//store the old last element
-	Node<T>* temp = tail;
+	ListNode<T>* temp = tail;
 
 	//create the new last element
-	tail = new Node<T>(elem);
+	tail = new ListNode<T>(elem);
 
 	//if there was an old last element, make it's next point to the new last one
 	if(temp)
@@ -128,7 +128,7 @@ void LinkedList<T>::Purge ()
 }
 
 /********************************************************************************
- * Node<T>& Find(T key);
+ * ListNode<T>& Find(T key);
  * 	Purpose: 
  * 		Find the first instance of a node whose contents match <key>
  * 		(iterates from head to tail, beginning to end)
@@ -142,16 +142,16 @@ void LinkedList<T>::Purge ()
  * 	
  ********************************************************************************/
 template <typename T>
-Node<T>& LinkedList<T>::Find(T key)
+ListNode<T>& LinkedList<T>::Find(T key)
 {
 	for(auto it=Begin(); it.isValid(); ++it)
 		if ( key == *it )
-			return it.getNode();
+			return it.getListNode();
 	throw Exception ("Key not found");
 }
 
 /********************************************************************************
- * Node<T>& Extract ( T key );
+ * ListNode<T>& Extract ( T key );
  * 	Purpose: 
  * 		(had to guess from the UML name)
  * 		Find the first node in the array whose contents are equal to <key>
@@ -169,9 +169,9 @@ Node<T>& LinkedList<T>::Find(T key)
  * 	
  ********************************************************************************/
 template < typename T >
-Node<T>& LinkedList<T>::Extract (T key )
+ListNode<T>& LinkedList<T>::Extract (T key )
 {
-	Node<T>& res = Find(key);
+	ListNode<T>& res = Find(key);
 	res.drop();
 	return res;
 }
@@ -196,7 +196,7 @@ Node<T>& LinkedList<T>::Extract (T key )
 template < typename T >
 void LinkedList<T>::InsertAfter (T key, T value)
 {
-	Find(key).append(new Node<T>(value));
+	Find(key).append(new ListNode<T>(value));
 }
 
 /********************************************************************************
@@ -217,7 +217,7 @@ void LinkedList<T>::InsertAfter (T key, T value)
 template < typename T >
 void LinkedList<T>::InsertBefore (T key, T value)
 {
-	Find(key).prepend(new Node<T>(value));
+	Find(key).prepend(new ListNode<T>(value));
 }
 
 /********************************************************************************
@@ -323,7 +323,7 @@ LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>& ll)
 	}
 
 	//create a new first node
-	tail = head = new Node<T> (ll.First().getContents());
+	tail = head = new ListNode<T> (ll.First().getContents());
 
 	auto newit = Begin();
 	auto oldit = ll.Begin();
@@ -397,9 +397,9 @@ LinkedList<T>::LinkedList():
 }
 
 template <typename T>
-void LinkedList<T>::dropNode(Node<T>* nodeptr)
+void LinkedList<T>::dropListNode(ListNode<T>* nodeptr)
 {
-	for(Node<T>* node = head; node; node = node->getNext())
+	for(ListNode<T>* node = head; node; node = node->getNext())
 		if ( node == nodeptr )
 		{
 			if( node == tail )

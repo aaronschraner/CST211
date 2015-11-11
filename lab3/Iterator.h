@@ -17,7 +17,7 @@
  *     T operator* ():
  *         return the contents of the contained node (has const and mutable versions)
  *
- *      Iterator (Node<T>* nodeptr):
+ *      Iterator (ListNode<T>* nodeptr):
  *         Construct iterator from node pointer
  *
  *      bool operator== ( const Iterator<T>& rhs):
@@ -39,14 +39,14 @@
 
 #ifndef ITERATOR_H
 #define ITERATOR_H
-#include "Node.h"
+#include "ListNode.h"
 
 template < typename T >
 class Iterator
 {
 	private:
 		// the node pointer that this iterator should operate on
-		Node<T>* node;
+		ListNode<T>* node;
 
 	public:
 		// Compare iterator to another iterator
@@ -68,14 +68,14 @@ class Iterator
 		const T& operator*() const;
 
 		//get a reference to the node
-		Node<T>& getNode() { return *node; }
-		const Node<T>& getNode() const { return *node; }
+		ListNode<T>& getListNode() { return *node; }
+		const ListNode<T>& getListNode() const { return *node; }
 
 		// find if the iterator is valid or not
 		bool isValid() const { return !!node; }
 
 		// constructor (takes pointer to node)
-		Iterator (Node<T>* nodeptr = 0);
+		Iterator (ListNode<T>* nodeptr = 0);
 
 		// copy constructor
 		Iterator(const Iterator<T>& rhs);

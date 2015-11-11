@@ -79,7 +79,7 @@ class Stack
         T Pop ();
 
         // Return the top element on the stack without removing it
-        T Peek()  ;
+        T& Peek()  ;
         const T& Peek() const;
 
         // get the current size (number of elements on the stack)

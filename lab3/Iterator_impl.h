@@ -9,14 +9,14 @@
  ********************************************************************************/
 
 #include "Exception.h"
-#include "Node.h"
+#include "ListNode.h"
 #ifndef ITERATOR_IMPL_H
 #define ITERATOR_IMPL_H
 
 /********************************************************************************
  * Iterator<T>& operator++ ();
  * 	Purpose: 
- * 		Node iterator increment operator
+ * 		ListNode iterator increment operator
  * 		(makes this->node point to node->next)
  * 	
  * 	Entry: 
@@ -146,7 +146,7 @@ const T& Iterator<T>::operator*() const
 
 
 /********************************************************************************
- * Iterator (Node<T>* nodeptr = 0);
+ * Iterator (ListNode<T>* nodeptr = 0);
  * 	Purpose: 
  * 		Iterator constructor given node pointer
  * 	
@@ -158,7 +158,7 @@ const T& Iterator<T>::operator*() const
  * 	
  ********************************************************************************/
 template <typename T>
-Iterator<T>::Iterator (Node<T>* nodeptr):
+Iterator<T>::Iterator (ListNode<T>* nodeptr):
 	node(nodeptr)
 {
 }

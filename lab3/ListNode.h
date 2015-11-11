@@ -3,21 +3,21 @@
  * Date Created:      October 16, 2015
  * Last Modified:     October 16, 2015
  * Assignment number: 3
- * Filename:          Node.h
+ * Filename:          ListNode.h
  * 
- * Class: Node
+ * Class: ListNode
  * 
  * Methods: 
- *      Node<T>* getNext ():
+ *      ListNode<T>* getNext ():
  *         return a pointer to the next node
  *
- *      Node<T>* getPrev ():
+ *      ListNode<T>* getPrev ():
  *         return a pointer to the previous node
  *
- *      void append (Node<T>* node):
+ *      void append (ListNode<T>* node):
  *         append a node to this node (next=node)
  *
- *      void prepend (Node<T>* node):
+ *      void prepend (ListNode<T>* node):
  *         prepend a node to this node (this->prev=node, node->next=this)
  *
  *      T& getContents ():
@@ -26,10 +26,10 @@
  *      void setContents (const T& val):
  *         set the contents of the node to <val>
  * 
- *      void setNext(Node<T>* n) 
+ *      void setNext(ListNode<T>* n) 
  *      	set the next pointer to <n>
  * 
- *      void setPrev(Node<T>* p) 
+ *      void setPrev(ListNode<T>* p) 
  *      	set the prev pointer to <p>
  * 
  *      void unlinkPrev ():
@@ -47,19 +47,19 @@
  *      void drop():
  *      	un-link a node from the list, and stitch the list around it to remain continuous
  * 
- *      Node():
+ *      ListNode():
  *			default constructor (sets contents, prev, and next to 0)
  *      	
- *      Node(const T& val):
+ *      ListNode(const T& val):
  *			constructor given value for node (same as default but contents=val)
  * 
- *      Node(const Node<T>& node):
+ *      ListNode(const ListNode<T>& node):
  *			copy constructor
  * 
- *      Node<T>& operator=(const Node<T>& node):
+ *      ListNode<T>& operator=(const ListNode<T>& node):
  *			assignment operator (does not copy node pointers, only contents)
  * 
- *      ~Node():
+ *      ~ListNode():
  *			destructor (calls Purge())
  *      	
  * 
@@ -69,29 +69,29 @@
 #define NODE_H
 
 template < typename T >
-class Node
+class ListNode
 {
 	private:
 		T contents;
-		Node<T>* next;
-		Node<T>* prev;
+		ListNode<T>* next;
+		ListNode<T>* prev;
 
 	public:
 		// return the address of the next node
-		Node<T>* getNext () const { return next; }
+		ListNode<T>* getNext () const { return next; }
 
 		// return the address of the previous node
-		Node<T>* getPrev () const { return prev; }
+		ListNode<T>* getPrev () const { return prev; }
 
-		void setNext(Node<T>* n) { next=n; }
+		void setNext(ListNode<T>* n) { next=n; }
 
-		void setPrev(Node<T>* p) { prev=p; }
+		void setPrev(ListNode<T>* p) { prev=p; }
 
 		// link a node in front of (next) this one
-		void append (Node<T>* node);
+		void append (ListNode<T>* node);
 
 		// link a node behind (prev) this one
-		void prepend (Node<T>* node);
+		void prepend (ListNode<T>* node);
 
 		// break the link between this node and prev
 		void unlinkPrev ();
@@ -116,23 +116,23 @@ class Node
 		void setContents (const T& val) { contents = val; }
 
 		// default constructor (set everything to 0)
-		Node():Node(0) {}
+		ListNode():ListNode(0) {}
 
 		// constructor given node contents
-		Node(const T& val):next(0), prev(0), contents(val) {}
+		ListNode(const T& val):next(0), prev(0), contents(val) {}
 
 		// copy constructor
-		Node(const Node<T>& node);
+		ListNode(const ListNode<T>& node);
 
 		// assignment operator
-		Node<T>& operator=(const Node<T>& node);
+		ListNode<T>& operator=(const ListNode<T>& node);
 
 		// destructor
-		~Node();
+		~ListNode();
 
 };
 
-#include "Node_impl.h"
+#include "ListNode_impl.h"
 
 #endif
 

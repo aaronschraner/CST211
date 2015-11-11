@@ -152,13 +152,13 @@ T Stack<T>::Pop ()
 	currSize--;
 
 	// Get a pointer to the last element in the list
-	Node<T>* node = &elements.Last();
+	ListNode<T>* node = &elements.Last();
 
 	// Store the contents of it
 	T res = node->getContents();
 
 	// Remove the last element from the list
-	elements.dropNode(node);
+	elements.dropListNode(node);
 
 	//return the stored contents from the last element
 	return res;
@@ -203,7 +203,7 @@ const T& Stack<T>::Peek() const
  * 	
  ********************************************************************************/
 template < typename T >
-T Stack<T>::Peek() 
+T& Stack<T>::Peek() 
 {
 	//if the stack is empty, throw an underflow exception
 	if(isEmpty())

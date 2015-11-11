@@ -3,7 +3,7 @@
  * Date Created:      October 16, 2015
  * Last Modified:     October 16, 2015
  * Assignment number: 3
- * Filename:          Node_impl.h
+ * Filename:          ListNode_impl.h
  * 
  ********************************************************************************/
 #ifdef VERBOSE
@@ -14,7 +14,7 @@
 #define NODE_IMPL_H
 
 /********************************************************************************
- * void append (Node<T>* node);
+ * void append (ListNode<T>* node);
  * 	Purpose: 
  * 		Link a node <node> after this node
  * 		(this->next = node)
@@ -22,14 +22,14 @@
  * 		of the way instead of forgetting about it
  * 	
  * 	Entry: 
- * 		Node<T>* node: the node to be appended after this node
+ * 		ListNode<T>* node: the node to be appended after this node
  * 	
  * 	Exit: 
  * 		Nothing (void)
  * 	
  ********************************************************************************/
 template <typename T>
-void Node<T>::append (Node<T>* node)
+void ListNode<T>::append (ListNode<T>* node)
 {
 	if(node)
 	{
@@ -42,14 +42,14 @@ void Node<T>::append (Node<T>* node)
 }
 
 /********************************************************************************
- * void prepend (Node<T>* node);
+ * void prepend (ListNode<T>* node);
  * 	Purpose: 
  * 		Same as append
  * 		but prepends a node before this one
  * 		(does linking and stitches list around new node)
  * 	
  * 	Entry: 
- * 		Node<T>* node: a pointer to the node that should be prepended
+ * 		ListNode<T>* node: a pointer to the node that should be prepended
  * 		before this one
  * 	
  * 	Exit: 
@@ -58,7 +58,7 @@ void Node<T>::append (Node<T>* node)
  * 	
  ********************************************************************************/
 template <typename T>
-void Node<T>::prepend (Node<T>* node)
+void ListNode<T>::prepend (ListNode<T>* node)
 {
 	if(node)
 	{
@@ -86,7 +86,7 @@ void Node<T>::prepend (Node<T>* node)
  * 	
  ********************************************************************************/
 template <typename T>
-void Node<T>::unlinkPrev ()
+void ListNode<T>::unlinkPrev ()
 {
 	prev -> next = 0;
 	prev = 0;
@@ -107,7 +107,7 @@ void Node<T>::unlinkPrev ()
  * 	
  ********************************************************************************/
 template <typename T>
-void Node<T>::unlinkNext ()
+void ListNode<T>::unlinkNext ()
 {
 	next -> prev = 0;
 	next = 0;
@@ -128,7 +128,7 @@ void Node<T>::unlinkNext ()
  * 	
  ********************************************************************************/
 template <typename T>
-void Node<T>::deleteNext ()
+void ListNode<T>::deleteNext ()
 {
 	if(next)
 	{
@@ -154,7 +154,7 @@ void Node<T>::deleteNext ()
  * 	
  ********************************************************************************/
 template <typename T>
-void Node<T>::deletePrev ()
+void ListNode<T>::deletePrev ()
 {
 	if(prev)
 	{
@@ -172,7 +172,7 @@ void Node<T>::deletePrev ()
  * 	Purpose: 
  * 		Un-link (do not de-allocate) a node and stitch the containing
  * 		list around it.
- * 		WARNING: Node becomes inaccessible except for existing references
+ * 		WARNING: ListNode becomes inaccessible except for existing references
  * 		after this is called
  * 		If this node is the only one in the list, sets head and tail to 0
  * 	
@@ -187,7 +187,7 @@ void Node<T>::deletePrev ()
  * 	
  ********************************************************************************/
 template <typename T>
-void Node<T>::drop()
+void ListNode<T>::drop()
 {
 	if(next)
 		next->prev=prev;
@@ -197,7 +197,7 @@ void Node<T>::drop()
 }
 
 /********************************************************************************
- * ~Node();
+ * ~ListNode();
  * 	Purpose: 
  * 		Destructor for node class
  * 		Doesn't really do anything but (currently) let you know
@@ -212,7 +212,7 @@ void Node<T>::drop()
  * 	
  ********************************************************************************/
 template <typename T>
-Node<T>::~Node()
+ListNode<T>::~ListNode()
 {
 #ifdef VERBOSE
 	std::cout << "Freed node containing [" << contents << "]\n";
@@ -220,12 +220,12 @@ Node<T>::~Node()
 }
 
 /********************************************************************************
- * Node(const Node<T>& node);
+ * ListNode(const ListNode<T>& node);
  * 	Purpose: 
- * 		Copy constructor for Node class
+ * 		Copy constructor for ListNode class
  * 	
  * 	Entry: 
- * 		const Node<T>& node: the node to be copied
+ * 		const ListNode<T>& node: the node to be copied
  * 	
  * 	Exit: 
  * 		A node with the same contents as <node>, but with next and prev
@@ -234,20 +234,20 @@ Node<T>::~Node()
  * 	
  ********************************************************************************/
 template <typename T>
-Node<T>::Node(const Node<T>& node):
-	Node(node.contents) // not sure if this should copy anything else...
+ListNode<T>::ListNode(const ListNode<T>& node):
+	ListNode(node.contents) // not sure if this should copy anything else...
 {
 }
 
 /********************************************************************************
- * Node<T>& operator=(const Node<T>& node);
+ * ListNode<T>& operator=(const ListNode<T>& node);
  * 	Purpose: 
  * 		Assignment operator for node class
  * 		(does not copy values of next and prev)
  * 		designed to allow easy copy / assignment in linked list class
  * 	
  * 	Entry: 
- * 		const Node<T>& node: the node to have its contents copied
+ * 		const ListNode<T>& node: the node to have its contents copied
  * 	
  * 	Exit: 
  * 		returns a reference to the newly assigned node
@@ -256,7 +256,7 @@ Node<T>::Node(const Node<T>& node):
  * 	
  ********************************************************************************/
 template <typename T>
-Node<T>& Node<T>::operator=(const Node<T>& node)
+ListNode<T>& ListNode<T>::operator=(const ListNode<T>& node)
 {
 	contents=node.contents;
 	return node;

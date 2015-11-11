@@ -11,10 +11,10 @@
  *      bool isEmpty ():
  *         returns if the list is empty
  * 
- *      Node<T>& First ():
+ *      ListNode<T>& First ():
  *         returns a reference to the first node in the list
  * 
- *      Node<T>& Last ():
+ *      ListNode<T>& Last ():
  *         returns a reference to the last node in the list
  * 
  *     void Prepend (T elem):
@@ -26,7 +26,7 @@
  *      void Purge ():
  *         delete every element in the list
  * 
- *      Node<T>& Extract ( key T):
+ *      ListNode<T>& Extract ( key T):
  *         (guessing from UML) returns the first node with contents matching <key> and drops it from the list
  * 
  *      void InsertAfter (T key, T value):
@@ -47,15 +47,15 @@
 #ifndef LINKEDLIST_H
 #define LINKEDLIST_H
 
-#include "Node.h"
+#include "ListNode.h"
 #include "Iterator.h"
 
 template < typename T >
 class LinkedList
 {
 	private:
-		Node<T>* head;
-		Node<T>* tail;
+		ListNode<T>* head;
+		ListNode<T>* tail;
 
 	public:
 
@@ -64,10 +64,10 @@ class LinkedList
 
 		//get const/mutable references to the first/last nodes
 		// (uses inline because it's easier to read and more efficient)
-		const Node<T>&	First() const	{ return *head; }
-		Node<T>&		First()			{ return *head; }
-		const Node<T>&	Last() const	{ return *tail; }
-		Node<T>&		Last()			{ return *tail; }
+		const ListNode<T>&	First() const	{ return *head; }
+		ListNode<T>&		First()			{ return *head; }
+		const ListNode<T>&	Last() const	{ return *tail; }
+		ListNode<T>&		Last()			{ return *tail; }
 
 		// append/prepend an element at the end/beginning of the list
 		void Append (T elem);
@@ -77,7 +77,7 @@ class LinkedList
 		void Purge ();
 
 		// find the first instance of <key>, remove it from the list, and return the node
-		Node<T>& Extract ( T key );
+		ListNode<T>& Extract ( T key );
 
 		//find the first instance of <key> and insert <value> before/after it
 		void InsertBefore (T key, T value);
@@ -102,9 +102,9 @@ class LinkedList
 		~LinkedList();
 
 		//Find the first instance of <key> in the list and return a reference to the containing node
-		Node<T>& Find(T key);
+		ListNode<T>& Find(T key);
 
-		void dropNode(Node<T>* nodeptr);
+		void dropListNode(ListNode<T>* nodeptr);
 
 };
 #include "LinkedList_impl.h"
