@@ -6,21 +6,21 @@
  * Filename:          Graph_impl.h
  * 
  *
- *  ___________
- * ( . . . . . )                          
- *  ----------- 
+ *  _____________________________________________________________________________________
+ * ( graphs graphs graphs graphs graphs graphs graphs graphs graphs graphs graphs graphs ) 
+ *  ------------------------------------------------------------------------------------- 
  *     o                                  ___-------___
  *      o                             _-~~             ~~-_
  *       o                         _-~                    /~-_
  *              /^\__/^\         /~  \                   /    \
- *            /|  O|| O|        /      \_______________/        \        <big data structures assignment>
+ *            /|o  || O|        /      \_______________/        \
  *           | |___||__|      /       /                \          \
  *           |          \    /      /                    \          \
  *           |   ________) /______/                        \_________ \
  *           |         / /         \                      /            \
  *            \         \^\\         \                  /               \     /
  *              \         ||           \______________/      _-_       //\__//
- *                \       ||------_-~~-_ ------------- \ --/~   ~\    || __/
+ * me right now-> \       ||------_-~~-_ ------------- \ --/~   ~\    || __/
  *                  ~-----||====/~     |==================|       |/~~~~~
  *                   (_(__/  ./     /                    \_\      \.
  *                          (_(___/                         \_____)_)
@@ -113,7 +113,10 @@ void Graph<V,E>::insertEdge(Vertex* from, Vertex* to, E value)
 	}
 	
 	//if it doesn't add it to <edges>
+	//insert a new edge with the specified vertices and store the location of it
 	std::pair<typename std::set<Graph<V,E>::Edge>::iterator,bool> edgeit = edges.insert(Edge(from, to, value));
+
+	//link that edge to <from> and <to>
 	from->getMNeighbors().insert((Graph<V,E>::Edge*)&*edgeit.first);
 	to->getMNeighbors().insert((Graph<V,E>::Edge*)&*edgeit.first);
 
@@ -210,6 +213,7 @@ const typename Graph<V,E>::Vertex* Graph<V,E>::find(V value) const
  * 	
  * 	Exit: 
  * 		returns a reference to the newly created graph copy
+ * 		(currently doesn't work)
  * 	
  ********************************************************************************/
 template <typename V, typename E>
@@ -243,6 +247,7 @@ Graph<V,E>& Graph<V,E>::operator=(const Graph<V,E>& g)
  * 	
  * 	Exit: 
  * 		constructs the graph and exists
+ * 		(currently doesn't work)
  * 	
  ********************************************************************************/
 template <typename V, typename E>
@@ -392,3 +397,16 @@ std::ostream& operator<<(std::ostream& os, const Graph<V,E>& g)
 
 #endif
 
+//technically the operator= and copy constructor don't work, so it isn't canonical
+//However, as per the assignment description, it is CANNONical.
+//
+//                  __
+//                 /  \
+//           .-.  |    |
+//   *    _.-'  \  \__/
+//    \.-'       \
+//   /          _/
+//  |      _  /"
+//  |     /_\'
+//   \    \_/
+//    """"

@@ -1,4 +1,13 @@
-#include <iostream>
+/********************************************************************************
+ * Author:            Aaron Schraner
+ * Date Created:      November 15, 2015
+ * Last Modified:     November 15, 2015
+ * Assignment number: 7 Graph
+ * Filename:          main.cpp
+ * 
+ * Purpose: driver file for Graph class
+ * 
+ ********************************************************************************/#include <iostream>
 #include "Graph.h"
 
 using namespace std;
@@ -56,6 +65,7 @@ int main()
 
 	//print the graph
 	cout << myGraph << endl;
+
 
 	//test depth-first traversal
 	cout << "depth first traversal: " << endl;
