@@ -3,7 +3,8 @@
 
 using namespace std;
 
-
+//display an integer with an indent
+//(used for graph traversals)
 void disp(int v)
 {
 	cout << "\t" << v << endl;
@@ -11,15 +12,23 @@ void disp(int v)
 
 int main()
 {
+	//create a graph with vertex values of type int and  
+	//edge values of type char
 	Graph<int, char> myGraph;
+
+	//check if it's empty
 	if(myGraph.isEmpty())
 		cout << "graph is empty." << endl;
+
+	//add numbers 1-6 to it
 	cout << "adding elements" << endl;
 
 	for(int i=1; i<= 6; i++)
 	{	
 		myGraph.insert(i);
 	}
+
+	//link the graph so it looks like this
 
 	//graph diagram
 	//
@@ -45,12 +54,15 @@ int main()
 	myGraph.insertEdge(1,5, 'i');
 
 
+	//print the graph
 	cout << myGraph << endl;
 
+	//test depth-first traversal
 	cout << "depth first traversal: " << endl;
 	myGraph.depthFirst(disp);
 	cout << endl;
 
+	//test breadth-first traversal
 	cout << "breadth first traversal: " << endl;
 	myGraph.breadthFirst(disp);
 	cout << endl;

@@ -1,0 +1,12 @@
+/********************************************************************************
+ * V& getValue() { return value;
+ * 	Purpose: 
+ * 		get a mutable reference to this vertex's value
+ * 	
+ * 	Entry: 
+ * 		no parameters
+ * 	
+ * 	Exit: 
+ * 		returns a reference to the parameter's value
+ * 	
+ ********************************************************************************/

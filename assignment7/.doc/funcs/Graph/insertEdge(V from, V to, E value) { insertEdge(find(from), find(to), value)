@@ -1,0 +1,17 @@
+/********************************************************************************
+ * void insertEdge(V from, V to, E value) { insertEdge(find(from), find(to), value) ;
+ * 	Purpose: 
+ * 		Add an edge from <from> to <to> with value <value> in the graph
+ * 		Checks if an edge with the same start and end vertices exists (regardless of order)
+ * 		if one does exist, returns without doind anything.
+ * 		All this is handled by insertEdge(Vertex*, Vertex*, E)
+ * 	
+ * 	Entry: 
+ * 		V from: the value to link the edge from
+ * 		V to: the value to link the edge to
+ * 		E value: the value to be assigned to the edge
+ * 	
+ * 	Exit: 
+ * 		returns void
+ * 	
+ ********************************************************************************/

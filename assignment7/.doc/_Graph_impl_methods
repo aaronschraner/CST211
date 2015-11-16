@@ -1,0 +1,4 @@
+ bool Graph::adjacent (GraphNode* node1, GraphNode* node2)
+list<GraphNode*> Graph::neighbors ()
+ void Graph::add_vertex ( GraphNode* node)
+ void Graph::add_shit_later ()

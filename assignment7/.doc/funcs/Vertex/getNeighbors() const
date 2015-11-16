@@ -1,0 +1,12 @@
+/********************************************************************************
+ * const std::set<Edge*>& getNeighbors() const { return neighbors;
+ * 	Purpose: 
+ * 		get a const reference to this node's set of neighbors
+ * 	
+ * 	Entry: 
+ * 		no parameters
+ * 	
+ * 	Exit: 
+ * 		returns a const std::set<Edge*> just like getMNeighbors()
+ * 	
+ ********************************************************************************/

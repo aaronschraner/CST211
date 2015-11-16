@@ -1,0 +1,12 @@
+/********************************************************************************
+ * const Vertex* getFirst() const { return first;
+ * 	Purpose: 
+ * 		Same as other getFirst() but const
+ * 	
+ * 	Entry: 
+ * 		nothing
+ * 	
+ * 	Exit: 
+ * 		returns a const pointer to the vertex at the first end of this edge
+ * 	
+ ********************************************************************************/

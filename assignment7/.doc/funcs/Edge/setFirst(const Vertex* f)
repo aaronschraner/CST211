@@ -1,0 +1,12 @@
+/********************************************************************************
+ * void setFirst(const Vertex* f) { first = f;
+ * 	Purpose: 
+ * 		set the first vertex pointer to <f>
+ * 	
+ * 	Entry: 
+ * 		f: the pointer that first should be set to
+ * 	
+ * 	Exit: 
+ * 		returns nothing
+ * 	
+ ********************************************************************************/

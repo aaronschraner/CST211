@@ -1,0 +1,14 @@
+/********************************************************************************
+ * Vertex* other(Vertex* v) ;
+ * 	Purpose: 
+ * 		Return the vertex in this edge that is _not_ v
+ * 		other(first) = second, other(second) = first
+ * 		intended to only be called with v=first or seocnd
+ * 	
+ * 	Entry: 
+ * 		v: the vertex that should not be returned
+ * 	
+ * 	Exit: 
+ * 		returns the vertex that is linked to <v> by this edge
+ * 	
+ ********************************************************************************/

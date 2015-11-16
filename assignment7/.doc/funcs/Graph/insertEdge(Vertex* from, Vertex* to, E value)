@@ -1,0 +1,17 @@
+/********************************************************************************
+ * void insertEdge(Vertex* from, Vertex* to, E value);
+ * 	Purpose: 
+ * 		Creates an edge with end points <to> and <from> with value <value>
+ * 		and inserts it into the graph.
+ * 		first creates the edge and appends it to the graphs set of edges,
+ * 		then links the vertices from and to to that edge
+ * 	
+ * 	Entry: 
+ * 		from: the vertex to link the edge from
+ * 		to: the vertex to link the edge to
+ * 		value: the value to assign the edge
+ * 	
+ * 	Exit: 
+ * 		returns void
+ * 	
+ ********************************************************************************/

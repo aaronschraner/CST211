@@ -1,0 +1,13 @@
+/********************************************************************************
+ * Graph(const Graph<V,E> &g);
+ * 	Purpose: 
+ * 		copy constructor for graph class
+ * 		creates a copy of <g> with the same structure and edge and node values
+ * 	
+ * 	Entry: 
+ * 		g: the graph to be copied
+ * 	
+ * 	Exit: 
+ * 		constructs the graph and exists
+ * 	
+ ********************************************************************************/

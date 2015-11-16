@@ -1,0 +1,17 @@
+/********************************************************************************
+ * void removeEdge(Vertex* from, Vertex* to);
+ * 	Purpose: 
+ * 		Remove a vertex with the given from and to vertices from the graph
+ * 		first find the requested edge in <edges> and get a pointer to it,
+ * 		then unlink it from its first and second vertices
+ * 		then remove it from <edges>
+ * 	
+ * 	Entry: 
+ * 		//TODO: change "remove a vertex" to "remove the edge"
+ * 		from: pointer to the first vertex in the edge to be deleted
+ * 		to: pointer to the second vertex in the edge to be deleted
+ * 	
+ * 	Exit: 
+ * 		returns void
+ * 	
+ ********************************************************************************/

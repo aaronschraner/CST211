@@ -1,0 +1,4 @@
+ bool adjacent (GraphNode* node1, GraphNode* node2)
+list<GraphNode*> neighbors ()
+ void add_vertex ( GraphNode* node)
+ void add_shit_later ()

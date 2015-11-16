@@ -1,0 +1,14 @@
+/********************************************************************************
+ * Vertex(V value):value(value) {};
+ * 	Purpose: 
+ * 		Constructor for vertex class
+ * 		given value
+ * 	
+ * 	Entry: 
+ * 		V value: the value of the new vertex
+ * 	
+ * 	Exit: 
+ * 		constructs the vertex and returns void
+ * 		//TODO: change to exits
+ * 	
+ ********************************************************************************/

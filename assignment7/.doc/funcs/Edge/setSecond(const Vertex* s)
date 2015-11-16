@@ -1,0 +1,12 @@
+/********************************************************************************
+ * void setSecond(const Vertex* s) { second = s;
+ * 	Purpose: 
+ * 		set the second vertex pointer to <s>
+ * 	
+ * 	Entry: 
+ * 		s: the pointer that second should be set to
+ * 	
+ * 	Exit: 
+ * 		returns nothing
+ * 	
+ ********************************************************************************/

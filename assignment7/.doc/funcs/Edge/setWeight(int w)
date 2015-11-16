@@ -1,0 +1,14 @@
+/********************************************************************************
+ * void setWeight(int w) { weight = w;
+ * 	Purpose: 
+ * 		set the weight of this edge
+ * 		again not used because weights aren't really used in this implementation yet
+ * 	
+ * 	Entry: 
+ * 		w: the weight that the edge should now have
+ * 	
+ * 	Exit: 
+ * 		sets weight to w
+ * 		returns nothing
+ * 	
+ ********************************************************************************/

@@ -8,6 +8,8 @@
  ********************************************************************************/
 #ifndef VERTEX_IMPL_H
 #define VERTEX_IMPL_H
-#include <list>
+
+//here for future use
+
 #endif
 

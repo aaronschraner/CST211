@@ -1,0 +1,13 @@
+/********************************************************************************
+ * Graph& operator=(const Graph& g);
+ * 	Purpose: 
+ * 		assignment operator for graph class
+ * 	
+ * 	Entry: 
+ * 		copies all of the vertices from <g> into this graph and rebuilds the edges
+ * 		g: the graph to be copied/assigned into this graph
+ * 	
+ * 	Exit: 
+ * 		returns a reference to the newly created graph copy
+ * 	
+ ********************************************************************************/

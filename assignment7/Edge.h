@@ -7,7 +7,7 @@
  * 
  * Class: Edge
  * 
- * Methods: 
+ * Methods: thoroughly documented in Edge_undocumented.h
  * 
  ********************************************************************************/
 #ifndef EDGE_H
@@ -32,20 +32,28 @@ class Graph<V,E>::Edge
 		const E& getValue() const { return value; }
 		E& getValue() { return value; }
 
+		//set/get weight of the edge
 		int getWeight() const { return weight; }
 		void setWeight(int w) { weight = w; }
 
+		//get pointers to the first and second vertices
 		const Vertex* getFirst() const { return first; }
 		const Vertex* getSecond() const { return second; }
 		Vertex* getFirst() { return first; }
 		Vertex* getSecond() { return second; }
 
+		//set the first/second vertices
 		void setFirst(const Vertex* f) { first = f; }
 		void setSecond(const Vertex* s) { second = s; }
 
 	private:
+		//weight of the edge
 		int weight;
+
+		//vertices on this edge
 		const Vertex* first, *second;
+
+		//value of this edge
 		E value;
 };
 #include "Edge_impl.h"
