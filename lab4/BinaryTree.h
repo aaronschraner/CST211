@@ -1,7 +1,7 @@
 /********************************************************************************
  * Author:            Aaron Schraner
  * Date Created:      November  6, 2015
- * Last Modified:     November  8, 2015
+ * Last Modified:     November  16, 2015
  * Assignment number: 6
  * Filename:          BinaryTree.h
  * 
@@ -91,6 +91,10 @@ class BinaryTree
 		//stream output operator
 		template <typename U>
 			friend std::ostream& operator<<(std::ostream& os, const BinaryTree<U>& bt);
+
+		//AVL tree functionality
+		void balance();
+
 
 };
 #include "BinaryTree_impl.h"

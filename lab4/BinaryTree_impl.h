@@ -1,7 +1,7 @@
 /********************************************************************************
  * Author:            Aaron Schraner
  * Date Created:      November  6, 2015
- * Last Modified:     November  8, 2015
+ * Last Modified:     November  16, 2015
  * Assignment number: 6
  * Filename:          BinaryTree_impl.h
  * 
@@ -202,7 +202,7 @@ void BinaryTree<T>::Traverse (TreeFunc tf, TraversalPath path)
 template < typename T >
 TreeNode<T>* BinaryTree<T>::find(T value)
 {
-	return root->find(value);
+	return root ? root->find(value) : 0;
 }
 
 /********************************************************************************
@@ -223,6 +223,14 @@ std::ostream& operator<<(std::ostream& os, const BinaryTree<T>& bs)
 		bs.root->display(os);
 	return os;
 }
+
+template <typename T>
+void BinaryTree<T>::balance()
+{
+	//should happen automagically in insert()
+	root->balance();
+}
+
 
 #endif
 

@@ -1,7 +1,7 @@
 /********************************************************************************
  * Author:            Aaron Schraner
  * Date Created:      November  6, 2015
- * Last Modified:     November  8, 2015
+ * Last Modified:     November  16, 2015
  * Assignment number: 6
  * Filename:          TreeNode_impl.h
  * 
@@ -14,6 +14,7 @@
 #endif
 #include <iostream>
 #include <vector>
+#include <cstring>
 
 //generic swap function
 template <typename T >
@@ -22,6 +23,21 @@ void swap(T& lhs, T& rhs)
 	T temp=lhs;
 	lhs=rhs;
 	rhs=temp;
+}
+
+//in-place memory swap function
+//(also swaps pointer locations)
+template <typename T>
+void memswap(T*& lhs, T*& rhs)
+{
+	void* temp = malloc(sizeof(T));
+	memcpy(temp, lhs, sizeof(T));
+	memcpy(lhs, rhs, sizeof(T));
+	memcpy(rhs, temp, sizeof(T));
+	T* ptrtemp = lhs;
+	lhs = rhs;
+	rhs = ptrtemp;
+	free(temp);
 }
 
 /********************************************************************************
@@ -100,6 +116,12 @@ void TreeNode<T>::insert(T newval)
 
 	if(right && right->value < value)
 		swap(right->value, value);
+	
+	if(left)
+		left->balance();
+	if(right)
+		right->balance();
+	balance();
 }
 
 /********************************************************************************
@@ -423,7 +445,14 @@ int TreeNode<T>::Height(TreeNode<T>* node) const
 {
 	if(!node)
 		return 0;
-	return 1 + MAX(Height(node->left), Height(node->right));
+	if(node->left&&node->right)
+		return 1 + MAX(Height(node->left), Height(node->right));
+	else if(node->left)
+		return 1 + Height(node->left);
+	else if(node->right)
+		return 1 + Height(node->right);
+	else
+		return 0;
 }
 
 /********************************************************************************
@@ -514,7 +543,10 @@ void TreeNode<T>::PreOrderTraverse(TreeFunc tf)
 template <typename T> 
 void TreeNode<T>::BreadthFirstTraverse(TreeFunc tf)
 {
-	//this is so bad
+	// this is horrendously slow and inefficient
+	// don't use it on trees with more than 1000 elements or 
+	// you're going to have a hard time
+	
 	int height=Height(this);
 	std::vector<TreeNode<T>*>* values= new std::vector<TreeNode<T>*> [height];
 	values[0].push_back(this);
@@ -534,6 +566,89 @@ void TreeNode<T>::BreadthFirstTraverse(TreeFunc tf)
 		for(int x=0; x < values[level].size(); x++)
 			tf(*(values[level][x]));
 
+}
+
+//find the balance factor of a node
+template <typename T>
+int TreeNode<T>::balanceFactor() const
+{
+	return Height(left) - Height(right);
+}
+
+//balance a node by rotating it with its children
+template <typename T>
+void TreeNode<T>::balance()
+{
+	//if already balanced (enough), exit and do nothing
+	int x; //to minimize calls to balanceFactor()
+	if(abs(x=balanceFactor()) <= 1)
+		return;
+
+	//if node is unbalanced
+	if(abs(x) > 1 )
+		
+		//if left is taller than right
+		if(x>1)
+
+			//if the left child has a left child
+			if(left->left)
+				rotate(_LeftLeft);
+
+			else
+				rotate(_LeftRight);
+		//if right is taller than left
+		else
+			if(right->right)
+				rotate(_RightRight);
+			else
+				rotate(_RightLeft);
+}
+
+//rotate a tree node and its children using the specified method
+template <typename T>
+void TreeNode<T>::rotate(Rotation r)
+{
+	TreeNode<T> *A, *B, *C; 
+	switch(r)
+	{
+		case _LeftRight:
+			C = this;
+			A = left;
+			B = left->right;
+			memswap(A,B);
+			A->right = B->left;
+			B->left = A;
+			break;
+
+		case _LeftLeft:
+			C = this;
+			B = left;
+			A = left->left;
+			memswap(B,C);
+			C->left = B->right;
+			B->right = C;
+			break;
+
+		case _RightLeft:
+			A = this;
+			C = right;
+			B = right->left;
+
+			memswap(B, C);
+			C->left = B->right;
+			B->right = C;
+			break;
+
+		case _RightRight:
+			A = this;
+			B = right;
+			C = right->right;
+
+			memswap(A, B);
+			A->right = B->left;
+			B->left = A;
+			break;
+	}
 }
 
 #endif

@@ -1,7 +1,7 @@
 /********************************************************************************
  * Author:            Aaron Schraner
  * Date Created:      November  6, 2015
- * Last Modified:     November  8, 2015
+ * Last Modified:     November  16, 2015
  * Assignment number: 6
  * Filename:          TreeNode.h
  * 
@@ -33,6 +33,14 @@ enum NodeRelationship
 	_left,
 	_right,
 	_root
+};
+
+enum Rotation
+{
+	_RightRight,
+	_LeftLeft,
+	_LeftRight,
+	_RightLeft
 };
 
 template < typename T >
@@ -81,6 +89,11 @@ class TreeNode
 		void PostOrderTraverse(TreeFunc tf);
 		void PreOrderTraverse(TreeFunc tf);
 		void BreadthFirstTraverse(TreeFunc tf);
+
+		//AVL
+		int balanceFactor() const;
+		void balance();
+		void rotate(Rotation r);
 
 };
 #include "TreeNode_impl.h"
