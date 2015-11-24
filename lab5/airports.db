@@ -1,0 +1,13 @@
+airport PDX
+airport JFK
+airport CUN
+airport ATL
+airport PEK
+connection PDX CUN 421 338
+connection PDX ATL 200 200
+connection PDX JFK 295 317
+connection JFK CUN 400 400
+connection JFK PEK 500 500
+connection ATL PEK 600 600
+connection CUN PEK 700 700
+
