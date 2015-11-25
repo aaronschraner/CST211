@@ -20,7 +20,7 @@ class Iterator
 		virtual T& operator*() { return **iter; }
 
 		//comparison
-		//virtual bool operator==(const Iterator<T>&) const;
+		virtual bool operator==(const Iterator<T>&) const;
 		virtual bool isValid() const { return iter && iter->isValid();}
 	private:
 		Iterator* iter;

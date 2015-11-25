@@ -13,6 +13,7 @@ void pathAppend(TreeNode<T>& tn, void* param)
 template <typename T>
 InOrderIterator<T>::InOrderIterator(BinaryTree<T>* tree)
 {
+	std::cout << "Traversing tree" << std::endl;
 	tree->Traverse(&pathAppend<T>, BinaryTree<T>::_InOrder, &(this->path));
 }
 

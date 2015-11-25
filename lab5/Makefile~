@@ -1,5 +1,5 @@
 CC=clang++
-CFLAGS=-std=c++11 -DVERBOSE
+CFLAGS=-std=c++11
 CPPFILES=main.cpp
 HFILES=*.h
 EXE=graph

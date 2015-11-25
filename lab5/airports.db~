@@ -5,7 +5,6 @@ airport 3
 airport 4
 airport 5
 airport 6
-airport 7
 connection 0 6 25 1
 connection 0 2 31 1
 connection 0 1 9 1
