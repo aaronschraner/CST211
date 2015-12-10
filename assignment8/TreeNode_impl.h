@@ -440,13 +440,13 @@ int TreeNode<T>::Height(TreeNode<T>* node) const
  * 	
  ********************************************************************************/
 template <typename T> 
-void TreeNode<T>::InOrderTraverse(TreeFunc tf)
+void TreeNode<T>::InOrderTraverse(TreeFunc tf, void* p)
 {
 	if(left)
-		left->InOrderTraverse(tf);
-	tf(*this);
+		left->InOrderTraverse(tf,p);
+	tf(*this,p);
 	if(right)
-		right->InOrderTraverse(tf);
+		right->InOrderTraverse(tf,p);
 		
 	
 }
@@ -464,13 +464,13 @@ void TreeNode<T>::InOrderTraverse(TreeFunc tf)
  * 	
  ********************************************************************************/
 template <typename T> 
-void TreeNode<T>::PostOrderTraverse(TreeFunc tf)
+void TreeNode<T>::PostOrderTraverse(TreeFunc tf, void* p)
 {
 	if(left)
-		left->PostOrderTraverse(tf);
+		left->PostOrderTraverse(tf,p);
 	if(right)
-		right->PostOrderTraverse(tf);
-	tf(*this);
+		right->PostOrderTraverse(tf,p);
+	tf(*this,p);
 
 }
 
@@ -487,13 +487,13 @@ void TreeNode<T>::PostOrderTraverse(TreeFunc tf)
  * 	
  ********************************************************************************/
 template <typename T> 
-void TreeNode<T>::PreOrderTraverse(TreeFunc tf)
+void TreeNode<T>::PreOrderTraverse(TreeFunc tf, void* p)
 {
-	tf(*this);
+	tf(*this,p);
 	if(left)
-		left->PreOrderTraverse(tf);
+		left->PreOrderTraverse(tf,p);
 	if(right)
-		right->PreOrderTraverse(tf);
+		right->PreOrderTraverse(tf,p);
 }
 
 /********************************************************************************
@@ -512,7 +512,7 @@ void TreeNode<T>::PreOrderTraverse(TreeFunc tf)
  * 	
  ********************************************************************************/
 template <typename T> 
-void TreeNode<T>::BreadthFirstTraverse(TreeFunc tf)
+void TreeNode<T>::BreadthFirstTraverse(TreeFunc tf, void* p)
 {
 	//this is so bad
 	int height=Height(this);
@@ -532,7 +532,7 @@ void TreeNode<T>::BreadthFirstTraverse(TreeFunc tf)
 
 	for(int level=0; level < height; level++)
 		for(int x=0; x < values[level].size(); x++)
-			tf(*(values[level][x]));
+			tf(*(values[level][x]),p);
 
 }
 

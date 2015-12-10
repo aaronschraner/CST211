@@ -9,6 +9,7 @@
 #ifndef BINARYTREE_IMPL_H
 #define BINARYTREE_IMPL_H
 
+#include "iterators.h"
 
 /********************************************************************************
  * BinaryTree ();
@@ -172,16 +173,16 @@ int BinaryTree<T>::Height() const
  * 	
  ********************************************************************************/
 template < typename T >
-void BinaryTree<T>::Traverse (TreeFunc tf, TraversalPath path)
+void BinaryTree<T>::Traverse (TreeFunc tf, TraversalPath path, void* param)
 {
 	if(!root)
 		return;
 	switch(path)
 	{
-		case BinaryTree::_InOrder: root->InOrderTraverse(tf); break;
-		case BinaryTree::_PreOrder: root->PreOrderTraverse(tf); break;
-		case BinaryTree::_PostOrder: root->PostOrderTraverse(tf); break;
-		case BinaryTree::_BreadthFirst: root->BreadthFirstTraverse(tf); break;
+		case BinaryTree::_InOrder: root->InOrderTraverse(tf, param); break;
+		case BinaryTree::_PreOrder: root->PreOrderTraverse(tf,param); break;
+		case BinaryTree::_PostOrder: root->PostOrderTraverse(tf,param); break;
+		case BinaryTree::_BreadthFirst: root->BreadthFirstTraverse(tf,param); break;
 	}
 
 }
@@ -224,5 +225,12 @@ std::ostream& operator<<(std::ostream& os, const BinaryTree<T>& bs)
 	return os;
 }
 
+template <typename T>
+TreeIterator<T> BinaryTree<T>::getIterator(TraversalPath tpath, typename TreeIterator<T>::Position pos )
+{
+	TreeIterator<T> res;
+	res.populate(*this, tpath, pos);
+	return res;
+}
 #endif
 

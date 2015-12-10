@@ -1,7 +1,7 @@
-CC=g++
+CC=clang++
 CFLAGS=-std=c++11 
-CPPFILES=main.cpp 
-HFILES=BinaryTree.h BinaryTree_impl.h TreeNode.h TreeNode_impl.h 
+CPPFILES=main.cpp Exception.cpp
+HFILES=*.h iterators/*.h
 EXE=tree
 
 $(EXE):$(CPPFILES) $(HFILES) Makefile
@@ -11,4 +11,4 @@ run:$(EXE)
 	./$(EXE) $(EXEARGS)
 
 clean:
-	rm -fv *~ $(EXE)
+	rm -fv *~ iterators/*~ $(EXE)

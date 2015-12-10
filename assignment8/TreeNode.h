@@ -40,7 +40,7 @@ class TreeNode
 {
 	private:
 		//typedef for functions that can operate on tree nodes
-		typedef void(*TreeFunc)(TreeNode<T>&);
+		typedef void(*TreeFunc)(TreeNode<T>&, void*);
 
 		//left and right child nodes
 		TreeNode<T>* left;
@@ -62,7 +62,10 @@ class TreeNode
 		TreeNode<T>* leastChild();
 		void remove(TreeNode<T>* parent, TreeNode<T>* child);
 		const T& getValue() const { return value; }
+		T& getValue() { return value; }
 		int numChildren() const;
+		TreeNode<T>* getLeft() { return left; }
+		TreeNode<T>* getRight() { return right; }
 
 		//destructor
 		~TreeNode ();
@@ -77,10 +80,10 @@ class TreeNode
 		void display(std::ostream& os, int tablevel=0,  NodeRelationship NR=_root);
 
 		//traversals
-		void InOrderTraverse(TreeFunc tf);
-		void PostOrderTraverse(TreeFunc tf);
-		void PreOrderTraverse(TreeFunc tf);
-		void BreadthFirstTraverse(TreeFunc tf);
+		void InOrderTraverse(TreeFunc tf, void* param);
+		void PostOrderTraverse(TreeFunc tf, void* param);
+		void PreOrderTraverse(TreeFunc tf, void* param);
+		void BreadthFirstTraverse(TreeFunc tf, void* param);
 
 };
 #include "TreeNode_impl.h"
