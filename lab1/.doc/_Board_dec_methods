@@ -1,5 +1,0 @@
- void generateNeighbors ()
- void uncoverArea (int x, int y)
- void print ()
- void click (int x, int y)
- void flag (int x, int y)
